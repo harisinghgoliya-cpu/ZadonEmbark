@@ -1,6 +1,7 @@
 @import '@fontsource/plus-jakarta-sans/400.css';
 @import '@fontsource/plus-jakarta-sans/600.css';
 @import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/plus-jakarta-sans/800.css';
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
 @import '@fontsource/inter/600.css';
@@ -8,62 +9,79 @@
 @import '@fontsource/mukta/600.css';
 
 :root {
-  /* colour */
-  --navy-900: #14263B;
-  --navy-700: #22405F;
-  --sky-100: #DCE8F5;
+  /* Core palette */
+  --navy-950: #05101e;
+  --navy-900: #0a1a2e;
+  --navy-800: #0f2340;
+  --navy-700: #163152;
+  --navy-600: #1e4068;
+  --sky-200: #c3daf2;
+  --sky-100: #dceaf8;
+  --sky-50:  #f0f6fd;
+  --amber-400: #fbbf3a;
   --amber-500: #F2A93B;
+  --amber-600: #d4891a;
+  --teal-500: #14998a;
   --teal-600: #127A6E;
-  --red-600: #C0392B;
-  --ink-800: #1F2933;
-  --slate-500: #5B6B7C;
-  --cloud-50: #F6F8FB;
-  --white: #FFFFFF;
+  --red-500: #ef4444;
+  --ink-900: #0f172a;
+  --ink-800: #1e293b;
+  --ink-600: #334155;
+  --slate-500: #64748b;
+  --slate-400: #94a3b8;
+  --cloud-50:  #f8fafc;
+  --white: #ffffff;
 
-  /* type */
+  /* Typography */
   --font-head: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
-  --font-hi: 'Noto Sans Devanagari', 'Mukta', sans-serif;
+  --font-hi:   'Mukta', system-ui, sans-serif;
 
-  --fs-h1: clamp(2rem, 4vw, 3rem);
-  --fs-h2: clamp(1.625rem, 3vw, 2.125rem);
-  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --fs-display: clamp(2.75rem, 5.5vw, 4.5rem);
+  --fs-h1: clamp(2.25rem, 4vw, 3.25rem);
+  --fs-h2: clamp(1.75rem, 3vw, 2.5rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.625rem);
   --fs-body: clamp(1rem, 1.1vw, 1.0625rem);
-  --fs-small: 0.8125rem;
+  --fs-small: 0.875rem;
+  --fs-xs: 0.75rem;
 
-  /* spacing */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-24: 96px;
+  /* Spacing */
+  --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px;  --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px;  --sp-8: 32px;  --sp-10: 40px;
+  --sp-12: 48px;--sp-16: 64px; --sp-20: 80px; --sp-24: 96px; --sp-32: 128px;
 
-  --radius: 10px;
-  --radius-lg: 20px;
-  --radius-xl: 32px;
-  --shadow: 0 2px 12px rgba(20, 38, 59, 0.08);
-  --shadow-lg: 0 8px 40px rgba(20, 38, 59, 0.14);
-  --shadow-glass: 0 8px 32px rgba(20, 38, 59, 0.12);
-  --container: 1200px;
+  /* Shape */
+  --r-sm: 8px; --r-md: 12px; --r-lg: 18px; --r-xl: 28px; --r-full: 9999px;
 
-  /* Glass effect */
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(255, 255, 255, 0.45);
-  --glass-blur: blur(20px);
-  --glass-bg-dark: rgba(20, 38, 59, 0.65);
-  --glass-border-dark: rgba(255, 255, 255, 0.12);
+  /* Shadows */
+  --shadow-xs: 0 1px 3px rgba(0,0,0,.08);
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.10);
+  --shadow-md: 0 4px 20px rgba(0,0,0,.12);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,.18);
+  --shadow-xl: 0 20px 80px rgba(0,0,0,.28);
+  --shadow-amber: 0 0 40px rgba(242,169,59,.25);
+  --shadow-teal:  0 0 40px rgba(18,122,110,.20);
+
+  /* Glass */
+  --glass-light: rgba(255,255,255,0.07);
+  --glass-light-border: rgba(255,255,255,0.12);
+  --glass-mid: rgba(255,255,255,0.10);
+  --glass-mid-border: rgba(255,255,255,0.18);
+  --glass-white: rgba(255,255,255,0.75);
+  --glass-white-border: rgba(255,255,255,0.5);
+  --blur: blur(16px);
+  --blur-lg: blur(28px);
 
   /* Gradients */
-  --grad-hero: linear-gradient(135deg, #0d1e30 0%, #14263B 50%, #1a3352 100%);
-  --grad-amber: linear-gradient(135deg, #F2A93B 0%, #f0c060 100%);
-  --grad-teal: linear-gradient(135deg, #127A6E 0%, #1a9e8f 100%);
+  --grad-bg: linear-gradient(135deg, #05101e 0%, #0a1a2e 40%, #0d2240 70%, #0a1a2e 100%);
+  --grad-amber: linear-gradient(135deg, #F2A93B 0%, #fcd97a 100%);
+  --grad-teal: linear-gradient(135deg, #127A6E 0%, #1db8a5 100%);
+  --grad-blue: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  --grad-text: linear-gradient(135deg, #F2A93B 0%, #fcd97a 50%, #F2A93B 100%);
+  --grad-hero-glow: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(242,169,59,.18) 0%, transparent 70%);
+  --grad-card-shine: linear-gradient(135deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,0) 60%);
+
+  --container: 1200px;
 }
 
-:lang(hi) {
-  font-family: var(--font-hi);
-  font-size: calc(var(--fs-body) + 1px);
-}
+:lang(hi) { font-family: var(--font-hi); }

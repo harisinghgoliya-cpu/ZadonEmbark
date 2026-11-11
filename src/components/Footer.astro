@@ -1,7 +1,6 @@
 ---
 import { site } from '../config/site';
 import { nav } from '../config/nav';
-
 export interface Props { lang?: 'en' | 'hi'; }
 const { lang = 'en' } = Astro.props;
 const cols = nav[lang].footer;
@@ -9,17 +8,22 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
+  <div class="footer-glow"></div>
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
-        <span class="footer-logo">ZadonEmbark</span>
-        <p class="footer-tagline">
-          {lang === 'hi'
-            ? 'विदेश में काम और पढ़ाई के लिए भरोसेमंद साथी'
-            : 'Your trusted partner for work and study abroad'}
-        </p>
-        {site.phone && <a href={`tel:${site.phone}`} class="footer-contact">{site.phone}</a>}
-        {site.email.info && <a href={`mailto:${site.email.info}`} class="footer-contact">{site.email.info}</a>}
+        <div class="footer-logo-wrap">
+          <span class="footer-mark">ZE</span>
+          <span class="footer-logo-name">ZadonEmbark</span>
+        </div>
+        <p class="footer-tagline">Your trusted partner for international work and study opportunities — transparent, verified, ethical.</p>
+        {site.phone   && <a href={`tel:${site.phone}`}          class="footer-contact">{site.phone}</a>}
+        {site.email.info && <a href={`mailto:${site.email.info}`}  class="footer-contact">{site.email.info}</a>}
+        <div class="footer-socials">
+          {site.social.linkedin   && <a href={site.social.linkedin}   target="_blank" rel="noopener" class="social-link">in</a>}
+          {site.social.instagram  && <a href={site.social.instagram}  target="_blank" rel="noopener" class="social-link">ig</a>}
+          {site.social.youtube    && <a href={site.social.youtube}    target="_blank" rel="noopener" class="social-link">yt</a>}
+        </div>
       </div>
 
       {cols.map(col => (
@@ -32,71 +36,65 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-legal">
-        &copy; {year} {site.legalName || 'ZadonEmbark'}.
-        {lang === 'hi' ? 'सर्वाधिकार सुरक्षित।' : 'All rights reserved.'}
-        {site.address && <span> {site.address}</span>}
+      <p>&copy; {year} {site.legalName || 'ZadonEmbark'}. All rights reserved.{site.address && ` ${site.address}`}</p>
+      <p class="footer-disclaimer">
+        ZadonEmbark does not guarantee visa approvals or job placements. All fees are disclosed in writing before engagement.
       </p>
-
-      {site.flags.showRegistration && (
-        <p class="footer-registration">
-          {lang === 'hi' ? 'पंजीकरण संख्या: ' : 'Registration No: '}
-          <strong>— (pending)</strong>
-        </p>
-      )}
     </div>
   </div>
 </footer>
 
 <style>
 .site-footer {
-  background: var(--navy-900);
-  color: var(--sky-100);
-  padding-block: var(--space-16) var(--space-8);
-  margin-top: var(--space-24);
+  background: var(--navy-950);
+  padding-block: var(--sp-20) var(--sp-8);
+  margin-top: 0;
+  position: relative;
+  overflow: hidden;
+}
+.footer-glow {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 600px; height: 200px;
+  background: radial-gradient(ellipse at top, rgba(242,169,59,.07) 0%, transparent 70%);
+  pointer-events: none;
 }
 .footer-top {
-  display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
-  gap: var(--space-8);
-  padding-bottom: var(--space-12);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--sp-12); padding-bottom: var(--sp-12);
+  border-bottom: 1px solid rgba(255,255,255,.07);
 }
-.footer-logo {
-  font-family: var(--font-head);
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--white);
-  display: block;
-  margin-bottom: var(--space-3);
+.footer-logo-wrap { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.footer-mark {
+  width: 32px; height: 32px; border-radius: var(--r-sm);
+  background: var(--grad-amber); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-head); font-weight: 800; font-size: .8rem; color: var(--navy-950);
 }
-.footer-tagline { font-size: var(--fs-small); opacity: 0.75; margin-bottom: var(--space-4); }
-.footer-contact { display: block; color: var(--amber-500); text-decoration: none; font-size: 0.9rem; margin-top: var(--space-1); }
-.footer-col { list-style: none; }
-.footer-col a {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
-  font-size: 0.9rem;
-  display: block;
-  padding-block: var(--space-1);
-  transition: color 0.15s;
+.footer-logo-name { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--white); }
+.footer-tagline { font-size: var(--fs-small); color: rgba(255,255,255,.45); line-height: 1.65; margin-bottom: var(--sp-4); max-width: 28ch; }
+.footer-contact { display: block; color: rgba(255,255,255,.55); text-decoration: none; font-size: .875rem; transition: color .15s; margin-top: 4px; }
+.footer-contact:hover { color: var(--amber-500); }
+.footer-socials { display: flex; gap: var(--sp-2); margin-top: var(--sp-4); }
+.social-link {
+  width: 32px; height: 32px; border-radius: var(--r-sm);
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.55); text-decoration: none; font-size: .75rem; font-weight: 700;
+  transition: all .15s;
 }
+.social-link:hover { background: rgba(255,255,255,.12); color: var(--white); }
+.footer-col { list-style: none; display: flex; flex-direction: column; gap: var(--sp-3); padding-top: var(--sp-2); }
+.footer-col a { color: rgba(255,255,255,.5); text-decoration: none; font-size: .9rem; transition: color .15s; }
 .footer-col a:hover { color: var(--white); }
 .footer-bottom {
-  padding-top: var(--space-8);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  padding-top: var(--sp-8); display: flex; justify-content: space-between;
+  align-items: flex-start; flex-wrap: wrap; gap: var(--sp-4);
 }
-.footer-legal { font-size: var(--fs-small); opacity: 0.6; }
-.footer-registration { font-size: var(--fs-small); opacity: 0.75; }
+.footer-bottom p { font-size: var(--fs-xs); color: rgba(255,255,255,.3); }
+.footer-disclaimer { max-width: 480px; text-align: right; }
 @media (max-width: 1023px) {
   .footer-top { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: 1 / -1; }
+  .footer-disclaimer { text-align: left; }
 }
-@media (max-width: 639px) {
-  .footer-top { grid-template-columns: 1fr; }
-}
+@media (max-width: 639px) { .footer-top { grid-template-columns: 1fr; } }
 </style>
