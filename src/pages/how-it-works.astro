@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="How It Works" description="Our simple 4-step process — from your first enquiry to landing abroad with confidence.">
+  <section class="page-hero">
+    <div class="glow g1"></div>
+    <div class="container">
+      <div class="chip">Simple Process</div>
+      <h1>From Enquiry to <span class="text-gradient">Abroad</span> in 4 Steps</h1>
+      <p>No jargon, no hidden steps. Here's exactly how we work with you.</p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="steps-list">
+        {[
+          { n:'01', title:'Free Consultation', color:'amber', desc:'Book a free 30-minute call with one of our counsellors. We listen to your goals, assess your profile and explain which options are realistic for you — with no obligation to proceed.', note:'No fees. No pressure. Honest advice even if it means you don\'t use our services.' },
+          { n:'02', title:'Personalised Roadmap', color:'teal', desc:'You receive a written roadmap: which countries, universities or employers fit your profile, the full process timeline, and a detailed, itemised fee breakdown. No surprises later.', note:'You only proceed once you agree to the plan and fees in writing.' },
+          { n:'03', title:'Application & Documentation', color:'indigo', desc:'We prepare and review your application materials — SOP, CV, certificates, translations. We submit on your behalf and liaise directly with employers or institutions throughout the process.', note:'Our team tracks every deadline and follows up so nothing slips through.' },
+          { n:'04', title:'Visa, Departure & Beyond', color:'green', desc:'We guide you through the visa appointment, financial documentation and pre-departure checklist. After you arrive, we check in to make sure everything is on track.', note:'Our relationship doesn\'t end when you board the flight.' },
+        ].map((s,i)=>(
+          <div class={`step-item step-item--${s.color}`}>
+            <div class="step-num-wrap"><span class="step-num">{s.n}</span></div>
+            <div class="step-body">
+              <h2>{s.title}</h2>
+              <p class="step-desc">{s.desc}</p>
+              <div class="step-note">💡 {s.note}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section">
+    <div class="glow g2"></div>
+    <div class="container form-section" style="position:relative">
+      <div class="form-side">
+        <div class="chip">Get Started</div>
+        <h2 style="color:var(--white)">Ready to begin?</h2>
+        <p style="color:rgba(255,255,255,.65);margin-top:var(--sp-4)">Send us an enquiry and we'll set up your free consultation within 1 working day.</p>
+      </div>
+      <div class="glass-card form-card"><ContactForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e;padding:var(--sp-24) 0 var(--sp-16);position:relative;overflow:hidden;text-align:center; }
+.glow { position:absolute;border-radius:50%;pointer-events:none; }
+.g1 { width:700px;height:400px;background:radial-gradient(ellipse,rgba(99,102,241,.45) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(18,122,110,.4) 0%,transparent 70%);filter:blur(70px);top:0;left:-80px; }
+.page-hero .container { position:relative;max-width:680px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-5);font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem; }
+.section { padding-block:var(--sp-24); }
+.light-section { background:#fafbfd; }
+.dark-section { background:#060f1e;position:relative;overflow:hidden; }
+.steps-list { display:flex;flex-direction:column;gap:var(--sp-8);max-width:800px;margin:0 auto; }
+.step-item { display:grid;grid-template-columns:100px 1fr;gap:var(--sp-8);padding:var(--sp-10);border-radius:var(--r-xl);border:1px solid var(--sky-100);background:var(--white);box-shadow:0 4px 24px rgba(0,0,0,.06);transition:box-shadow .25s; }
+.step-item:hover { box-shadow:0 12px 48px rgba(0,0,0,.10); }
+.step-num-wrap { display:flex;align-items:flex-start;padding-top:var(--sp-2); }
+.step-num { font-family:var(--font-head);font-size:3rem;font-weight:800;line-height:1;letter-spacing:-0.04em; }
+.step-item--amber .step-num { background:linear-gradient(135deg,#F2A93B,#fcd97a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.step-item--teal .step-num { background:linear-gradient(135deg,#127A6E,#1db8a5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.step-item--indigo .step-num { background:linear-gradient(135deg,#4f46e5,#818cf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.step-item--green .step-num { background:linear-gradient(135deg,#059669,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text; }
+.step-body h2 { margin-bottom:var(--sp-3); }
+.step-desc { color:var(--slate-500);line-height:1.7;margin-bottom:var(--sp-5); }
+.step-note { background:var(--sky-50);border-left:3px solid var(--amber-500);padding:var(--sp-3) var(--sp-5);border-radius:0 var(--r-sm) var(--r-sm) 0;font-size:.9rem;color:var(--ink-600);line-height:1.6; }
+.form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }
+.form-card { padding:var(--sp-10); }
+@media(max-width:1023px) { .step-item { grid-template-columns:1fr; } .step-num-wrap { padding:0; } .form-section { grid-template-columns:1fr; } }
+</style>

@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+<BaseLayout title="Study Abroad" description="Find the right university, course and country for your international education journey — with full visa and admission support.">
+  <section class="page-hero">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="container">
+      <div class="chip">Study Abroad</div>
+      <h1>Study at a World-Class<br/><span class="text-gradient">University Abroad</span></h1>
+      <p>From course selection to visa approval — we guide every step of your international education journey.</p>
+      <div class="hero-btns">
+        <Button href="#enquire" variant="primary" size="lg">Get Free Counselling</Button>
+        <Button href="/how-it-works/" variant="secondary" size="lg">How It Works</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="chip chip--teal">What We Offer</div>
+        <h2>Everything you need to study abroad</h2>
+      </div>
+      <div class="features-grid">
+        {[
+          { icon: '🎓', title: 'University Admissions', desc: 'Shortlisting the right institution based on your profile, goals and budget — from ranked universities to specialised colleges.' },
+          { icon: '📋', title: 'Application Support', desc: 'SOP writing guidance, document preparation, application submission and follow-up with admissions offices.' },
+          { icon: '💰', title: 'Scholarship Guidance', desc: 'Identifying merit-based, government and institutional scholarships you are eligible to apply for.' },
+          { icon: '🛂', title: 'Visa Assistance', desc: 'Student visa documentation, mock interviews, financial proof guidance and application tracking.' },
+          { icon: '🏠', title: 'Pre-Departure Support', desc: 'Accommodation options, forex guidance, what to carry, and what to expect when you arrive.' },
+          { icon: '📞', title: 'Post-Arrival Check-in', desc: 'We follow up after you land to make sure you have settled in and have everything you need.' },
+        ].map(f => (
+          <div class="feature-card">
+            <div class="feature-icon">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section" id="enquire">
+    <div class="glow g3"></div>
+    <div class="container form-section" style="position:relative">
+      <div class="form-side">
+        <div class="chip">Free Counselling</div>
+        <h2 style="color:var(--white)">Tell us about your <span class="text-gradient">study goals</span></h2>
+        <p style="color:rgba(255,255,255,.65);margin-top:var(--sp-4)">Fill in the form and our counsellor will reach out within 1 working day.</p>
+      </div>
+      <div class="glass-card form-card"><ContactForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e; padding:var(--sp-32) 0 var(--sp-24); position:relative; overflow:hidden; text-align:center; }
+.glow { position:absolute; border-radius:50%; pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(242,169,59,.45) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:400px;height:400px;background:radial-gradient(ellipse,rgba(18,122,110,.4) 0%,transparent 70%);filter:blur(60px);bottom:-80px;right:-60px; }
+.g3 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,.4) 0%,transparent 70%);filter:blur(70px);top:0;left:-100px; }
+.page-hero .container { position:relative; max-width:720px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-display); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem;margin-bottom:var(--sp-8); }
+.hero-btns { display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap; }
+.section { padding-block:var(--sp-24); }
+.light-section { background:var(--white); }
+.dark-section { background:#060f1e; position:relative; overflow:hidden; }
+.section-header { text-align:center;max-width:600px;margin:0 auto var(--sp-16); }
+.features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
+.feature-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
+.feature-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
+.feature-icon { font-size:2rem;margin-bottom:var(--sp-4); }
+.feature-card h3 { font-size:1.0625rem;margin-bottom:var(--sp-2); }
+.feature-card p { font-size:.9rem;color:var(--slate-500);line-height:1.65; }
+.form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }
+.form-card { padding:var(--sp-10); }
+@media(max-width:1023px) { .features-grid { grid-template-columns:1fr 1fr; } .form-section { grid-template-columns:1fr; } }
+@media(max-width:639px) { .features-grid { grid-template-columns:1fr; } }
+</style>

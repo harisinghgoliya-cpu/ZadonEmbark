@@ -1,0 +1,135 @@
+---
+// Native HTML form — wired to Formspree
+// Setup: sign up at formspree.io → New Form → copy the ID into site.ts as formspreeId
+import { site } from '../config/site';
+export interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+const formspreeId = (site as any).formspreeId ?? '';
+const action = formspreeId
+  ? `https://formspree.io/f/${formspreeId}`
+  : `mailto:${site.email.info}`;
+---
+
+<form
+  class:list={['contact-form', compact && 'contact-form--compact']}
+  action={action}
+  method="POST"
+  id="contact-form"
+>
+  {!formspreeId && (
+    <input type="hidden" name="_subject" value="New enquiry from ZadonEmbark website" />
+  )}
+  {formspreeId && (
+    <input type="hidden" name="_next" value="/thank-you/" />
+  )}
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="cf-name">Full Name <span class="req">*</span></label>
+      <input id="cf-name" type="text" name="name" placeholder="Your full name" required />
+    </div>
+    <div class="form-group">
+      <label for="cf-phone">Phone Number <span class="req">*</span></label>
+      <input id="cf-phone" type="tel" name="phone" placeholder="+91 98765 43210" required />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cf-email">Email Address <span class="req">*</span></label>
+    <input id="cf-email" type="email" name="email" placeholder="you@example.com" required />
+  </div>
+
+  <div class="form-group">
+    <label for="cf-interest">I'm interested in <span class="req">*</span></label>
+    <select id="cf-interest" name="interest" required>
+      <option value="" disabled selected>Select an option</option>
+      <option value="Study Abroad">Study Abroad</option>
+      <option value="Work Abroad">Work Abroad</option>
+      <option value="Employer Services">Employer / Hiring Services</option>
+      <option value="Partnership">Partnership / Agency</option>
+      <option value="General Enquiry">General Enquiry</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="cf-message">Message</label>
+    <textarea id="cf-message" name="message" rows="4" placeholder="Tell us about your goals, current situation, or any questions…"></textarea>
+  </div>
+
+  <div class="form-group form-consent">
+    <label class="checkbox-label">
+      <input type="checkbox" name="consent" required />
+      <span>I agree to the <a href="/legal/privacy/" target="_blank">Privacy Policy</a> and consent to being contacted about my enquiry.</span>
+    </label>
+  </div>
+
+  <!-- Honeypot -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+  <button type="submit" class="btn btn--primary btn--lg form-submit">
+    Send Enquiry
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+  </button>
+
+  <p class="form-note">We respond within 1 working day. Your data is never sold or shared.</p>
+</form>
+
+<style>
+.contact-form { display: flex; flex-direction: column; gap: var(--sp-5); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); }
+.form-group { display: flex; flex-direction: column; gap: var(--sp-2); }
+label { font-size: var(--fs-small); font-weight: 600; color: var(--ink-600); }
+.req { color: var(--amber-500); }
+
+input, select, textarea {
+  width: 100%;
+  padding: var(--sp-3) var(--sp-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  color: var(--ink-900);
+  background: var(--white);
+  border: 1.5px solid var(--sky-200);
+  border-radius: var(--r-md);
+  transition: border-color .15s, box-shadow .15s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--amber-500);
+  box-shadow: 0 0 0 3px rgba(242,169,59,.15);
+}
+input::placeholder, textarea::placeholder { color: var(--slate-400); }
+select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2364748b' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; padding-right: var(--sp-10); cursor: pointer; }
+textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+
+.form-consent { margin-top: var(--sp-1); }
+.checkbox-label { display: flex; gap: var(--sp-3); align-items: flex-start; cursor: pointer; font-size: var(--fs-small); color: var(--slate-500); font-weight: 400; }
+.checkbox-label input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; border-radius: 4px; margin-top: 1px; cursor: pointer; accent-color: var(--amber-500); }
+.checkbox-label a { color: var(--teal-600); }
+
+.form-submit { width: 100%; margin-top: var(--sp-2); justify-content: center; gap: var(--sp-3); }
+.form-note { font-size: var(--fs-xs); color: var(--slate-400); text-align: center; }
+
+/* Dark background variant */
+.contact-form--dark input,
+.contact-form--dark select,
+.contact-form--dark textarea {
+  background: rgba(255,255,255,.07);
+  border-color: rgba(255,255,255,.12);
+  color: var(--white);
+}
+.contact-form--dark input::placeholder,
+.contact-form--dark textarea::placeholder { color: rgba(255,255,255,.35); }
+.contact-form--dark input:focus,
+.contact-form--dark select:focus,
+.contact-form--dark textarea:focus {
+  border-color: var(--amber-500);
+  box-shadow: 0 0 0 3px rgba(242,169,59,.2);
+  background: rgba(255,255,255,.10);
+}
+.contact-form--dark label { color: rgba(255,255,255,.75); }
+.contact-form--dark .form-note { color: rgba(255,255,255,.35); }
+
+@media (max-width: 639px) { .form-row { grid-template-columns: 1fr; } }
+</style>

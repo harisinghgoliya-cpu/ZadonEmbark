@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const faqs = [
+  { q: 'Do you charge fees upfront?', a: 'No. We never ask for any payment before providing you with a written, itemised fee agreement. Any agent or company asking for large upfront fees before giving you a job or admission letter should be treated with extreme caution.' },
+  { q: 'Can you guarantee I will get a visa or job?', a: 'No, and nobody can. Visa decisions are made by government authorities. Job offers depend on employer requirements and your profile. We will always give you an honest assessment of your chances — not false promises.' },
+  { q: 'Which countries do you work with?', a: 'We cover destinations across Europe, the Middle East, Asia-Pacific and the Americas for both work and study placements. The specific countries depend on current demand and your profile. Contact us for the most up-to-date list.' },
+  { q: 'How long does the process take?', a: 'Timelines vary by country and category. Study admissions typically take 2–6 months. Work visas can range from 6 weeks to 6 months depending on the destination and employer. We will give you a realistic timeline during your free consultation.' },
+  { q: 'Do I need a specific qualification or language level?', a: 'Requirements differ by destination and role. Some countries require a language certificate (e.g., IELTS, IELTS, Goethe); others do not. We will tell you exactly what\'s needed for your chosen path and help you prepare.' },
+  { q: 'Is my personal data safe?', a: 'Yes. We only collect the information needed to process your enquiry. We do not sell or share your data. See our Privacy Policy for full details on how we store and handle your information.' },
+  { q: 'What if something goes wrong after I arrive?', a: 'We provide post-arrival support and check in after your first week. If there is a genuine problem with your placement, we will work with you and the employer or institution to resolve it.' },
+  { q: 'How do I spot a fraudulent agent?', a: 'Red flags include: guaranteed job or visa promises, requests for large cash payments before any documentation, pressure to decide quickly, no written agreement, and no verifiable office or registration. Visit our Fraud Awareness page for a detailed guide.' },
+];
+---
+<BaseLayout title="Frequently Asked Questions" description="Answers to the most common questions about studying and working abroad with ZadonEmbark.">
+  <section class="page-hero">
+    <div class="glow g1"></div>
+    <div class="container">
+      <div class="chip">FAQ</div>
+      <h1>Your Questions, <span class="text-gradient">Answered</span></h1>
+      <p>Can't find what you need? Use the contact form below.</p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container faq-layout">
+      <div class="faq-list">
+        {faqs.map((f, i) => (
+          <details class="faq-item">
+            <summary class="faq-q">{f.q}<span class="faq-icon">+</span></summary>
+            <p class="faq-a">{f.a}</p>
+          </details>
+        ))}
+      </div>
+      <aside class="faq-aside">
+        <div class="glass-card aside-card">
+          <h3>Still have questions?</h3>
+          <p>Send us a message and we'll reply within 1 working day.</p>
+          <ContactForm compact />
+        </div>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e;padding:var(--sp-20) 0 var(--sp-14);position:relative;overflow:hidden;text-align:center; }
+.glow { position:absolute;border-radius:50%;pointer-events:none; }
+.g1 { width:600px;height:300px;background:radial-gradient(ellipse,rgba(242,169,59,.4) 0%,transparent 70%);filter:blur(60px);top:-120px;left:50%;transform:translateX(-50%); }
+.page-hero .container { position:relative;max-width:600px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-4);font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.0625rem; }
+.section { padding-block:var(--sp-20); }
+.light-section { background:#fafbfd; }
+.faq-layout { display:grid;grid-template-columns:1fr 380px;gap:var(--sp-12);align-items:start; }
+.faq-list { display:flex;flex-direction:column;gap:var(--sp-3); }
+.faq-item { background:var(--white);border:1px solid var(--sky-100);border-radius:var(--r-lg);overflow:hidden;transition:box-shadow .2s; }
+.faq-item[open] { box-shadow:0 4px 24px rgba(0,0,0,.07); }
+.faq-q { display:flex;justify-content:space-between;align-items:center;gap:var(--sp-4);padding:var(--sp-6) var(--sp-6);cursor:pointer;font-weight:600;font-size:1.0625rem;color:var(--ink-900);list-style:none;user-select:none; }
+.faq-q::-webkit-details-marker { display:none; }
+.faq-q:hover { background:var(--sky-50); }
+.faq-icon { font-size:1.25rem;color:var(--amber-500);transition:transform .2s;flex-shrink:0;font-weight:300; }
+.faq-item[open] .faq-icon { transform:rotate(45deg); }
+.faq-a { padding:0 var(--sp-6) var(--sp-6);color:var(--slate-500);line-height:1.75;font-size:.9875rem; }
+.aside-card { background:#060f1e !important;border:1px solid rgba(255,255,255,.1) !important;padding:var(--sp-8);position:sticky;top:90px; }
+.aside-card h3 { color:var(--white);margin-bottom:var(--sp-2); }
+.aside-card p { color:rgba(255,255,255,.55);font-size:.9rem;margin-bottom:var(--sp-6); }
+@media(max-width:1023px) { .faq-layout { grid-template-columns:1fr; } .aside-card { position:static; } }
+</style>

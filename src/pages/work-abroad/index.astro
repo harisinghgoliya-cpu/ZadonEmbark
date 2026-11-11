@@ -1,0 +1,103 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import ContactForm from '../../components/ContactForm.astro';
+---
+<BaseLayout title="Work Abroad" description="Find verified international employment — skilled work visas, genuine employers, transparent process.">
+  <section class="page-hero">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="container">
+      <div class="chip">Work Abroad</div>
+      <h1>Get a Verified Job<br/><span class="text-gradient">Abroad</span> — No Shortcuts</h1>
+      <p>We place skilled and semi-skilled Indian professionals with verified international employers. Genuine work permits only.</p>
+      <div class="hero-btns">
+        <Button href="#enquire" variant="primary" size="lg">Apply Now</Button>
+        <Button href="/fraud-awareness/" variant="secondary" size="lg">Avoid Scams →</Button>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="callout-warning">
+        <span class="warn-icon">⚠️</span>
+        <div>
+          <strong>Fraud Warning:</strong> No legitimate employer or agency guarantees a job or charges you to "process" a work visa before you sign a contract. If someone is asking for large upfront payments — verify with us first.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section" style="padding-top:0">
+    <div class="container">
+      <div class="section-header">
+        <div class="chip chip--teal">Sectors We Cover</div>
+        <h2>Opportunities across industries</h2>
+        <p class="section-sub">We work with verified employers across a wide range of sectors requiring skilled Indian professionals.</p>
+      </div>
+      <div class="sectors-grid">
+        {[
+          { icon:'🏥', title:'Healthcare', desc:'Nurses, care workers, medical technicians and support staff for hospitals and care homes.' },
+          { icon:'🔧', title:'Engineering & Technical', desc:'Mechanical, electrical, civil and industrial engineers for manufacturing and infrastructure.' },
+          { icon:'💻', title:'Information Technology', desc:'Software developers, data analysts, network engineers and IT support professionals.' },
+          { icon:'🏗️', title:'Construction', desc:'Project managers, skilled tradespeople and site supervisors for infrastructure projects.' },
+          { icon:'🍽️', title:'Hospitality', desc:'Hotel staff, chefs, service professionals for the tourism and hospitality industry.' },
+          { icon:'🌾', title:'Agriculture & Food', desc:'Seasonal and permanent roles in farming, food processing and supply chain.' },
+        ].map(s => (
+          <div class="sector-card">
+            <span class="sector-icon">{s.icon}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section" id="enquire">
+    <div class="glow g3"></div>
+    <div class="container form-section" style="position:relative">
+      <div class="form-side">
+        <div class="chip">Apply Now</div>
+        <h2 style="color:var(--white)">Ready to find <span class="text-gradient">work abroad?</span></h2>
+        <p style="color:rgba(255,255,255,.65);margin-top:var(--sp-4)">Submit your details and our placement team will review your profile and reach out within 1–2 working days.</p>
+        <ul class="checklist">
+          {['No upfront fees before a signed agreement','Verified employers only','Full documentation support','Post-placement check-in'].map(i=><li>{i}</li>)}
+        </ul>
+      </div>
+      <div class="glass-card form-card"><ContactForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e;padding:var(--sp-32) 0 var(--sp-24);position:relative;overflow:hidden;text-align:center; }
+.glow { position:absolute;border-radius:50%;pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(18,122,110,.5) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:400px;height:400px;background:radial-gradient(ellipse,rgba(242,169,59,.4) 0%,transparent 70%);filter:blur(60px);bottom:-80px;right:-60px; }
+.g3 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(242,169,59,.35) 0%,transparent 70%);filter:blur(70px);top:0;right:-80px; }
+.page-hero .container { position:relative;max-width:720px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-display); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem;margin-bottom:var(--sp-8); }
+.hero-btns { display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap; }
+.callout-warning { background:#fff7ed;border:1px solid #fed7aa;border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);display:flex;gap:var(--sp-4);align-items:flex-start;color:#92400e;font-size:.9375rem;line-height:1.6; }
+.warn-icon { font-size:1.5rem;flex-shrink:0; }
+.section { padding-block:var(--sp-24); }
+.light-section { background:var(--white); }
+.dark-section { background:#060f1e;position:relative;overflow:hidden; }
+.section-header { text-align:center;max-width:600px;margin:0 auto var(--sp-16); }
+.section-sub { color:var(--slate-500);font-size:1rem;margin-top:var(--sp-3); }
+.sectors-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
+.sector-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
+.sector-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
+.sector-icon { font-size:2rem;display:block;margin-bottom:var(--sp-4); }
+.sector-card h3 { font-size:1.0625rem;margin-bottom:var(--sp-2); }
+.sector-card p { font-size:.9rem;color:var(--slate-500);line-height:1.65; }
+.form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:flex-start; }
+.form-card { padding:var(--sp-10); }
+.checklist { list-style:none;margin-top:var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3); }
+.checklist li { font-size:.9375rem;color:rgba(255,255,255,.7);padding-left:var(--sp-6);position:relative; }
+.checklist li::before { content:'✓';position:absolute;left:0;color:#34d399;font-weight:700; }
+@media(max-width:1023px) { .sectors-grid { grid-template-columns:1fr 1fr; } .form-section { grid-template-columns:1fr; } }
+@media(max-width:639px) { .sectors-grid { grid-template-columns:1fr; } }
+</style>

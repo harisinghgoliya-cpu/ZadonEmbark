@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="For Employers" description="Source pre-screened, work-permit-ready Indian professionals for your business — fast, compliant and reliable.">
+  <section class="page-hero">
+    <div class="glow g1"></div>
+    <div class="container">
+      <div class="chip">For Employers</div>
+      <h1>Hire Verified Indian<br/><span class="text-gradient">Talent Internationally</span></h1>
+      <p>We source, screen and prepare Indian professionals for international employment — handling the full documentation and compliance process so you don't have to.</p>
+    </div>
+  </section>
+  <section class="section light-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="chip chip--teal">Why Partner With Us</div>
+        <h2>Everything managed for you</h2>
+      </div>
+      <div class="features-grid">
+        {[
+          {icon:'🔍',title:'Pre-Screened Candidates',desc:'Every candidate we send has been interviewed, skill-verified and reference-checked before reaching you.'},
+          {icon:'📄',title:'Full Documentation',desc:'We handle work permit applications, medical clearances, police verification, translation and attestation.'},
+          {icon:'⚡',title:'Fast Turnaround',desc:'Our existing candidate database means shorter hiring timelines compared to advertising from scratch.'},
+          {icon:'⚖️',title:'Compliance Assured',desc:'We work within the legal recruitment frameworks of both India and the destination country.'},
+          {icon:'🌐',title:'Multiple Sectors',desc:'Healthcare, IT, construction, hospitality, engineering and agriculture — across multiple countries.'},
+          {icon:'📞',title:'Post-Placement Support',desc:'We follow up with both you and the candidate after arrival to resolve any early issues quickly.'},
+        ].map(f=>(
+          <div class="feature-card">
+            <div class="feature-icon">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section dark-section">
+    <div class="glow g2"></div>
+    <div class="container form-section" style="position:relative">
+      <div class="form-side">
+        <div class="chip">Talent Request</div>
+        <h2 style="color:var(--white)">Tell us about your <span class="text-gradient">hiring needs</span></h2>
+        <p style="color:rgba(255,255,255,.65);margin-top:var(--sp-4)">Fill in the form and our employer relations team will get back to you within 1 working day.</p>
+      </div>
+      <div class="glass-card form-card"><ContactForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+.page-hero { background:#060f1e;padding:var(--sp-24) 0 var(--sp-16);position:relative;overflow:hidden;text-align:center; }
+.glow { position:absolute;border-radius:50%;pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(99,102,241,.45) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(18,122,110,.4) 0%,transparent 70%);filter:blur(70px);top:0;right:-80px; }
+.page-hero .container { position:relative;max-width:720px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem;max-width:54ch;margin:0 auto; }
+.section { padding-block:var(--sp-24); }
+.light-section { background:var(--white); }
+.dark-section { background:#060f1e;position:relative;overflow:hidden; }
+.section-header { text-align:center;max-width:600px;margin:0 auto var(--sp-16); }
+.features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
+.feature-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
+.feature-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
+.feature-icon { font-size:2rem;margin-bottom:var(--sp-4); }
+.feature-card h3 { font-size:1rem;margin-bottom:var(--sp-2); }
+.feature-card p { font-size:.9rem;color:var(--slate-500);line-height:1.65; }
+.form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }
+.form-card { padding:var(--sp-10); }
+@media(max-width:1023px) { .features-grid { grid-template-columns:1fr 1fr; } .form-section { grid-template-columns:1fr; } }
+@media(max-width:639px) { .features-grid { grid-template-columns:1fr; } }
+</style>

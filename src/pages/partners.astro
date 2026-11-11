@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="Partner With Us" description="Join ZadonEmbark's partner network — referral agents, training institutes and local agencies welcome.">
+  <section class="page-hero">
+    <div class="glow g1"></div>
+    <div class="container">
+      <div class="chip">Partners</div>
+      <h1>Grow Together — <span class="text-gradient">Partner With Us</span></h1>
+      <p>We work with referral agents, training institutes, coaching centres and local agencies across India to extend our reach and share opportunities.</p>
+    </div>
+  </section>
+  <section class="section light-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Who can partner with us?</h2>
+      </div>
+      <div class="partner-types">
+        {[
+          {icon:'🏫',title:'Training Institutes & Colleges',desc:'Refer your students who are interested in studying or working abroad. We handle the placement process and you earn a referral fee.'},
+          {icon:'🤝',title:'Local Referral Agents',desc:'If you have a network of candidates interested in international opportunities, we can formalise the relationship with a transparent revenue-sharing agreement.'},
+          {icon:'🌐',title:'Education Consultancies',desc:'Already working in the education space? We can add international placement to your service offering without any additional investment.'},
+        ].map(p=>(
+          <div class="partner-card">
+            <span class="partner-icon">{p.icon}</span>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <section class="section dark-section">
+    <div class="glow g2"></div>
+    <div class="container form-section" style="position:relative">
+      <div class="form-side">
+        <div class="chip">Partner Enquiry</div>
+        <h2 style="color:var(--white)">Interested in <span class="text-gradient">partnering?</span></h2>
+        <p style="color:rgba(255,255,255,.65);margin-top:var(--sp-4)">Tell us about your organisation and we'll explore how we can work together.</p>
+      </div>
+      <div class="glass-card form-card"><ContactForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+.page-hero { background:#060f1e;padding:var(--sp-24) 0 var(--sp-16);position:relative;overflow:hidden;text-align:center; }
+.glow { position:absolute;border-radius:50%;pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(236,72,153,.4) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,.4) 0%,transparent 70%);filter:blur(70px);top:0;left:-80px; }
+.page-hero .container { position:relative;max-width:720px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem;max-width:54ch;margin:0 auto; }
+.section { padding-block:var(--sp-24); }
+.light-section { background:var(--white); }
+.dark-section { background:#060f1e;position:relative;overflow:hidden; }
+.section-header { text-align:center;margin:0 auto var(--sp-16); }
+.partner-types { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
+.partner-card { padding:var(--sp-10);border:1px solid var(--sky-100);border-radius:var(--r-xl);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s;text-align:center; }
+.partner-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
+.partner-icon { font-size:3rem;display:block;margin-bottom:var(--sp-5); }
+.partner-card h3 { font-size:1.125rem;margin-bottom:var(--sp-3); }
+.partner-card p { font-size:.9375rem;color:var(--slate-500);line-height:1.7; }
+.form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }
+.form-card { padding:var(--sp-10); }
+@media(max-width:1023px) { .partner-types { grid-template-columns:1fr; } .form-section { grid-template-columns:1fr; } }
+</style>

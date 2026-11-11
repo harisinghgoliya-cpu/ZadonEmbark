@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="About Us" description="ZadonEmbark is a trusted international placement consultancy helping Indian students and professionals build their futures abroad.">
+  <section class="page-hero">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="container">
+      <div class="chip">About ZadonEmbark</div>
+      <h1>Helping India's Talent<br/><span class="text-gradient">Reach the World</span></h1>
+      <p>We are an international placement consultancy committed to transparent, ethical and effective guidance for students and professionals seeking opportunities abroad.</p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Our Mission</h2>
+          <p>Too many Indian students and workers are misled by fraudulent agents, hidden fees and false promises. We exist to change that.</p>
+          <p>At ZadonEmbark, every recommendation we make is based on verified information. Every fee is disclosed in writing. Every employer and institution we work with is properly licensed and accredited.</p>
+          <p>We believe that going abroad — whether to study or to work — should be a life-changing opportunity, not a financial risk. Our job is to make sure it is.</p>
+        </div>
+        <div class="values-list">
+          {[
+            { icon:'🔍', title:'Transparency', desc:'Every cost, every step, every timeline — in writing before you pay.' },
+            { icon:'✅', title:'Verification', desc:'We only place people with employers and institutions we have personally vetted.' },
+            { icon:'🤝', title:'Honesty', desc:'We tell you if an opportunity is not right for you, even if it means losing business.' },
+            { icon:'📞', title:'Continuity', desc:'Our support doesn\'t end at departure. We check in after you arrive.' },
+          ].map(v=>(
+            <div class="value-card">
+              <span class="value-icon">{v.icon}</span>
+              <div><h3>{v.title}</h3><p>{v.desc}</p></div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section">
+    <div class="glow g3"></div>
+    <div class="container form-section" style="position:relative">
+      <div class="form-side">
+        <div class="chip">Get in Touch</div>
+        <h2 style="color:var(--white)">Have a question?<br/><span class="text-gradient">Let's talk.</span></h2>
+        <p style="color:rgba(255,255,255,.65);margin-top:var(--sp-4)">Whether you're a student, job seeker, employer or partner — we'd love to hear from you.</p>
+      </div>
+      <div class="glass-card form-card"><ContactForm /></div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e;padding:var(--sp-24) 0 var(--sp-16);position:relative;overflow:hidden;text-align:center; }
+.glow { position:absolute;border-radius:50%;pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(242,169,59,.4) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:400px;height:400px;background:radial-gradient(ellipse,rgba(236,72,153,.35) 0%,transparent 70%);filter:blur(60px);bottom:-80px;right:-60px; }
+.g3 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(242,169,59,.4) 0%,transparent 70%);filter:blur(70px);bottom:0;right:-80px; }
+.page-hero .container { position:relative;max-width:720px; }
+.page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem;max-width:52ch;margin:0 auto; }
+.section { padding-block:var(--sp-24); }
+.light-section { background:var(--white); }
+.dark-section { background:#060f1e;position:relative;overflow:hidden; }
+.about-grid { display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:start; }
+.about-text h2 { margin-bottom:var(--sp-6); }
+.about-text p { color:var(--slate-500);line-height:1.75;margin-bottom:var(--sp-5);font-size:1.0625rem; }
+.values-list { display:flex;flex-direction:column;gap:var(--sp-5); }
+.value-card { display:flex;gap:var(--sp-5);padding:var(--sp-6);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04); }
+.value-icon { font-size:1.75rem;flex-shrink:0;margin-top:2px; }
+.value-card h3 { font-size:1rem;margin-bottom:var(--sp-1); }
+.value-card p { font-size:.9rem;color:var(--slate-500); }
+.form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }
+.form-card { padding:var(--sp-10); }
+@media(max-width:1023px) { .about-grid { grid-template-columns:1fr; } .form-section { grid-template-columns:1fr; } }
+</style>
