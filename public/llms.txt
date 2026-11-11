@@ -1,0 +1,28 @@
+# ZadonEmbark
+
+ZadonEmbark is an international placement consultancy based in India, helping Indian students and skilled workers find verified study and work opportunities abroad.
+
+## Services
+- Study Abroad: undergraduate, postgraduate and vocational admissions in Canada, UK, Australia, Germany
+- Work Abroad: skilled and semi-skilled placements in Germany, Poland, UAE
+- Employer Services: sourcing pre-screened Indian talent for international businesses
+- Partner Programme: collaboration with institutions and agencies
+
+## Key Facts
+- Website: https://zadonembark.com
+- Contact: info@zadonembark.com
+- Languages: English, Hindi
+
+## Transparency Policy
+ZadonEmbark never guarantees visa approval or job placement. All fees are disclosed upfront in writing before any engagement. The company only works with verified, licensed employers and accredited institutions.
+
+## Key Pages
+- /study-abroad/ — Study abroad overview
+- /work-abroad/ — Work abroad overview
+- /for-employers/ — Employer services
+- /how-it-works/ — Process explained
+- /fees-and-transparency/ — Full fee disclosure
+- /fraud-awareness/ — How to verify agents and avoid scams
+- /contact/ — Contact and enquiry form
+- /faq/ — Frequently asked questions
+- /legal/privacy/ — Privacy policy

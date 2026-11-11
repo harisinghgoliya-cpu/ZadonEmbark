@@ -1,0 +1,52 @@
+---
+export interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'whatsapp' | 'link';
+  size?: 'sm' | 'md' | 'lg';
+  type?: 'button' | 'submit';
+  class?: string;
+  [key: string]: unknown;
+}
+const { href, variant = 'primary', size = 'md', type = 'button', class: cls, ...rest } = Astro.props;
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class:list={['btn', `btn--${variant}`, `btn--${size}`, cls]}
+  {...rest}
+>
+  <slot />
+</Tag>
+
+<style>
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: var(--space-3) var(--space-6);
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: var(--fs-body);
+  border-radius: var(--radius);
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.1s;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.98); }
+.btn--primary { background: var(--amber-500); color: var(--navy-900); }
+.btn--primary:hover { background: #e09828; color: var(--navy-900); }
+.btn--secondary { background: transparent; color: var(--navy-900); border-color: var(--navy-900); }
+.btn--secondary:hover { background: var(--navy-900); color: var(--white); }
+.btn--whatsapp { background: #25D366; color: var(--white); }
+.btn--whatsapp:hover { background: #1aab52; color: var(--white); }
+.btn--link { background: none; color: var(--teal-600); min-height: unset; padding: 0; border: none; }
+.btn--link:hover { color: var(--navy-900); }
+.btn--sm { min-height: 40px; padding: var(--space-2) var(--space-4); font-size: 0.875rem; }
+.btn--lg { min-height: 56px; padding: var(--space-4) var(--space-8); font-size: 1.0625rem; }
+</style>

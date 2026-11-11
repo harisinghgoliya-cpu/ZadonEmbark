@@ -1,0 +1,36 @@
+{
+  "routes": [
+    {
+      "route": "/www/*",
+      "redirect": "https://zadonembark.com/{*}",
+      "statusCode": 301
+    },
+    {
+      "route": "/thank-you/*",
+      "headers": {
+        "X-Robots-Tag": "noindex, nofollow"
+      }
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/404.html",
+    "exclude": ["/images/*.{png,jpg,gif,ico,webp,avif}", "/*.{css,js,svg,json}"]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/404.html"
+    }
+  },
+  "globalHeaders": {
+    "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Permissions-Policy": "camera=(), microphone=(), geolocation=()",
+    "X-Frame-Options": "DENY",
+    "Content-Security-Policy": "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' https://tally.so https://static.cloudflareinsights.com; frame-src https://tally.so https://www.google.com; connect-src 'self' https://cloudflareinsights.com; font-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self' https://tally.so"
+  },
+  "mimeTypes": {
+    ".avif": "image/avif",
+    ".webp": "image/webp"
+  }
+}

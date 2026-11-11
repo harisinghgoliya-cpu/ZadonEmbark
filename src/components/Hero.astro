@@ -1,0 +1,77 @@
+---
+import Button from './Button.astro';
+export interface CTA { label: string; href: string; variant?: 'primary' | 'secondary' | 'whatsapp'; }
+export interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  ctas?: CTA[];
+  image?: { src: string; alt: string };
+  tone?: 'navy' | 'light';
+}
+const { eyebrow, title, subtitle, ctas = [], image, tone = 'navy' } = Astro.props;
+---
+
+<section class:list={['hero', `hero--${tone}`]}>
+  <div class="container hero-inner">
+    <div class="hero-content">
+      {eyebrow && <p class="hero-eyebrow">{eyebrow}</p>}
+      <h1 class="hero-title">{title}</h1>
+      {subtitle && <p class="hero-subtitle">{subtitle}</p>}
+      {ctas.length > 0 && (
+        <div class="hero-ctas">
+          {ctas.map(cta => (
+            <Button href={cta.href} variant={cta.variant ?? 'primary'} size="lg">
+              {cta.label}
+            </Button>
+          ))}
+        </div>
+      )}
+    </div>
+    {image && (
+      <div class="hero-image">
+        <img src={image.src} alt={image.alt} width="600" height="420" loading="eager" fetchpriority="high" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+.hero { padding-block: var(--space-24) var(--space-16); }
+.hero--navy { background: var(--navy-900); }
+.hero--navy .hero-title, .hero--navy .hero-eyebrow, .hero--navy .hero-subtitle { color: var(--white); }
+.hero--navy .hero-eyebrow { color: var(--amber-500); }
+.hero--light { background: var(--cloud-50); }
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+.hero-eyebrow {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--amber-500);
+  margin-bottom: var(--space-3);
+}
+.hero-title {
+  margin-bottom: var(--space-4);
+  color: var(--navy-900);
+}
+.hero-subtitle {
+  font-size: 1.125rem;
+  color: var(--slate-500);
+  margin-bottom: var(--space-8);
+  max-width: 52ch;
+}
+.hero--navy .hero-subtitle { color: rgba(255,255,255,0.75); }
+.hero-ctas { display: flex; gap: var(--space-4); flex-wrap: wrap; }
+.hero-image img { border-radius: var(--radius-lg); width: 100%; height: auto; }
+@media (max-width: 1023px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-image { display: none; }
+  .hero { padding-block: var(--space-16) var(--space-12); }
+}
+</style>

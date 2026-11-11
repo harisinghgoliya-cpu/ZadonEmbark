@@ -1,0 +1,54 @@
+@import '@fontsource/plus-jakarta-sans/400.css';
+@import '@fontsource/plus-jakarta-sans/600.css';
+@import '@fontsource/plus-jakarta-sans/700.css';
+@import '@fontsource/inter/400.css';
+@import '@fontsource/inter/500.css';
+@import '@fontsource/inter/600.css';
+@import '@fontsource/mukta/400.css';
+@import '@fontsource/mukta/600.css';
+
+:root {
+  /* colour */
+  --navy-900: #14263B;
+  --navy-700: #22405F;
+  --sky-100: #DCE8F5;
+  --amber-500: #F2A93B;
+  --teal-600: #127A6E;
+  --red-600: #C0392B;
+  --ink-800: #1F2933;
+  --slate-500: #5B6B7C;
+  --cloud-50: #F6F8FB;
+  --white: #FFFFFF;
+
+  /* type */
+  --font-head: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-hi: 'Noto Sans Devanagari', 'Mukta', sans-serif;
+
+  --fs-h1: clamp(2rem, 4vw, 3rem);
+  --fs-h2: clamp(1.625rem, 3vw, 2.125rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --fs-body: clamp(1rem, 1.1vw, 1.0625rem);
+  --fs-small: 0.8125rem;
+
+  /* spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  --radius: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 2px 12px rgba(20, 38, 59, 0.08);
+  --container: 1200px;
+}
+
+:lang(hi) {
+  font-family: var(--font-hi);
+  font-size: calc(var(--fs-body) + 1px);
+}

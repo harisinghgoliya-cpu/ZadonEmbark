@@ -1,0 +1,60 @@
+---
+import { site } from '../config/site';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  lang?: 'en' | 'hi';
+  altLangSlug?: string;
+  schema?: object[];
+  noindex?: boolean;
+}
+
+const {
+  title, description, lang = 'en', noindex = false,
+  schema = [], altLangSlug,
+} = Astro.props;
+
+const canonical = Astro.props.canonical ?? new URL(Astro.url.pathname, site.url).href;
+const ogImage = Astro.props.ogImage ?? `${site.url}/og/default.png`;
+
+const altHref = altLangSlug
+  ? `${site.url}${altLangSlug}`
+  : lang === 'en' ? `${site.url}/hi/` : site.url;
+const altLang = lang === 'en' ? 'hi' : 'en';
+---
+
+<title>{title} | ZadonEmbark</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- hreflang -->
+<link rel="alternate" hreflang={lang} href={canonical} />
+<link rel="alternate" hreflang={altLang} href={altHref} />
+<link rel="alternate" hreflang="x-default" href={lang === 'en' ? canonical : altHref} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={`${title} | ZadonEmbark`} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content={lang === 'hi' ? 'hi_IN' : 'en_IN'} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={`${title} | ZadonEmbark`} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<!-- Schema JSON-LD -->
+{schema.map(s => (
+  <script type="application/ld+json" set:html={JSON.stringify(s)} />
+))}

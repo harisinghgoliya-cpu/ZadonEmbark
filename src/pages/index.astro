@@ -1,0 +1,193 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Button from '../components/Button.astro';
+import { site } from '../config/site';
+
+const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad with ZadonEmbark.');
+---
+
+<BaseLayout
+  title="Work & Study Abroad"
+  description="ZadonEmbark helps Indian professionals and students find verified work and study opportunities in Germany, Poland, UAE, Canada, UK, and Australia."
+  lang="en"
+  altLangSlug="/hi/"
+>
+  <Hero
+    eyebrow="Trusted International Placement Partner"
+    title="Your Future Abroad Starts Here"
+    subtitle="Verified work and study opportunities in Europe, the Gulf and beyond — with transparent fees and honest guidance."
+    ctas={[
+      { label: 'Explore Study Abroad', href: '/study-abroad/', variant: 'primary' },
+      { label: 'Find Work Abroad', href: '/work-abroad/', variant: 'secondary' },
+    ]}
+    tone="navy"
+  />
+
+  <!-- Who we help -->
+  <section class="section-audience">
+    <div class="container">
+      <h2 class="section-title">Who We Help</h2>
+      <div class="audience-grid">
+        <a href="/study-abroad/" class="audience-card">
+          <div class="audience-icon">🎓</div>
+          <h3>Students</h3>
+          <p>Undergraduate, postgraduate and vocational courses in Canada, UK, Australia & Germany.</p>
+        </a>
+        <a href="/work-abroad/" class="audience-card">
+          <div class="audience-icon">💼</div>
+          <h3>Job Seekers</h3>
+          <p>Skilled and semi-skilled work in Germany, Poland and UAE with verified employers.</p>
+        </a>
+        <a href="/for-employers/" class="audience-card">
+          <div class="audience-icon">🏢</div>
+          <h3>Employers</h3>
+          <p>Source pre-screened Indian talent for your business — fast, compliant, reliable.</p>
+        </a>
+        <a href="/partners/" class="audience-card">
+          <div class="audience-icon">🤝</div>
+          <h3>Partners</h3>
+          <p>Institutions and agencies looking to collaborate on international placements.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section-how">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <ol class="steps">
+        <li class="step"><span class="step-num">1</span><div><strong>Book a Free Consultation</strong><p>Talk to our counsellors about your goals, eligibility and options.</p></div></li>
+        <li class="step"><span class="step-num">2</span><div><strong>Get a Personalised Roadmap</strong><p>We match you with verified opportunities and explain every step and cost.</p></div></li>
+        <li class="step"><span class="step-num">3</span><div><strong>We Handle the Process</strong><p>Documentation, applications and pre-departure support — we guide you through.</p></div></li>
+        <li class="step"><span class="step-num">4</span><div><strong>Arrive with Confidence</strong><p>Land with your paperwork in order and our support behind you.</p></div></li>
+      </ol>
+      <div class="steps-cta">
+        {site.bookingsUrl
+          ? <Button href={site.bookingsUrl} variant="primary" size="lg">Book Free Consultation</Button>
+          : <Button href="/contact/" variant="primary" size="lg">Get in Touch</Button>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Countries -->
+  <section class="section-countries">
+    <div class="container">
+      <h2 class="section-title">Countries We Cover</h2>
+      <div class="country-tabs">
+        <div class="tab-group">
+          <h3 class="tab-label">Study Abroad</h3>
+          <div class="country-grid">
+            {site.launchCountries.study.map(c => (
+              <a href={`/study-abroad/${c}/`} class="country-card">
+                {c.charAt(0).toUpperCase() + c.slice(1)}
+              </a>
+            ))}
+          </div>
+        </div>
+        <div class="tab-group">
+          <h3 class="tab-label">Work Abroad</h3>
+          <div class="country-grid">
+            {site.launchCountries.work.map(c => (
+              <a href={`/work-abroad/${c}/`} class="country-card">
+                {c.toUpperCase()}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Promise band -->
+  <section class="promise-band">
+    <div class="container">
+      <h2>Our Promise to You</h2>
+      <div class="promise-grid">
+        <div class="promise-item promise-never">
+          <h3>We Never</h3>
+          <ul>
+            <li>Guarantee visa approval or job placement</li>
+            <li>Ask for advance fees before a written agreement</li>
+            <li>Partner with unverified employers or institutions</li>
+          </ul>
+        </div>
+        <div class="promise-item promise-always">
+          <h3>We Always</h3>
+          <ul>
+            <li>Show transparent, itemised fees upfront</li>
+            <li>Verify every employer and institution we work with</li>
+            <li>Give you honest advice even if it means you don't use us</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section-cta">
+    <div class="container cta-inner">
+      <h2>Ready to Start?</h2>
+      <p>Take the first step towards your international future today.</p>
+      <div class="cta-btns">
+        {site.bookingsUrl && (
+          <Button href={site.bookingsUrl} variant="primary" size="lg">Book Free Consultation</Button>
+        )}
+        {site.whatsapp && (
+          <Button href={`https://wa.me/${site.whatsapp}?text=${waMsg}`} variant="whatsapp" size="lg">
+            Chat on WhatsApp
+          </Button>
+        )}
+        <Button href="/contact/" variant="secondary" size="lg">Send an Enquiry</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.section-audience, .section-how, .section-countries, .section-cta { padding-block: var(--space-24); }
+.section-title { text-align: center; margin-bottom: var(--space-12); }
+.audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
+.audience-card {
+  background: var(--white); border: 1px solid var(--sky-100); border-radius: var(--radius-lg);
+  padding: var(--space-8); text-decoration: none; color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.audience-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.audience-icon { font-size: 2rem; margin-bottom: var(--space-4); }
+.audience-card h3 { color: var(--navy-900); margin-bottom: var(--space-2); }
+.audience-card p { font-size: 0.9rem; color: var(--slate-500); }
+.steps { list-style: none; display: flex; flex-direction: column; gap: var(--space-6); max-width: 640px; margin: 0 auto var(--space-12); }
+.step { display: flex; gap: var(--space-6); align-items: flex-start; }
+.step-num { flex-shrink: 0; width: 40px; height: 40px; background: var(--amber-500); color: var(--navy-900); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+.step p { color: var(--slate-500); font-size: 0.9rem; margin-top: var(--space-1); }
+.steps-cta { text-align: center; }
+.country-tabs { display: flex; gap: var(--space-12); flex-wrap: wrap; }
+.tab-group { flex: 1; min-width: 280px; }
+.tab-label { color: var(--slate-500); font-size: var(--fs-small); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); }
+.country-grid { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+.country-card {
+  background: var(--white); border: 1px solid var(--sky-100); border-radius: var(--radius);
+  padding: var(--space-3) var(--space-6); text-decoration: none; font-weight: 600;
+  color: var(--navy-900); font-size: 0.9rem; transition: background 0.15s, border-color 0.15s;
+}
+.country-card:hover { background: var(--navy-900); color: var(--white); border-color: var(--navy-900); }
+.promise-band { background: var(--navy-900); padding-block: var(--space-24); color: var(--white); }
+.promise-band h2 { color: var(--white); text-align: center; margin-bottom: var(--space-12); }
+.promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); max-width: 800px; margin: 0 auto; }
+.promise-item { background: rgba(255,255,255,0.05); border-radius: var(--radius-lg); padding: var(--space-8); }
+.promise-item h3 { color: var(--amber-500); margin-bottom: var(--space-4); }
+.promise-item ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
+.promise-item li { padding-left: var(--space-6); position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+.promise-never li::before { content: '✕'; position: absolute; left: 0; color: var(--red-600); font-weight: 700; }
+.promise-always li::before { content: '✓'; position: absolute; left: 0; color: var(--teal-600); font-weight: 700; }
+.section-cta { background: var(--cloud-50); }
+.cta-inner { text-align: center; }
+.cta-inner h2 { margin-bottom: var(--space-4); }
+.cta-inner p { color: var(--slate-500); margin-bottom: var(--space-8); }
+.cta-btns { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; }
+@media (max-width: 1023px) { .audience-grid { grid-template-columns: 1fr 1fr; } .promise-grid { grid-template-columns: 1fr; } }
+@media (max-width: 639px) { .audience-grid { grid-template-columns: 1fr; } }
+</style>

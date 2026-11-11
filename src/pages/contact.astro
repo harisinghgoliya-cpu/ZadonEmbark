@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FormEmbed from '../components/FormEmbed.astro';
+import { site } from '../config/site';
+
+const waMsg = encodeURIComponent('Hi, I want to get in touch with ZadonEmbark.');
+---
+
+<BaseLayout
+  title="Contact Us"
+  description="Get in touch with ZadonEmbark. Book a free consultation or send us an enquiry about work or study abroad."
+  lang="en"
+>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>We're here to help. Reach out through any channel below.</p>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        {site.phone && (
+          <div class="contact-card">
+            <h3>Call Us</h3>
+            <a href={`tel:${site.phone}`} class="contact-link">{site.phone}</a>
+            {site.officeHours && <p class="contact-note">{site.officeHours}</p>}
+          </div>
+        )}
+        {site.whatsapp && (
+          <div class="contact-card">
+            <h3>WhatsApp</h3>
+            <a href={`https://wa.me/${site.whatsapp}?text=${waMsg}`} target="_blank" rel="noopener" class="contact-link contact-link--wa">
+              Chat on WhatsApp
+            </a>
+          </div>
+        )}
+        {site.bookingsUrl && (
+          <div class="contact-card">
+            <h3>Book a Free Consultation</h3>
+            <a href={site.bookingsUrl} target="_blank" rel="noopener" class="contact-link">
+              Schedule 30-min call →
+            </a>
+          </div>
+        )}
+        <div class="contact-card">
+          <h3>Email</h3>
+          <a href={`mailto:${site.email.info}`} class="contact-link">{site.email.info}</a>
+        </div>
+        {site.address && (
+          <div class="contact-card">
+            <h3>Office</h3>
+            <p>{site.address}</p>
+            {site.mapsEmbed && (
+              <div class="map-wrap">
+                <button class="map-load-btn" data-src={site.mapsEmbed}>Show Map</button>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+
+      <div class="contact-form">
+        <h2>Send an Enquiry</h2>
+        <p>Fill in the form and we'll get back to you within one working day.</p>
+        <FormEmbed formKey="general" lang="en" sourcePage="/contact/" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.page-hero { background: var(--navy-900); color: var(--white); padding-block: var(--space-16) var(--space-12); }
+.page-hero h1 { color: var(--white); margin-bottom: var(--space-3); }
+.page-hero p { color: rgba(255,255,255,0.75); font-size: 1.125rem; }
+.contact-section { padding-block: var(--space-16); }
+.contact-grid { display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-12); }
+.contact-info { display: flex; flex-direction: column; gap: var(--space-4); }
+.contact-card {
+  background: var(--cloud-50); border-radius: var(--radius); padding: var(--space-6);
+  border: 1px solid var(--sky-100);
+}
+.contact-card h3 { font-size: 0.875rem; color: var(--slate-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-2); }
+.contact-link { color: var(--teal-600); font-weight: 600; text-decoration: none; font-size: 1rem; }
+.contact-link:hover { color: var(--navy-900); }
+.contact-link--wa { color: #25D366; }
+.contact-note { font-size: var(--fs-small); color: var(--slate-500); margin-top: var(--space-1); }
+.contact-form h2 { margin-bottom: var(--space-2); }
+.contact-form p { color: var(--slate-500); margin-bottom: var(--space-6); }
+.map-load-btn {
+  margin-top: var(--space-3); background: none; border: 1px solid var(--teal-600);
+  color: var(--teal-600); padding: var(--space-2) var(--space-4); border-radius: var(--radius);
+  cursor: pointer; font-size: 0.875rem;
+}
+@media (max-width: 1023px) { .contact-grid { grid-template-columns: 1fr; } }
+</style>

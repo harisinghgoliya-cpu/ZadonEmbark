@@ -1,0 +1,172 @@
+---
+import { nav } from '../config/nav';
+import { site } from '../config/site';
+import Button from './Button.astro';
+
+export interface Props { lang?: 'en' | 'hi'; }
+const { lang = 'en' } = Astro.props;
+const items = nav[lang].header;
+const altLang = lang === 'en' ? 'hi' : 'en';
+const altHref = lang === 'en' ? '/hi/' : '/';
+const altLabel = lang === 'en' ? 'हिन्दी' : 'English';
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={lang === 'hi' ? '/hi/' : '/'} class="logo" aria-label="ZadonEmbark Home">
+      <span class="logo-text">ZadonEmbark</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list" role="list">
+        {items.map(item => (
+          <li class={item.children ? 'has-dropdown' : ''}>
+            <a href={item.href} class="nav-link">{item.label}</a>
+            {item.children && (
+              <ul class="dropdown" role="list">
+                {item.children.map(child => (
+                  <li><a href={child.href} class="dropdown-link">{child.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href={altHref} class="lang-switch" lang={altLang}>{altLabel}</a>
+      {site.bookingsUrl && (
+        <Button href={site.bookingsUrl} variant="primary" size="sm">
+          {lang === 'hi' ? 'फ्री कंसल्टेशन' : 'Free Consultation'}
+        </Button>
+      )}
+    </div>
+
+    <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <div id="mobile-menu" class="mobile-menu" hidden>
+    <nav aria-label="Mobile navigation">
+      <ul role="list">
+        {items.map(item => (
+          <li>
+            <a href={item.href} class="mobile-nav-link">{item.label}</a>
+            {item.children && (
+              <ul role="list" class="mobile-sub">
+                {item.children.map(child => (
+                  <li><a href={child.href}>{child.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
+        <li><a href={altHref} lang={altLang} class="mobile-nav-link">{altLabel}</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--sky-100);
+  box-shadow: var(--shadow);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  height: 64px;
+}
+.logo { text-decoration: none; }
+.logo-text {
+  font-family: var(--font-head);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-900);
+}
+.main-nav { flex: 1; }
+.nav-list { display: flex; gap: var(--space-2); list-style: none; }
+.nav-link {
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--ink-800);
+  text-decoration: none;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  transition: color 0.15s, background 0.15s;
+}
+.nav-link:hover { color: var(--navy-900); background: var(--sky-100); }
+.has-dropdown { position: relative; }
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--white);
+  border: 1px solid var(--sky-100);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-width: 180px;
+  list-style: none;
+  padding: var(--space-2) 0;
+}
+.has-dropdown:hover .dropdown, .has-dropdown:focus-within .dropdown { display: block; }
+.dropdown-link {
+  display: block;
+  padding: var(--space-2) var(--space-4);
+  color: var(--ink-800);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.dropdown-link:hover { background: var(--sky-100); color: var(--navy-900); }
+.header-actions { display: flex; align-items: center; gap: var(--space-4); }
+.lang-switch {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--slate-500);
+  text-decoration: none;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--sky-100);
+  border-radius: var(--radius);
+}
+.lang-switch:hover { color: var(--navy-900); border-color: var(--navy-700); }
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-2);
+  margin-left: auto;
+}
+.bar { display: block; width: 22px; height: 2px; background: var(--navy-900); border-radius: 2px; transition: transform 0.2s; }
+.mobile-menu {
+  background: var(--white);
+  border-top: 1px solid var(--sky-100);
+  padding: var(--space-4) var(--space-6) var(--space-6);
+}
+.mobile-nav-link {
+  display: block;
+  padding: var(--space-3) 0;
+  font-weight: 500;
+  color: var(--ink-800);
+  text-decoration: none;
+  border-bottom: 1px solid var(--sky-100);
+}
+.mobile-sub { list-style: none; padding-left: var(--space-4); }
+.mobile-sub a { display: block; padding: var(--space-2) 0; color: var(--slate-500); text-decoration: none; }
+@media (max-width: 1023px) {
+  .main-nav { display: none; }
+  .menu-toggle { display: flex; }
+  .header-actions .btn { display: none; }
+}
+</style>

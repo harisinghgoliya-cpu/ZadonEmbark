@@ -1,0 +1,74 @@
+---
+import { site } from '../config/site';
+export interface Props {
+  formKey: keyof typeof site.tally;
+  lang?: 'en' | 'hi';
+  height?: number;
+  sourcePage?: string;
+}
+const { formKey, lang = 'en', height = 500, sourcePage = '' } = Astro.props;
+const formId = site.tally[formKey];
+const waMsg = encodeURIComponent('Hi, I want to enquire about ZadonEmbark services.');
+---
+
+{formId ? (
+  <div class="form-embed" data-tally-id={formId} data-height={height} data-source={sourcePage} data-lang={lang}>
+    <div class="form-placeholder">
+      <div class="form-loading">Loading form…</div>
+    </div>
+    <noscript>
+      <p>
+        <a href={`https://tally.so/r/${formId}`} target="_blank" rel="noopener" class="form-fallback-link">
+          Open form in new tab
+        </a>
+      </p>
+    </noscript>
+  </div>
+) : (
+  <div class="form-pending">
+    <p>{lang === 'hi' ? 'फ़ॉर्म जल्द आएगा। अभी WhatsApp पर संपर्क करें:' : 'Form coming soon. Contact us on WhatsApp:'}</p>
+    {site.whatsapp && (
+      <a href={`https://wa.me/${site.whatsapp}?text=${waMsg}`} target="_blank" rel="noopener" class="btn btn--whatsapp btn--md">
+        WhatsApp
+      </a>
+    )}
+  </div>
+)}
+
+<script>
+// Lazy-load Tally iframe when scrolled into view
+document.querySelectorAll<HTMLElement>('.form-embed[data-tally-id]').forEach(el => {
+  const id = el.dataset.tallyId!;
+  const height = el.dataset.height ?? '500';
+  const source = el.dataset.source ?? '';
+  const lang = el.dataset.lang ?? 'en';
+
+  const observer = new IntersectionObserver(entries => {
+    if (!entries[0].isIntersecting) return;
+    observer.disconnect();
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://tally.so/embed/${id}?alignLeft=1&hideTitle=1&transparentBackground=1&source_page=${encodeURIComponent(source)}&lang=${lang}`;
+    iframe.width = '100%';
+    iframe.height = height;
+    iframe.frameBorder = '0';
+    iframe.setAttribute('allow', 'camera;microphone;autoplay;clipboard-read;clipboard-write;');
+    el.innerHTML = '';
+    el.appendChild(iframe);
+  }, { rootMargin: '200px' });
+  observer.observe(el);
+});
+</script>
+
+<style>
+.form-embed { min-height: 100px; }
+.form-placeholder { display: flex; align-items: center; justify-content: center; padding: var(--space-12); }
+.form-loading { color: var(--slate-500); font-size: var(--fs-small); }
+.form-pending {
+  background: var(--sky-100);
+  border-radius: var(--radius);
+  padding: var(--space-8);
+  text-align: center;
+}
+.form-pending p { margin-bottom: var(--space-4); color: var(--slate-500); }
+.form-fallback-link { color: var(--teal-600); }
+</style>
