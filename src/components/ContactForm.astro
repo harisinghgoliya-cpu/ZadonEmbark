@@ -2,6 +2,7 @@
 // Native HTML form — wired to Formspree
 // Setup: sign up at formspree.io → New Form → copy the ID into site.ts as formspreeId
 import { site } from '../config/site';
+import Button from './Button.astro';
 export interface Props { compact?: boolean; }
 const { compact = false } = Astro.props;
 const formspreeId = (site as any).formspreeId ?? '';
@@ -66,10 +67,10 @@ const action = formspreeId
   <!-- Honeypot -->
   <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
 
-  <button type="submit" class="btn btn--primary btn--lg form-submit">
+  <Button type="submit" variant="primary" size="lg" style="width:100%; margin-top:var(--sp-2); justify-content:center;">
     Send Enquiry
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-  </button>
+  </Button>
 
   <p class="form-note">We respond within 1 working day. Your data is never sold or shared.</p>
 </form>
@@ -108,7 +109,7 @@ textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
 .checkbox-label input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; border-radius: 4px; margin-top: 1px; cursor: pointer; accent-color: var(--amber-500); }
 .checkbox-label a { color: var(--teal-600); }
 
-.form-submit { width: 100%; margin-top: var(--sp-2); justify-content: center; gap: var(--sp-3); }
+/* submit sizing handled via inline style on <Button> */
 .form-note { font-size: var(--fs-xs); color: var(--slate-400); text-align: center; }
 
 /* Dark background variant */

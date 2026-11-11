@@ -39,6 +39,39 @@ import ContactForm from '../components/ContactForm.astro';
     </div>
   </section>
 
+  <!-- Zadon Technology Group -->
+  <section class="section light-section">
+    <div class="container">
+      <div class="group-header">
+        <div class="chip chip--teal">Group & Network</div>
+        <h2>Part of the Zadon Technology Group</h2>
+        <p class="group-sub">ZadonEmbark operates within the Zadon Technology ecosystem — giving us direct access to live hiring requirements across the USA, Canada and beyond.</p>
+      </div>
+      <div class="group-grid">
+        <div class="group-card">
+          <div class="group-icon">💻</div>
+          <h3>IT Recruitment — USA & Canada</h3>
+          <p>Zadon Technology actively hires software engineers, developers, architects and other technology professionals for US and Canadian clients. Through our placement network, we source top Indian tech talent for these roles.</p>
+        </div>
+        <div class="group-card">
+          <div class="group-icon">🧑‍💼</div>
+          <h3>Non-Engineering Roles — USA & Canada</h3>
+          <p>Beyond IT, Zadon Technology's US and Canadian operations require professionals in finance, operations, project management, HR and business development. We recruit across both technical and non-technical disciplines.</p>
+        </div>
+        <div class="group-card">
+          <div class="group-icon">🛠️</div>
+          <h3>IT Consulting Services</h3>
+          <p>Zadon Technology delivers technology consulting engagements for clients in North America — covering digital transformation, cloud migration, enterprise software and staffing augmentation.</p>
+        </div>
+        <div class="group-card">
+          <div class="group-icon">🗂️</div>
+          <h3>IT Projects & Delivery</h3>
+          <p>End-to-end IT project delivery is a core capability of the Zadon Technology Group. This gives ZadonEmbark candidates a direct pipeline into live project environments — with structured onboarding and support.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section dark-section">
     <div class="glow g3"></div>
     <div class="container form-section" style="position:relative">
@@ -62,7 +95,7 @@ import ContactForm from '../components/ContactForm.astro';
 .page-hero h1 { color:var(--white);margin:var(--sp-5) 0 var(--sp-6);font-size:var(--fs-h1); }
 .page-hero p { color:rgba(255,255,255,.65);font-size:1.125rem;max-width:52ch;margin:0 auto; }
 .section { padding-block:var(--sp-24); }
-.light-section { background:var(--white); }
+.light-section { background:#eef2f7; }
 .dark-section { background:#060f1e;position:relative;overflow:hidden; }
 .about-grid { display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:start; }
 .about-text h2 { margin-bottom:var(--sp-6); }
@@ -74,5 +107,17 @@ import ContactForm from '../components/ContactForm.astro';
 .value-card p { font-size:.9rem;color:var(--slate-500); }
 .form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }
 .form-card { padding:var(--sp-10); }
-@media(max-width:1023px) { .about-grid { grid-template-columns:1fr; } .form-section { grid-template-columns:1fr; } }
+/* Group section */
+.group-header { text-align:center;max-width:680px;margin:0 auto var(--sp-12); }
+.group-header h2 { margin-bottom:var(--sp-4); }
+.group-sub { color:var(--slate-500);font-size:1.0625rem;line-height:1.65; }
+.chip--teal { background:rgba(18,122,110,.1);color:var(--teal-600); }
+.group-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-6); }
+.group-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-xl);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
+.group-card:hover { transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.08); }
+.group-icon { font-size:2rem;margin-bottom:var(--sp-4); }
+.group-card h3 { font-size:1.0625rem;margin-bottom:var(--sp-3);color:var(--navy-900); }
+.group-card p { font-size:.9375rem;color:var(--slate-500);line-height:1.7; }
+@media(max-width:1023px) { .about-grid { grid-template-columns:1fr; } .form-section { grid-template-columns:1fr; } .group-grid { grid-template-columns:1fr; } }
+@media(max-width:639px) { .group-grid { grid-template-columns:1fr; } }
 </style>

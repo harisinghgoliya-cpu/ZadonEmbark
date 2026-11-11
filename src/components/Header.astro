@@ -19,8 +19,6 @@ const navItems = lang === 'en'
       { label: 'हमारे बारे में', href: '/hi/' },
     ];
 
-const altHref  = lang === 'en' ? '/hi/' : '/';
-const altLabel = lang === 'en' ? 'हिन्दी' : 'EN';
 ---
 
 <header class="site-header" id="site-header">
@@ -41,7 +39,6 @@ const altLabel = lang === 'en' ? 'हिन्दी' : 'EN';
     </nav>
 
     <div class="header-actions">
-      <a href={altHref} class="lang-toggle" lang={lang === 'en' ? 'hi' : 'en'}>{altLabel}</a>
       <Button href="/contact/" variant="primary" size="sm">
         {lang === 'hi' ? 'पूछताछ करें' : 'Get Started'}
       </Button>
@@ -57,7 +54,6 @@ const altLabel = lang === 'en' ? 'हिन्दी' : 'EN';
       {navItems.map(i => (
         <li><a href={i.href} class="mob-link">{i.label}</a></li>
       ))}
-      <li><a href={altHref} class="mob-link" lang={lang === 'en' ? 'hi' : 'en'}>{altLabel}</a></li>
     </ul>
     <Button href="/contact/" variant="primary" size="md" style="width:100%;margin-top:var(--sp-4)">
       {lang === 'hi' ? 'पूछताछ करें' : 'Get Started'}
@@ -108,13 +104,6 @@ const altLabel = lang === 'en' ? 'हिन्दी' : 'EN';
 .nav-link:hover { color: var(--white); background: rgba(255,255,255,.07); }
 
 .header-actions { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
-.lang-toggle {
-  font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,.55);
-  text-decoration: none; padding: var(--sp-1) var(--sp-3);
-  border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-full);
-  transition: all .15s;
-}
-.lang-toggle:hover { color: var(--white); border-color: rgba(255,255,255,.3); }
 
 .burger {
   display: none; flex-direction: column; gap: 5px;
