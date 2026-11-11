@@ -151,11 +151,27 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 .section-title { text-align: center; margin-bottom: var(--space-12); }
 .audience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
 .audience-card {
-  background: var(--white); border: 1px solid var(--sky-100); border-radius: var(--radius-lg);
-  padding: var(--space-8); text-decoration: none; color: inherit;
-  transition: box-shadow 0.2s, transform 0.2s;
+  background: var(--white);
+  border: 1px solid rgba(220, 232, 245, 0.8);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+  box-shadow: 0 2px 16px rgba(20, 38, 59, 0.05);
+  position: relative;
+  overflow: hidden;
 }
-.audience-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.audience-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(242,169,59,0.04) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.audience-card:hover { box-shadow: 0 12px 40px rgba(20, 38, 59, 0.13); transform: translateY(-4px); }
+.audience-card:hover::before { opacity: 1; }
 .audience-icon { font-size: 2rem; margin-bottom: var(--space-4); }
 .audience-card h3 { color: var(--navy-900); margin-bottom: var(--space-2); }
 .audience-card p { font-size: 0.9rem; color: var(--slate-500); }
@@ -174,16 +190,38 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
   color: var(--navy-900); font-size: 0.9rem; transition: background 0.15s, border-color 0.15s;
 }
 .country-card:hover { background: var(--navy-900); color: var(--white); border-color: var(--navy-900); }
-.promise-band { background: var(--navy-900); padding-block: var(--space-24); color: var(--white); }
-.promise-band h2 { color: var(--white); text-align: center; margin-bottom: var(--space-12); }
-.promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); max-width: 800px; margin: 0 auto; }
-.promise-item { background: rgba(255,255,255,0.05); border-radius: var(--radius-lg); padding: var(--space-8); }
+.promise-band {
+  background: var(--grad-hero);
+  padding-block: var(--space-24);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.promise-band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 80% at 0% 50%, rgba(18, 122, 110, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 100% 20%, rgba(242, 169, 59, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+.promise-band h2 { color: var(--white); text-align: center; margin-bottom: var(--space-12); position: relative; }
+.promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-8); max-width: 800px; margin: 0 auto; position: relative; }
+.promise-item {
+  background: var(--glass-bg-dark);
+  border: 1px solid var(--glass-border-dark);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+}
 .promise-item h3 { color: var(--amber-500); margin-bottom: var(--space-4); }
 .promise-item ul { list-style: none; display: flex; flex-direction: column; gap: var(--space-3); }
 .promise-item li { padding-left: var(--space-6); position: relative; font-size: 0.95rem; color: rgba(255,255,255,0.85); }
 .promise-never li::before { content: '✕'; position: absolute; left: 0; color: var(--red-600); font-weight: 700; }
 .promise-always li::before { content: '✓'; position: absolute; left: 0; color: var(--teal-600); font-weight: 700; }
-.section-cta { background: var(--cloud-50); }
+.section-cta { background: linear-gradient(135deg, var(--cloud-50) 0%, #dceefa 100%); }
 .cta-inner { text-align: center; }
 .cta-inner h2 { margin-bottom: var(--space-4); }
 .cta-inner p { color: var(--slate-500); margin-bottom: var(--space-8); }

@@ -75,9 +75,11 @@ const altLabel = lang === 'en' ? 'हिन्दी' : 'English';
   position: sticky;
   top: 0;
   z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid var(--sky-100);
-  box-shadow: var(--shadow);
+  background: var(--glass-bg);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: 0 1px 24px rgba(20, 38, 59, 0.08);
 }
 .header-inner {
   display: flex;

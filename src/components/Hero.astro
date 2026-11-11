@@ -37,11 +37,22 @@ const { eyebrow, title, subtitle, ctas = [], image, tone = 'navy' } = Astro.prop
 </section>
 
 <style>
-.hero { padding-block: var(--space-24) var(--space-16); }
-.hero--navy { background: var(--navy-900); }
+.hero { padding-block: var(--space-24) var(--space-16); position: relative; overflow: hidden; }
+.hero--navy {
+  background: var(--grad-hero);
+}
+.hero--navy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(242, 169, 59, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(18, 122, 110, 0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
 .hero--navy .hero-title, .hero--navy .hero-eyebrow, .hero--navy .hero-subtitle { color: var(--white); }
 .hero--navy .hero-eyebrow { color: var(--amber-500); }
-.hero--light { background: var(--cloud-50); }
+.hero--light { background: linear-gradient(135deg, var(--cloud-50) 0%, #eaf2fb 100%); }
 .hero-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
