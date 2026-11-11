@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="Fees & Transparency" description="ZadonEmbark's clear, honest breakdown of how our fees work and what you get.">
+  <section class="page-hero">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="container">
+      <div class="chip">No Hidden Fees</div>
+      <h1>Fees &amp; <span class="text-gradient">Transparency</span></h1>
+      <p>We believe you should know exactly what you are paying for — before you pay. Here is how our fees work.</p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="principles">
+        {[
+          { icon:'📋', title:'Written Agreement First', desc:'We will not ask for any payment until we have provided you with a written service agreement that lists every cost and every deliverable.' },
+          { icon:'🚫', title:'No Upfront Cash Demands', desc:'We never ask for large cash deposits before giving you a job or admission letter. Any agent that does this is a red flag.' },
+          { icon:'🔢', title:'Itemised Fees', desc:'Every service we charge for is listed separately — there are no bundled fees that obscure what you are actually paying for.' },
+          { icon:'📞', title:'Refund Policy in Writing', desc:'Your agreement will specify exactly what happens to your payment if a visa is refused or a placement does not go ahead.' },
+        ].map(p => (
+          <div class="principle-card">
+            <div class="principle-icon">{p.icon}</div>
+            <h3>{p.title}</h3>
+            <p>{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section" style="padding-top:0">
+    <div class="container">
+      <div class="section-header">
+        <h2>What is free — always</h2>
+        <p class="section-sub">We believe good guidance should be accessible before you commit.</p>
+      </div>
+      <div class="free-list">
+        {[
+          'Initial consultation (phone or video call)',
+          'Eligibility assessment for study or work abroad',
+          'Country and programme recommendations based on your profile',
+          'Honest feedback if we believe an opportunity is not right for you',
+          'Fraud checks on employers or institutions you are considering',
+        ].map(item => (
+          <div class="free-item">
+            <span class="check">✓</span>
+            <span>{item}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section">
+    <div class="glow g3"></div>
+    <div class="container">
+      <div class="warn-box glass-card">
+        <div class="warn-icon">⚠️</div>
+        <div>
+          <h3>Warning signs of a fraudulent agent</h3>
+          <ul>
+            <li>Asking for large upfront cash payments before any documentation</li>
+            <li>Guaranteeing a visa, job or admission — nobody can do this</li>
+            <li>Pressuring you to decide immediately</li>
+            <li>Refusing to provide a written agreement</li>
+            <li>No verifiable office address or registration</li>
+          </ul>
+          <Button href="/fraud-awareness/" variant="secondary" size="sm" style="margin-top:var(--sp-5)">
+            Full Fraud Awareness Guide →
+          </Button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section" id="enquire">
+    <div class="container form-section">
+      <div class="form-side">
+        <div class="chip">Ask Us Anything</div>
+        <h2>Have a question about fees?</h2>
+        <p>We will give you a straight answer — no sales pressure.</p>
+      </div>
+      <div class="form-box">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e; padding:var(--sp-24) 0 var(--sp-16); position:relative; overflow:hidden; text-align:center; }
+.glow { position:absolute; border-radius:50%; pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(242,169,59,.45) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:400px;height:400px;background:radial-gradient(ellipse,rgba(18,122,110,.4) 0%,transparent 70%);filter:blur(60px);bottom:-80px;right:-60px; }
+.g3 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,.4) 0%,transparent 70%);filter:blur(70px);top:0;left:-80px; }
+.page-hero .container { position:relative; max-width:720px; }
+.page-hero h1 { color:var(--white); margin:var(--sp-5) 0 var(--sp-6); font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65); font-size:1.0625rem; max-width:52ch; margin:0 auto; }
+.section { padding-block:var(--sp-20); }
+.light-section { background:#eef2f7; }
+.dark-section { background:#060f1e; position:relative; overflow:hidden; }
+.section-header { text-align:center; max-width:600px; margin:0 auto var(--sp-10); }
+.section-sub { color:var(--slate-500); margin-top:var(--sp-3); }
+.principles { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-6); }
+.principle-card { padding:var(--sp-8); background:var(--white); border:1px solid var(--sky-100); border-radius:var(--r-xl); box-shadow:0 2px 12px rgba(0,0,0,.04); transition:all .25s; }
+.principle-card:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(0,0,0,.08); }
+.principle-icon { font-size:2rem; margin-bottom:var(--sp-4); }
+.principle-card h3 { font-size:1.0625rem; margin-bottom:var(--sp-3); color:var(--navy-900); }
+.principle-card p { font-size:.9375rem; color:var(--slate-500); line-height:1.7; }
+.free-list { display:flex; flex-direction:column; gap:var(--sp-3); max-width:640px; margin:0 auto; }
+.free-item { display:flex; gap:var(--sp-4); align-items:flex-start; padding:var(--sp-5) var(--sp-6); background:var(--white); border:1px solid var(--sky-100); border-radius:var(--r-lg); font-size:1rem; color:var(--ink-800); }
+.check { color:#16a34a; font-weight:700; font-size:1.125rem; flex-shrink:0; margin-top:1px; }
+.warn-box { padding:var(--sp-10); display:flex; gap:var(--sp-6); align-items:flex-start; max-width:720px; margin:0 auto; }
+.warn-icon { font-size:2.5rem; flex-shrink:0; }
+.warn-box h3 { color:var(--white); font-size:1.125rem; margin-bottom:var(--sp-4); }
+.warn-box ul { color:rgba(255,255,255,.65); padding-left:var(--sp-5); line-height:1.75; }
+.warn-box li { margin-bottom:var(--sp-1); font-size:.9375rem; }
+.form-section { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--sp-12); align-items:start; }
+.form-side h2 { margin-bottom:var(--sp-3); }
+.form-side p { color:var(--slate-500); font-size:1.0625rem; margin-top:var(--sp-2); }
+.form-box { background:var(--white); border:1px solid var(--sky-100); border-radius:var(--r-xl); padding:var(--sp-10); box-shadow:0 4px 32px rgba(0,0,0,.06); }
+@media(max-width:1023px) { .principles { grid-template-columns:1fr; } .form-section { grid-template-columns:1fr; } .warn-box { flex-direction:column; gap:var(--sp-4); } }
+</style>

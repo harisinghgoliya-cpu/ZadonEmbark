@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+---
+<BaseLayout title="Refund Policy" description="ZadonEmbark's policy on fees, payments and refunds.">
+  <section class="legal-hero">
+    <div class="container">
+      <div class="chip">Legal</div>
+      <h1>Refund Policy</h1>
+      <p class="meta">Last updated: September 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-content">
+
+        <p class="lead">ZadonEmbark is committed to fee transparency. This policy outlines how fees are structured and when refunds apply.</p>
+
+        <h2>1. Fee transparency first</h2>
+        <p>We will never ask you for any payment before providing you with a clear, written service agreement that sets out:</p>
+        <ul>
+          <li>Exactly what services are included</li>
+          <li>The total fee amount and payment schedule</li>
+          <li>What happens if a visa or placement is refused</li>
+          <li>Refund conditions specific to your engagement</li>
+        </ul>
+        <p>Your refund rights depend on the specific service agreement you have signed. This page sets out the general framework; your agreement takes precedence.</p>
+
+        <h2>2. Free services</h2>
+        <p>Initial consultations and eligibility assessments are provided free of charge. No payment is required before you receive our initial assessment and recommendation.</p>
+
+        <h2>3. Paid services</h2>
+        <p>Service fees, where applicable, are charged for specific deliverables such as application preparation, documentation review and visa filing support. All fees are disclosed in advance in writing.</p>
+
+        <h2>4. Refund eligibility</h2>
+        <p>General refund principles (specific terms are in your written agreement):</p>
+        <ul>
+          <li><strong>Before service begins:</strong> Full refund if you cancel before we begin any work on your case.</li>
+          <li><strong>Service in progress:</strong> Partial refund based on the proportion of work completed at the time of cancellation.</li>
+          <li><strong>Service completed:</strong> No refund once the agreed deliverables have been provided.</li>
+          <li><strong>Visa or application refusal:</strong> Refund terms on outcome-related refusals are specified in your service agreement.</li>
+        </ul>
+
+        <h2>5. Non-refundable items</h2>
+        <p>Third-party fees — such as government visa application fees, university application fees, or courier charges — are paid directly to the relevant authority and are non-refundable by ZadonEmbark.</p>
+
+        <h2>6. How to request a refund</h2>
+        <p>To request a refund, contact us at <a href={`mailto:${site.email.info}`}>{site.email.info}</a> with your name, service details and reason for the request. We will acknowledge within 3 working days and resolve within 15 working days.</p>
+
+        <h2>7. Disputes</h2>
+        <p>If you are dissatisfied with our handling of your refund request, you may escalate the matter in writing to our management. Contact details are available on our <a href="/contact/">Contact</a> page.</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.legal-hero { background:#060f1e; padding:var(--sp-20) 0 var(--sp-12); text-align:center; }
+.legal-hero h1 { color:var(--white); margin:var(--sp-4) 0 var(--sp-3); font-size:var(--fs-h1); }
+.meta { color:rgba(255,255,255,.45); font-size:.9rem; }
+.legal-body { background:#eef2f7; padding-block:var(--sp-16) var(--sp-24); }
+.legal-content { max-width:720px; margin:0 auto; background:var(--white); border-radius:var(--r-xl); padding:var(--sp-12); box-shadow:0 4px 32px rgba(0,0,0,.07); }
+.lead { font-size:1.0625rem; color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-8); padding-bottom:var(--sp-8); border-bottom:1px solid var(--sky-100); }
+h2 { font-size:1.125rem; margin-top:var(--sp-8); margin-bottom:var(--sp-3); color:var(--navy-900); }
+p { color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-4); font-size:.9875rem; }
+ul { color:var(--slate-500); line-height:1.75; padding-left:var(--sp-6); margin-bottom:var(--sp-4); font-size:.9875rem; }
+li { margin-bottom:var(--sp-1); }
+a { color:var(--teal-600); }
+strong { color:var(--ink-800); font-weight:600; }
+@media(max-width:639px) { .legal-content { padding:var(--sp-8) var(--sp-5); } }
+</style>

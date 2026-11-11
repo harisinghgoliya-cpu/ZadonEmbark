@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+<BaseLayout title="Fraud Awareness" description="Protect yourself from fraudulent overseas job and study placement agents. Learn the red flags and how to verify any agent.">
+  <section class="page-hero">
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div class="container">
+      <div class="chip chip--red">Stay Safe</div>
+      <h1>Fraud <span class="text-gradient">Awareness</span></h1>
+      <p>Thousands of Indians lose money every year to fake overseas placement agents. Know the warning signs before you pay anyone anything.</p>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Red flags — walk away if you see these</h2>
+      </div>
+      <div class="flags-grid">
+        {[
+          { icon:'💰', flag:'Large upfront cash demand', detail:'A legitimate agent collects fees only after providing a written agreement. Any demand for a large cash deposit before you have seen any paperwork is a serious red flag.' },
+          { icon:'🎯', flag:'Guaranteed visa or job', detail:'No one can guarantee a visa approval or a job offer. These decisions are made by governments and employers. Any agent who "guarantees" this is lying.' },
+          { icon:'⏰', flag:'Urgency and pressure tactics', detail:'"This offer closes tonight." "Only 2 spots left." Legitimate consultants do not use pressure tactics. Take your time and do your research.' },
+          { icon:'📄', flag:'No written agreement', detail:'Every service, fee and timeline should be in writing before you pay anything. If an agent refuses to put things in writing, do not proceed.' },
+          { icon:'🏢', flag:'No verifiable office or registration', detail:'Check whether the agent has a physical office, a verifiable phone number and registration with the relevant state authority.' },
+          { icon:'💳', flag:'Requests payment to a personal account', detail:'Payments should go to a registered company account. Payments to personal bank accounts or via UPI to an individual are a warning sign.' },
+          { icon:'📧', flag:'Unofficial communication channels', detail:'Legitimate agencies communicate via official email and phone. If you are only contacted via WhatsApp from a personal number, be cautious.' },
+          { icon:'🌐', flag:'Implausible offers', detail:'Offers that seem too good — very high salaries, immediate visa approvals for difficult countries, guaranteed admission to top universities — are often false.' },
+        ].map(f => (
+          <div class="flag-card">
+            <div class="flag-icon">{f.icon}</div>
+            <h3>{f.flag}</h3>
+            <p>{f.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark-section">
+    <div class="glow g3"></div>
+    <div class="container steps-section">
+      <div class="steps-header">
+        <div class="chip">Verify Before You Pay</div>
+        <h2 style="color:var(--white)">How to check if an agent is legitimate</h2>
+      </div>
+      <div class="steps">
+        {[
+          { n:'1', title:'Ask for their registration', detail:'In India, overseas recruitment agents should be registered with the Ministry of External Affairs (MEA). Ask for their RA (Recruiting Agent) licence number and verify it on the MEA portal.' },
+          { n:'2', title:'Search for them independently', detail:'Google the company name along with words like "fraud", "complaint" or "review". Check the MEA blacklist. Look for a physical address you can visit.' },
+          { n:'3', title:'Get everything in writing', detail:'Before paying anything, obtain a written service agreement listing all fees, deliverables and refund conditions. Read it carefully.' },
+          { n:'4', title:'Never pay cash only', detail:'Insist on a proper invoice and pay via bank transfer to the company\'s registered account. Keep all payment receipts.' },
+          { n:'5', title:'Verify the employer or institution', detail:'Look up the company on LinkedIn or the company\'s official website. For universities, check their official website directly — not through links the agent provides.' },
+        ].map(s => (
+          <div class="step-card glass-card">
+            <div class="step-num">{s.n}</div>
+            <div>
+              <h3 style="color:var(--white)">{s.title}</h3>
+              <p style="color:rgba(255,255,255,.65)">{s.detail}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section">
+    <div class="container">
+      <div class="report-box">
+        <div class="report-icon">🚨</div>
+        <div>
+          <h2>Think you have been scammed?</h2>
+          <p>Report it immediately. The sooner you act, the better your chances of recovering money or preventing others from being targeted.</p>
+          <div class="report-links">
+            <a href="https://cybercrime.gov.in" target="_blank" rel="noopener noreferrer">National Cyber Crime Portal (cybercrime.gov.in) →</a>
+            <a href="https://emigrate.gov.in" target="_blank" rel="noopener noreferrer">MEA eMigrate Portal — Report a Fraudulent Agent →</a>
+            <a href="/contact/">Contact ZadonEmbark to verify any offer you receive →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section light-section" style="padding-top:0" id="enquire">
+    <div class="container form-section">
+      <div class="form-side">
+        <div class="chip">Verify an Offer</div>
+        <h2>Not sure if an offer is legitimate?</h2>
+        <p>Send us the details. We will help you verify it — at no cost and with no obligation.</p>
+      </div>
+      <div class="form-box">
+        <ContactForm />
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+.page-hero { background:#060f1e; padding:var(--sp-24) 0 var(--sp-16); position:relative; overflow:hidden; text-align:center; }
+.glow { position:absolute; border-radius:50%; pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(242,169,59,.45) 0%,transparent 70%);filter:blur(70px);top:-150px;left:50%;transform:translateX(-50%); }
+.g2 { width:400px;height:400px;background:radial-gradient(ellipse,rgba(220,38,38,.35) 0%,transparent 70%);filter:blur(60px);bottom:-80px;right:-60px; }
+.g3 { width:500px;height:500px;background:radial-gradient(ellipse,rgba(99,102,241,.4) 0%,transparent 70%);filter:blur(70px);top:0;right:-80px; }
+.chip--red { background:rgba(220,38,38,.12); border-color:rgba(220,38,38,.25); color:#dc2626; }
+.page-hero .container { position:relative; max-width:720px; }
+.page-hero h1 { color:var(--white); margin:var(--sp-5) 0 var(--sp-6); font-size:var(--fs-h1); }
+.page-hero p { color:rgba(255,255,255,.65); font-size:1.0625rem; max-width:52ch; margin:0 auto; }
+.section { padding-block:var(--sp-20); }
+.light-section { background:#eef2f7; }
+.dark-section { background:#060f1e; position:relative; overflow:hidden; }
+.section-header { text-align:center; max-width:640px; margin:0 auto var(--sp-12); }
+.flags-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-5); }
+.flag-card { padding:var(--sp-6); background:var(--white); border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius:var(--r-lg); box-shadow:0 2px 8px rgba(220,38,38,.06); }
+.flag-icon { font-size:1.5rem; margin-bottom:var(--sp-3); }
+.flag-card h3 { font-size:1rem; margin-bottom:var(--sp-2); color:#991b1b; }
+.flag-card p { font-size:.9rem; color:var(--slate-500); line-height:1.7; }
+.steps-section { max-width:800px; margin:0 auto; }
+.steps-header { text-align:center; margin-bottom:var(--sp-10); }
+.steps-header h2 { margin-top:var(--sp-4); }
+.steps { display:flex; flex-direction:column; gap:var(--sp-4); }
+.step-card { display:flex; gap:var(--sp-6); padding:var(--sp-6) var(--sp-8); align-items:flex-start; }
+.step-num { flex-shrink:0; width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,#F2A93B,#fcd97a); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; color:var(--navy-950); }
+.step-card h3 { margin-bottom:var(--sp-2); font-size:1rem; }
+.step-card p { font-size:.9rem; line-height:1.7; }
+.report-box { display:flex; gap:var(--sp-6); align-items:flex-start; background:var(--white); border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius:var(--r-xl); padding:var(--sp-10); max-width:760px; margin:0 auto; }
+.report-icon { font-size:2.5rem; flex-shrink:0; }
+.report-box h2 { margin-bottom:var(--sp-3); font-size:var(--fs-h3); }
+.report-box p { color:var(--slate-500); line-height:1.7; margin-bottom:var(--sp-5); }
+.report-links { display:flex; flex-direction:column; gap:var(--sp-3); }
+.report-links a { color:var(--teal-600); text-decoration:none; font-weight:500; font-size:.9375rem; }
+.report-links a:hover { color:var(--navy-900); }
+.form-section { display:grid; grid-template-columns:1fr 1.4fr; gap:var(--sp-12); align-items:start; }
+.form-side h2 { margin-bottom:var(--sp-3); }
+.form-side p { color:var(--slate-500); font-size:1.0625rem; margin-top:var(--sp-2); }
+.form-box { background:var(--white); border:1px solid var(--sky-100); border-radius:var(--r-xl); padding:var(--sp-10); box-shadow:0 4px 32px rgba(0,0,0,.06); }
+@media(max-width:1023px) { .flags-grid { grid-template-columns:1fr; } .form-section { grid-template-columns:1fr; } .report-box { flex-direction:column; } }
+</style>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Cookie Policy" description="How ZadonEmbark uses cookies on its website.">
+  <section class="legal-hero">
+    <div class="container">
+      <div class="chip">Legal</div>
+      <h1>Cookie Policy</h1>
+      <p class="meta">Last updated: September 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-content">
+
+        <p class="lead">This website does not use advertising or tracking cookies. Here is exactly what we do and do not use.</p>
+
+        <h2>What we do NOT use</h2>
+        <ul>
+          <li>Advertising or retargeting cookies</li>
+          <li>Social media tracking pixels</li>
+          <li>Google Analytics or similar user-tracking tools</li>
+          <li>Third-party marketing cookies of any kind</li>
+        </ul>
+
+        <h2>What we do use</h2>
+        <div class="cookie-table">
+          <div class="cookie-row header-row">
+            <span>Cookie / Technology</span>
+            <span>Purpose</span>
+            <span>Expires</span>
+          </div>
+          <div class="cookie-row">
+            <span>Session cookies</span>
+            <span>Basic website functionality (navigation, form handling)</span>
+            <span>When you close your browser</span>
+          </div>
+          <div class="cookie-row">
+            <span>Cloudflare Analytics</span>
+            <span>Cookieless, privacy-first analytics — no personal data collected, no cookies set</span>
+            <span>N/A (no cookie)</span>
+          </div>
+        </div>
+
+        <h2>No consent banner</h2>
+        <p>Because we do not use any non-essential cookies, we do not need to show a cookie consent banner. Your browsing is not tracked.</p>
+
+        <h2>Third-party services</h2>
+        <p>When you submit an enquiry form, the data is processed by Formspree. Formspree may set its own cookies as part of form submission processing. These are strictly functional and are covered by Formspree's own privacy policy.</p>
+
+        <h2>Changes</h2>
+        <p>If we ever introduce new cookies, we will update this policy and, where required, obtain your consent before setting them.</p>
+
+        <h2>Questions</h2>
+        <p>Email us at <a href="mailto:info@zadonembark.com">info@zadonembark.com</a> with any questions about how we handle data.</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.legal-hero { background:#060f1e; padding:var(--sp-20) 0 var(--sp-12); text-align:center; }
+.legal-hero h1 { color:var(--white); margin:var(--sp-4) 0 var(--sp-3); font-size:var(--fs-h1); }
+.meta { color:rgba(255,255,255,.45); font-size:.9rem; }
+.legal-body { background:#eef2f7; padding-block:var(--sp-16) var(--sp-24); }
+.legal-content { max-width:720px; margin:0 auto; background:var(--white); border-radius:var(--r-xl); padding:var(--sp-12); box-shadow:0 4px 32px rgba(0,0,0,.07); }
+.lead { font-size:1.0625rem; color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-8); padding-bottom:var(--sp-8); border-bottom:1px solid var(--sky-100); }
+h2 { font-size:1.125rem; margin-top:var(--sp-8); margin-bottom:var(--sp-3); color:var(--navy-900); }
+p { color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-4); font-size:.9875rem; }
+ul { color:var(--slate-500); line-height:1.75; padding-left:var(--sp-6); margin-bottom:var(--sp-4); font-size:.9875rem; }
+li { margin-bottom:var(--sp-1); }
+a { color:var(--teal-600); }
+.cookie-table { border:1px solid var(--sky-100); border-radius:var(--r-lg); overflow:hidden; margin-bottom:var(--sp-6); font-size:.9rem; }
+.cookie-row { display:grid; grid-template-columns:1.2fr 2fr 1fr; gap:var(--sp-4); padding:var(--sp-4) var(--sp-5); border-bottom:1px solid var(--sky-100); }
+.cookie-row:last-child { border-bottom:none; }
+.header-row { background:var(--sky-50); font-weight:600; color:var(--ink-800); font-size:.8rem; text-transform:uppercase; letter-spacing:.04em; }
+.cookie-row span { color:var(--slate-500); }
+@media(max-width:639px) { .legal-content { padding:var(--sp-8) var(--sp-5); } .cookie-row { grid-template-columns:1fr; } .cookie-row span:not(:first-child)::before { content:attr(data-label)': '; font-weight:600; color:var(--ink-800); } }
+</style>

@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+---
+<BaseLayout title="Terms of Service" description="Terms governing your use of the ZadonEmbark website and services.">
+  <section class="legal-hero">
+    <div class="container">
+      <div class="chip">Legal</div>
+      <h1>Terms of Service</h1>
+      <p class="meta">Last updated: September 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-content">
+
+        <p class="lead">By using this website or engaging with ZadonEmbark's services, you agree to these terms. Please read them carefully.</p>
+
+        <h2>1. About ZadonEmbark</h2>
+        <p>ZadonEmbark is an international placement consultancy. We provide guidance, documentation support and referrals for students and professionals seeking study or work opportunities abroad. We do not issue visas, employment contracts or university admission letters — these are issued solely by the relevant government authorities, employers and institutions.</p>
+
+        <h2>2. Use of this website</h2>
+        <p>This website is provided for informational purposes. You may use it to learn about our services and submit enquiries. You may not:</p>
+        <ul>
+          <li>Use the website for any unlawful purpose</li>
+          <li>Attempt to gain unauthorised access to any part of the website or its systems</li>
+          <li>Submit false or misleading information in any form</li>
+          <li>Reproduce or redistribute content without written permission</li>
+        </ul>
+
+        <h2>3. No guarantee of outcomes</h2>
+        <p>ZadonEmbark provides placement guidance and support. We do not and cannot guarantee:</p>
+        <ul>
+          <li>Visa approval by any government authority</li>
+          <li>Job offers from employers</li>
+          <li>University or college admissions</li>
+          <li>Specific timelines for any of the above</li>
+        </ul>
+        <p>Decisions on visa applications, employment and admissions rest entirely with the respective authorities, employers and institutions.</p>
+
+        <h2>4. Service agreements</h2>
+        <p>Any paid services provided by ZadonEmbark will be governed by a separate written service agreement, which sets out the specific scope, fees and terms applicable to your engagement. These Terms of Service apply in addition to that agreement.</p>
+
+        <h2>5. Intellectual property</h2>
+        <p>All content on this website — including text, design, graphics and code — is the property of ZadonEmbark or its licensors. You may not reproduce, distribute or create derivative works without prior written consent.</p>
+
+        <h2>6. Third-party links</h2>
+        <p>This website may contain links to third-party websites. We are not responsible for the content, accuracy or practices of those websites.</p>
+
+        <h2>7. Limitation of liability</h2>
+        <p>To the maximum extent permitted by applicable law, ZadonEmbark shall not be liable for any indirect, incidental or consequential damages arising from your use of this website or our services, including but not limited to visa refusals, failed placements or lost opportunities.</p>
+
+        <h2>8. Governing law</h2>
+        <p>These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts of India.</p>
+
+        <h2>9. Changes to these terms</h2>
+        <p>We may update these terms from time to time. The "Last updated" date at the top of this page reflects any changes. Continued use of this website constitutes acceptance of the revised terms.</p>
+
+        <h2>10. Contact</h2>
+        <p>Questions about these terms? Email us at <a href={`mailto:${site.email.info}`}>{site.email.info}</a>.</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.legal-hero { background:#060f1e; padding:var(--sp-20) 0 var(--sp-12); text-align:center; }
+.legal-hero h1 { color:var(--white); margin:var(--sp-4) 0 var(--sp-3); font-size:var(--fs-h1); }
+.meta { color:rgba(255,255,255,.45); font-size:.9rem; }
+.legal-body { background:#eef2f7; padding-block:var(--sp-16) var(--sp-24); }
+.legal-content { max-width:720px; margin:0 auto; background:var(--white); border-radius:var(--r-xl); padding:var(--sp-12); box-shadow:0 4px 32px rgba(0,0,0,.07); }
+.lead { font-size:1.0625rem; color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-8); padding-bottom:var(--sp-8); border-bottom:1px solid var(--sky-100); }
+h2 { font-size:1.125rem; margin-top:var(--sp-8); margin-bottom:var(--sp-3); color:var(--navy-900); }
+p { color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-4); font-size:.9875rem; }
+ul { color:var(--slate-500); line-height:1.75; padding-left:var(--sp-6); margin-bottom:var(--sp-4); font-size:.9875rem; }
+li { margin-bottom:var(--sp-1); }
+a { color:var(--teal-600); }
+@media(max-width:639px) { .legal-content { padding:var(--sp-8) var(--sp-5); } }
+</style>

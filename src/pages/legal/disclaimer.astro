@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Disclaimer" description="Important information about the limitations of guidance provided by ZadonEmbark.">
+  <section class="legal-hero">
+    <div class="container">
+      <div class="chip">Legal</div>
+      <h1>Disclaimer</h1>
+      <p class="meta">Last updated: September 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-content">
+
+        <p class="lead">Please read this disclaimer carefully before relying on any information provided on this website or by ZadonEmbark.</p>
+
+        <h2>1. No guarantee of outcomes</h2>
+        <p>ZadonEmbark provides placement guidance, documentation support and referrals. We do not guarantee, and cannot guarantee, any specific outcome including but not limited to:</p>
+        <ul>
+          <li>Visa or immigration approval by any government authority</li>
+          <li>Employment by any company or employer</li>
+          <li>Admission to any university, college or institution</li>
+          <li>Specific salary levels, job titles or working conditions</li>
+          <li>Processing timelines for any application</li>
+        </ul>
+        <p>Any representative of ZadonEmbark who makes such guarantees is acting outside the scope of our policies. Do not rely on verbal guarantees — all commitments from us will be provided in writing.</p>
+
+        <h2>2. Information accuracy</h2>
+        <p>We endeavour to keep the information on this website accurate and up to date. However, visa rules, immigration policies, employer requirements and university admission criteria change frequently. You should always verify current requirements directly with the relevant embassy, employer or institution before making any decision.</p>
+
+        <h2>3. Third-party decisions</h2>
+        <p>Visa decisions are made by government authorities. Job offers are made by employers. Admission decisions are made by educational institutions. ZadonEmbark has no influence over and accepts no responsibility for decisions made by these third parties.</p>
+
+        <h2>4. Financial decisions</h2>
+        <p>Going abroad involves significant financial commitments. ZadonEmbark provides general guidance on costs but is not a financial adviser. You should conduct your own due diligence on the costs involved and consider your personal financial situation independently before proceeding.</p>
+
+        <h2>5. Fraud warning</h2>
+        <p>ZadonEmbark will never ask for large upfront cash payments before providing a written service agreement. If you are approached by someone claiming to represent ZadonEmbark and asking for such payments, please contact us immediately at <a href="mailto:info@zadonembark.com">info@zadonembark.com</a>. See our <a href="/fraud-awareness/">Fraud Awareness</a> page for more information.</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.legal-hero { background:#060f1e; padding:var(--sp-20) 0 var(--sp-12); text-align:center; }
+.legal-hero h1 { color:var(--white); margin:var(--sp-4) 0 var(--sp-3); font-size:var(--fs-h1); }
+.meta { color:rgba(255,255,255,.45); font-size:.9rem; }
+.legal-body { background:#eef2f7; padding-block:var(--sp-16) var(--sp-24); }
+.legal-content { max-width:720px; margin:0 auto; background:var(--white); border-radius:var(--r-xl); padding:var(--sp-12); box-shadow:0 4px 32px rgba(0,0,0,.07); }
+.lead { font-size:1.0625rem; color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-8); padding-bottom:var(--sp-8); border-bottom:1px solid var(--sky-100); }
+h2 { font-size:1.125rem; margin-top:var(--sp-8); margin-bottom:var(--sp-3); color:var(--navy-900); }
+p { color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-4); font-size:.9875rem; }
+ul { color:var(--slate-500); line-height:1.75; padding-left:var(--sp-6); margin-bottom:var(--sp-4); font-size:.9875rem; }
+li { margin-bottom:var(--sp-1); }
+a { color:var(--teal-600); }
+@media(max-width:639px) { .legal-content { padding:var(--sp-8) var(--sp-5); } }
+</style>

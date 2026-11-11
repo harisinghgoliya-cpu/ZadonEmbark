@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../config/site';
+---
+<BaseLayout title="Privacy Policy" description="How ZadonEmbark collects, uses and protects your personal information.">
+  <section class="legal-hero">
+    <div class="container">
+      <div class="chip">Legal</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: September 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="container">
+      <div class="legal-content">
+
+        <p class="lead">This policy explains what personal information ZadonEmbark collects, why we collect it, how we use it, and your rights in relation to it.</p>
+
+        <h2>1. Who we are</h2>
+        <p>ZadonEmbark is an international placement consultancy helping students and professionals access study and work opportunities abroad. Our contact email is <a href={`mailto:${site.email.info}`}>{site.email.info}</a>.</p>
+
+        <h2>2. Information we collect</h2>
+        <p>We collect information you provide directly when you submit an enquiry form on this website. This includes:</p>
+        <ul>
+          <li>Full name</li>
+          <li>Phone number</li>
+          <li>Email address</li>
+          <li>Area of interest (Study Abroad, Work Abroad, etc.)</li>
+          <li>Any message or additional information you choose to share</li>
+        </ul>
+        <p>We do not collect passport numbers, Aadhaar, PAN, bank account details or any government-issued identity information through this website.</p>
+
+        <h2>3. How we use your information</h2>
+        <p>We use the information you provide to:</p>
+        <ul>
+          <li>Respond to your enquiry</li>
+          <li>Assess which opportunities or services may be relevant to you</li>
+          <li>Keep a record of your correspondence with us</li>
+          <li>Contact you about relevant services, if you have consented to this</li>
+        </ul>
+        <p>We will never use your information for unrelated marketing or sell it to any third party.</p>
+
+        <h2>4. Sharing your information</h2>
+        <p>We do not sell, rent or trade your personal data. We may share your information only in the following limited circumstances:</p>
+        <ul>
+          <li><strong>With employers or institutions</strong> — only if you have expressly agreed to progress your application and given us written consent to share specific documents</li>
+          <li><strong>Service providers</strong> — we use Formspree (form processing) and Cloudflare (analytics, infrastructure); both are bound by appropriate data processing terms</li>
+          <li><strong>Legal obligation</strong> — if required by law or a valid legal process</li>
+        </ul>
+
+        <h2>5. Data retention</h2>
+        <p>Enquiry data is retained for a maximum of 12 months from the date of your last contact with us, unless you request earlier deletion or we are required to retain it for legal purposes.</p>
+
+        <h2>6. Your rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Request a copy of the personal data we hold about you</li>
+          <li>Request correction of inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Withdraw consent at any time (this does not affect the lawfulness of processing before withdrawal)</li>
+        </ul>
+        <p>To exercise any of these rights, email us at <a href={`mailto:${site.email.info}`}>{site.email.info}</a> with the subject line "Data Request". We will respond within 30 days.</p>
+
+        <h2>7. Cookies</h2>
+        <p>This website uses no advertising or tracking cookies. See our <a href="/legal/cookies/">Cookie Policy</a> for full details.</p>
+
+        <h2>8. Security</h2>
+        <p>We take reasonable technical and organisational measures to protect your information from unauthorised access, loss or misuse. Our website is served over HTTPS at all times.</p>
+
+        <h2>9. Changes to this policy</h2>
+        <p>We may update this policy from time to time. The "Last updated" date at the top of this page will reflect any changes. Continued use of this website after changes are posted constitutes acceptance of the revised policy.</p>
+
+        <h2>10. Contact</h2>
+        <p>For any privacy-related questions, contact us at <a href={`mailto:${site.email.info}`}>{site.email.info}</a>.</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.legal-hero { background:#060f1e; padding:var(--sp-20) 0 var(--sp-12); text-align:center; }
+.legal-hero h1 { color:var(--white); margin:var(--sp-4) 0 var(--sp-3); font-size:var(--fs-h1); }
+.meta { color:rgba(255,255,255,.45); font-size:.9rem; }
+.legal-body { background:#eef2f7; padding-block:var(--sp-16) var(--sp-24); }
+.legal-content { max-width:720px; margin:0 auto; background:var(--white); border-radius:var(--r-xl); padding:var(--sp-12); box-shadow:0 4px 32px rgba(0,0,0,.07); }
+.lead { font-size:1.0625rem; color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-8); padding-bottom:var(--sp-8); border-bottom:1px solid var(--sky-100); }
+h2 { font-size:1.125rem; margin-top:var(--sp-8); margin-bottom:var(--sp-3); color:var(--navy-900); }
+p { color:var(--slate-500); line-height:1.75; margin-bottom:var(--sp-4); font-size:.9875rem; }
+ul { color:var(--slate-500); line-height:1.75; padding-left:var(--sp-6); margin-bottom:var(--sp-4); font-size:.9875rem; }
+li { margin-bottom:var(--sp-1); }
+a { color:var(--teal-600); }
+strong { color:var(--ink-800); font-weight:600; }
+@media(max-width:639px) { .legal-content { padding:var(--sp-8) var(--sp-5); } }
+</style>
