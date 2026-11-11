@@ -20,6 +20,8 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
       <div class="glow glow-1"></div>
       <div class="glow glow-2"></div>
       <div class="glow glow-3"></div>
+      <div class="glow glow-4"></div>
+      <div class="mesh-grid"></div>
     </div>
     <div class="container hero-inner">
       <div class="hero-content">
@@ -240,20 +242,33 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 /* ── Layout helpers ── */
 .section { padding-block: var(--sp-32) var(--sp-24); }
 .light-section { background: var(--white); }
-.dark-section { background: var(--grad-bg); position: relative; overflow: hidden; }
+.dark-section { background: #060f1e; position: relative; overflow: hidden; }
 .section-header { text-align: center; max-width: 680px; margin: 0 auto var(--sp-16); }
 .section-header--light h2 { color: var(--white); }
 .section-sub { color: var(--slate-500); font-size: 1.0625rem; margin-top: var(--sp-4); line-height: 1.65; }
 
 /* ── Hero ── */
-.hero { background: var(--grad-bg); padding-block: var(--sp-32) var(--sp-24); position: relative; overflow: hidden; }
+.hero { background: #060f1e; padding-block: var(--sp-32) var(--sp-24); position: relative; overflow: hidden; }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; }
-.glow { position: absolute; border-radius: 50%; filter: blur(80px); opacity: .55; pointer-events: none; }
-.glow-1 { width: 600px; height: 400px; background: rgba(242,169,59,.15); top: -120px; left: 50%; transform: translateX(-50%); }
-.glow-2 { width: 400px; height: 400px; background: rgba(18,122,110,.12); bottom: 0; right: -80px; }
-.glow-3 { width: 300px; height: 300px; background: rgba(30,64,175,.14); top: 30%; left: -60px; }
-.glow-teal { width: 500px; height: 500px; background: rgba(18,122,110,.12); position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
-.glow-amber-soft { width: 500px; height: 500px; background: rgba(242,169,59,.10); position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
+
+/* Vivid glows — MUST be colorful so blur has something to show */
+.glow { position: absolute; border-radius: 50%; pointer-events: none; }
+.glow-1 { width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(242,169,59,.55) 0%, rgba(242,120,30,.2) 50%, transparent 75%); filter: blur(60px); top: -180px; left: 50%; transform: translateX(-30%); }
+.glow-2 { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(18,122,110,.5) 0%, transparent 70%); filter: blur(70px); bottom: -100px; right: -100px; }
+.glow-3 { width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(99,102,241,.45) 0%, transparent 70%); filter: blur(60px); top: 20%; left: -80px; }
+.glow-4 { width: 300px; height: 300px; background: radial-gradient(ellipse, rgba(236,72,153,.35) 0%, transparent 70%); filter: blur(50px); top: 60%; left: 40%; }
+
+/* Subtle mesh grid overlay */
+.mesh-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.glow-teal { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(18,122,110,.45) 0%, transparent 70%); filter: blur(70px); position: absolute; border-radius: 50%; pointer-events: none; }
+.glow-amber-soft { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(242,169,59,.4) 0%, transparent 70%); filter: blur(70px); position: absolute; border-radius: 50%; pointer-events: none; }
 
 .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; position: relative; }
 .hero-content { display: flex; flex-direction: column; gap: var(--sp-6); }

@@ -13,8 +13,9 @@ const year = new Date().getFullYear();
     <div class="footer-top">
       <div class="footer-brand">
         <div class="footer-logo-wrap">
-          <span class="footer-mark">ZE</span>
-          <span class="footer-logo-name">ZadonEmbark</span>
+          <span class="footer-wordmark">
+            <span class="footer-zadon">Zadon</span><span class="footer-embark">Embark</span>
+          </span>
         </div>
         <p class="footer-tagline">Your trusted partner for international work and study opportunities — transparent, verified, ethical.</p>
         {site.phone   && <a href={`tel:${site.phone}`}          class="footer-contact">{site.phone}</a>}
@@ -63,13 +64,16 @@ const year = new Date().getFullYear();
   gap: var(--sp-12); padding-bottom: var(--sp-12);
   border-bottom: 1px solid rgba(255,255,255,.07);
 }
-.footer-logo-wrap { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
-.footer-mark {
-  width: 32px; height: 32px; border-radius: var(--r-sm);
-  background: var(--grad-amber); display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-weight: 800; font-size: .8rem; color: var(--navy-950);
+.footer-logo-wrap { margin-bottom: var(--sp-4); }
+.footer-wordmark {
+  font-family: var(--font-head); font-size: 1.5rem; font-weight: 800;
+  letter-spacing: -0.04em; display: flex; align-items: baseline;
 }
-.footer-logo-name { font-family: var(--font-head); font-weight: 700; font-size: 1rem; color: var(--white); }
+.footer-zadon {
+  background: linear-gradient(135deg, #F2A93B 0%, #fcd97a 60%, #F2A93B 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.footer-embark { color: rgba(255,255,255,.85); font-weight: 600; letter-spacing: -0.02em; }
 .footer-tagline { font-size: var(--fs-small); color: rgba(255,255,255,.45); line-height: 1.65; margin-bottom: var(--sp-4); max-width: 28ch; }
 .footer-contact { display: block; color: rgba(255,255,255,.55); text-decoration: none; font-size: .875rem; transition: color .15s; margin-top: 4px; }
 .footer-contact:hover { color: var(--amber-500); }

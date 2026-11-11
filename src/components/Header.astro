@@ -27,8 +27,9 @@ const altLabel = lang === 'en' ? 'हिन्दी' : 'EN';
   <div class="container header-inner">
 
     <a href={lang === 'hi' ? '/hi/' : '/'} class="logo" aria-label="ZadonEmbark">
-      <span class="logo-mark">ZE</span>
-      <span class="logo-name">ZadonEmbark</span>
+      <span class="logo-wordmark">
+        <span class="logo-zadon">Zadon</span><span class="logo-embark">Embark</span>
+      </span>
     </a>
 
     <nav class="main-nav" aria-label="Main navigation">
@@ -74,15 +75,27 @@ const altLabel = lang === 'en' ? 'हिन्दी' : 'EN';
 }
 .header-inner { display: flex; align-items: center; gap: var(--sp-6); height: 68px; }
 
-.logo { display: flex; align-items: center; gap: var(--sp-3); text-decoration: none; flex-shrink: 0; }
-.logo-mark {
-  width: 34px; height: 34px; border-radius: var(--r-sm);
-  background: var(--grad-amber);
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-head); font-weight: 800; font-size: 0.8rem;
-  color: var(--navy-950); letter-spacing: -0.02em;
+.logo { text-decoration: none; flex-shrink: 0; }
+.logo-wordmark {
+  font-family: var(--font-head);
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
 }
-.logo-name { font-family: var(--font-head); font-weight: 700; font-size: 1.1rem; color: var(--white); letter-spacing: -0.02em; }
+.logo-zadon {
+  background: linear-gradient(135deg, #F2A93B 0%, #fcd97a 60%, #F2A93B 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-embark {
+  color: rgba(255,255,255,0.90);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
 
 .main-nav { flex: 1; }
 .nav-list { display: flex; list-style: none; gap: var(--sp-1); }
