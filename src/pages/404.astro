@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Page Not Found" description="The page you were looking for does not exist." noindex={true}>
+  <section class="not-found">
+    <div class="glow g1"></div>
+    <div class="container">
+      <div class="code">404</div>
+      <h1>Page not found</h1>
+      <p>The page you were looking for doesn't exist or may have moved.</p>
+      <div class="links">
+        <a href="/" class="btn-home">Go to Home</a>
+        <a href="/contact/">Contact Us</a>
+        <a href="/faq/">FAQ</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.not-found { background:#060f1e; min-height:70vh; display:flex; align-items:center; text-align:center; position:relative; overflow:hidden; padding:var(--sp-24) 0; }
+.glow { position:absolute; border-radius:50%; pointer-events:none; }
+.g1 { width:600px;height:400px;background:radial-gradient(ellipse,rgba(242,169,59,.35) 0%,transparent 70%);filter:blur(80px);top:-100px;left:50%;transform:translateX(-50%); }
+.container { position:relative; }
+.code { font-size:clamp(5rem,15vw,10rem); font-weight:800; font-family:var(--font-head); color:rgba(255,255,255,.08); line-height:1; letter-spacing:-0.05em; margin-bottom:var(--sp-4); }
+h1 { color:var(--white); font-size:var(--fs-h1); margin-bottom:var(--sp-4); }
+p { color:rgba(255,255,255,.55); font-size:1.0625rem; margin-bottom:var(--sp-10); }
+.links { display:flex; gap:var(--sp-4); justify-content:center; flex-wrap:wrap; align-items:center; }
+.btn-home { background:linear-gradient(135deg,#F2A93B,#fcd97a); color:var(--navy-950); font-weight:600; padding:var(--sp-3) var(--sp-8); border-radius:var(--r-md); text-decoration:none; font-size:1rem; }
+.links a:not(.btn-home) { color:rgba(255,255,255,.55); text-decoration:none; font-size:.9375rem; padding:var(--sp-3) var(--sp-4); border:1px solid rgba(255,255,255,.12); border-radius:var(--r-md); transition:all .15s; }
+.links a:not(.btn-home):hover { color:var(--white); border-color:rgba(255,255,255,.3); }
+</style>

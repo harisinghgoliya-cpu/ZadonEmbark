@@ -11,7 +11,6 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
   title="Work & Study Abroad"
   description="ZadonEmbark helps Indian professionals and students find verified work and study opportunities internationally — with transparent fees and honest guidance."
   lang="en"
-  altLangSlug="/hi/"
 >
 
   <!-- ░░ HERO ░░ -->
@@ -25,13 +24,13 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
     </div>
     <div class="container hero-inner">
       <div class="hero-content">
-        <div class="chip">Trusted International Placement Partner</div>
+        <div class="chip">International Placement Consultancy</div>
         <h1 class="hero-title">
-          Your Future<br/>
-          <span class="text-gradient">Abroad</span> Starts Here
+          Your journey abroad,<br/>
+          <span class="text-gradient">handled honestly.</span>
         </h1>
         <p class="hero-sub">
-          Verified work and study opportunities across Europe, the Gulf & beyond — transparent fees, zero false promises.
+          Work and study opportunities across Europe, the Gulf and beyond — fees in writing before you pay, honest advice always.
         </p>
         <div class="hero-actions">
           <Button href="/study-abroad/" variant="primary" size="lg">Explore Study Abroad</Button>
@@ -39,46 +38,40 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
         </div>
         <div class="hero-stats">
           <div class="stat">
-            <span class="stat-num">10+</span>
-            <span class="stat-label">Destination Countries</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
-            <span class="stat-num">100%</span>
-            <span class="stat-label">Verified Employers</span>
-          </div>
-          <div class="stat-divider"></div>
-          <div class="stat">
             <span class="stat-num">Free</span>
             <span class="stat-label">Initial Consultation</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">Written</span>
+            <span class="stat-label">Fee Agreement First</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span class="stat-num">Zero</span>
+            <span class="stat-label">False Promises</span>
           </div>
         </div>
       </div>
 
       <div class="hero-card-wrap">
         <div class="glass-card hero-card">
-          <div class="hero-card-header">
-            <span class="dot dot-green"></span>
-            <span class="dot dot-amber"></span>
-            <span class="dot dot-red"></span>
-            <span class="hero-card-title">Your Opportunity Awaits</span>
-          </div>
           <ul class="opp-list">
             <li class="opp-item">
               <span class="opp-icon">🎓</span>
-              <div><strong>Study Abroad</strong><p>University admissions, scholarships & visa support</p></div>
+              <div><strong>Study Abroad</strong><p>University admissions, scholarships & visa guidance</p></div>
             </li>
             <li class="opp-item">
               <span class="opp-icon">💼</span>
-              <div><strong>Skilled Work Visas</strong><p>Matched with verified international employers</p></div>
-            </li>
-            <li class="opp-item">
-              <span class="opp-icon">🏥</span>
-              <div><strong>Healthcare Roles</strong><p>Nurses, doctors, care workers placed abroad</p></div>
+              <div><strong>Skilled Work</strong><p>International work opportunities with verified employers</p></div>
             </li>
             <li class="opp-item">
               <span class="opp-icon">🔧</span>
-              <div><strong>Trade & Technical</strong><p>Engineering, IT, construction, manufacturing</p></div>
+              <div><strong>Trade & Technical</strong><p>Engineering, IT, construction, manufacturing roles</p></div>
+            </li>
+            <li class="opp-item">
+              <span class="opp-icon">🏢</span>
+              <div><strong>For Employers</strong><p>International talent acquisition support</p></div>
             </li>
           </ul>
           <Button href="/contact/" variant="primary" size="md" style="width:100%;margin-top:var(--sp-4)">
@@ -99,10 +92,10 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
       </div>
       <div class="cards-grid">
         {[
-          { icon: '🎓', title: 'Students', desc: 'Undergraduate, postgraduate & vocational admissions at globally ranked institutions. Scholarship guidance, language prep and visa support included.', href: '/study-abroad/', color: 'amber' },
-          { icon: '💼', title: 'Job Seekers', desc: 'Skilled, semi-skilled and healthcare roles with verified international employers. Genuine work permits, no illegal shortcuts.', href: '/work-abroad/', color: 'teal' },
-          { icon: '🏢', title: 'Employers', desc: 'Source pre-screened Indian professionals quickly and compliantly. We handle documentation, logistics and onboarding support.', href: '/for-employers/', color: 'blue' },
-          { icon: '🤝', title: 'Partners', desc: 'Institutions, training centres and local agents looking to build a referral network. Transparent revenue sharing, full support.', href: '/partners/', color: 'purple' },
+          { icon: '🎓', title: 'Students', desc: 'Undergraduate, postgraduate & vocational admissions at universities and colleges abroad. Scholarship guidance, language prep and visa support.', href: '/study-abroad/', color: 'amber' },
+          { icon: '💼', title: 'Job Seekers', desc: 'Skilled and semi-skilled work opportunities with international employers. Clear documentation support, no illegal shortcuts.', href: '/work-abroad/', color: 'teal' },
+          { icon: '🏢', title: 'Employers', desc: 'International talent acquisition support. We assist with candidate sourcing, documentation and onboarding coordination.', href: '/for-employers/', color: 'blue' },
+          { icon: '🤝', title: 'Partners', desc: 'Universities, colleges and licensed agencies looking to collaborate. Referral arrangements available for accredited education institutions.', href: '/partners/', color: 'purple' },
         ].map(card => (
           <a href={card.href} class={`audience-card audience-card--${card.color}`}>
             <div class="audience-icon">{card.icon}</div>
@@ -153,10 +146,10 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
       </div>
       <div class="destinations-grid">
         {[
-          { region: 'Europe', icon: '🇪🇺', desc: 'Skilled work visas, permanent residency pathways and world-class universities. High demand for healthcare, IT and trade roles.', tags: ['Skilled Work', 'Study', 'PR Pathways'] },
-          { region: 'Middle East', icon: '🌙', desc: 'Tax-free income, rapid placement timelines and strong demand across construction, healthcare, hospitality and technology sectors.', tags: ['Work Visas', 'Tax-Free', 'Fast Placement'] },
-          { region: 'Asia-Pacific', icon: '🌏', desc: 'Growing economies with strong migration programmes. Excellent study destinations with post-study work rights.', tags: ['Study', 'Post-Study Work', 'Migration'] },
-          { region: 'Americas', icon: '🌎', desc: 'Top-ranked universities, diverse job markets and multiple immigration pathways for skilled professionals.', tags: ['Study', 'Skilled Work', 'Immigration'] },
+          { region: 'Europe', icon: '🇪🇺', desc: 'Strong demand for skilled workers and an established higher education system. We work with licensed partners on work and study placements.', tags: ['Skilled Work', 'Study'] },
+          { region: 'Middle East', icon: '🌙', desc: 'Active demand across construction, healthcare, hospitality and technology sectors. We assist with documentation and employer coordination.', tags: ['Work Visas', 'Multiple Sectors'] },
+          { region: 'Asia-Pacific', icon: '🌏', desc: 'Growing economies with strong international study options and post-study work pathways, subject to individual country rules.', tags: ['Study', 'Post-Study Work'] },
+          { region: 'Americas', icon: '🌎', desc: 'Home to many internationally recognised universities. We provide guidance on study applications and country-specific requirements.', tags: ['Study', 'Skilled Work'] },
         ].map(d => (
           <div class="dest-card">
             <div class="dest-icon">{d.icon}</div>

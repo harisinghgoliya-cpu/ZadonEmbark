@@ -8,8 +8,8 @@ import ContactForm from '../../components/ContactForm.astro';
     <div class="glow g1"></div><div class="glow g2"></div>
     <div class="container">
       <div class="chip">Work Abroad</div>
-      <h1>Get a Verified Job<br/><span class="text-gradient">Abroad</span> — No Shortcuts</h1>
-      <p>We place skilled and semi-skilled Indian professionals with verified international employers. Genuine work permits only.</p>
+      <h1>Work abroad the<br/><span class="text-gradient">legal and safe way.</span></h1>
+      <p>We help skilled professionals find international work opportunities — with honest guidance, clear documentation support and no illegal shortcuts.</p>
       <div class="hero-btns">
         <Button href="#enquire" variant="primary" size="lg">Apply Now</Button>
         <Button href="/fraud-awareness/" variant="secondary" size="lg">Avoid Scams →</Button>
@@ -33,16 +33,16 @@ import ContactForm from '../../components/ContactForm.astro';
       <div class="section-header">
         <div class="chip chip--teal">Sectors We Cover</div>
         <h2>Opportunities across industries</h2>
-        <p class="section-sub">We work with verified employers across a wide range of sectors requiring skilled Indian professionals.</p>
+        <p class="section-sub">We support placements across a range of sectors. Opportunities are listed only when employer details have been verified by our team.</p>
       </div>
       <div class="sectors-grid">
         {[
-          { icon:'🏥', title:'Healthcare', desc:'Nurses, care workers, medical technicians and support staff for hospitals and care homes.' },
-          { icon:'🔧', title:'Engineering & Technical', desc:'Mechanical, electrical, civil and industrial engineers for manufacturing and infrastructure.' },
+          { icon:'🏥', title:'Healthcare', desc:'Healthcare support roles including care workers and medical technicians for hospitals and care homes, subject to destination requirements.' },
+          { icon:'🔧', title:'Engineering & Technical', desc:'Mechanical, electrical, civil and industrial engineers for manufacturing and infrastructure projects.' },
           { icon:'💻', title:'Information Technology', desc:'Software developers, data analysts, network engineers and IT support professionals.' },
-          { icon:'🏗️', title:'Construction', desc:'Project managers, skilled tradespeople and site supervisors for infrastructure projects.' },
-          { icon:'🍽️', title:'Hospitality', desc:'Hotel staff, chefs, service professionals for the tourism and hospitality industry.' },
-          { icon:'🌾', title:'Agriculture & Food', desc:'Seasonal and permanent roles in farming, food processing and supply chain.' },
+          { icon:'🏗️', title:'Construction', desc:'Project managers, skilled tradespeople and site supervisors for construction and infrastructure projects.' },
+          { icon:'🍽️', title:'Hospitality', desc:'Hotel staff, chefs and service professionals for the tourism and hospitality industry.' },
+          { icon:'🌾', title:'Agriculture & Food', desc:'Roles in farming, food processing and agricultural supply chain, subject to seasonal demand and employer requirements.' },
         ].map(s => (
           <div class="sector-card">
             <span class="sector-icon">{s.icon}</span>

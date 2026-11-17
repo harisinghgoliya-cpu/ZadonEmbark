@@ -11,6 +11,7 @@ const navItems = lang === 'en'
       { label: 'Work Abroad', href: '/work-abroad/' },
       { label: 'For Employers', href: '/for-employers/' },
       { label: 'How It Works', href: '/how-it-works/' },
+      { label: 'Fees', href: '/fees-and-transparency/' },
       { label: 'About', href: '/about/' },
     ]
   : [
@@ -62,46 +63,53 @@ const navItems = lang === 'en'
 </header>
 
 <style>
+/* G1 — sticky header glass: solid ivory at top, glass after 24px scroll (toggled by JS) */
 .site-header {
   position: sticky; top: 0; z-index: 200;
-  background: rgba(10, 26, 46, 0.72);
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--ivory-50);
+  border-bottom: 1px solid var(--line-200);
+  transition: background 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
 }
-.header-inner { display: flex; align-items: center; gap: var(--sp-6); height: 68px; }
+.site-header.is-scrolled {
+  background: rgba(247,245,240,0.80);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom-color: var(--line-200);
+  box-shadow: 0 1px 20px rgba(20,38,59,.06);
+}
+.header-inner { display: flex; align-items: center; gap: var(--sp-6); height: 72px; }
 
 .logo { text-decoration: none; flex-shrink: 0; }
 .logo-wordmark {
-  font-family: var(--font-head);
-  font-size: 1.45rem;
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1;
   display: flex;
   align-items: baseline;
+  gap: 1px;
 }
 .logo-zadon {
-  background: linear-gradient(135deg, #F2A93B 0%, #fcd97a 60%, #F2A93B 100%);
+  background: linear-gradient(135deg, #E9B45A 0%, #c8891a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 .logo-embark {
-  color: rgba(255,255,255,0.90);
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  color: var(--navy-900);
+  font-weight: 500;
 }
 
 .main-nav { flex: 1; }
 .nav-list { display: flex; list-style: none; gap: var(--sp-1); }
 .nav-link {
   display: block; padding: var(--sp-2) var(--sp-3);
-  font-size: 0.9rem; font-weight: 500; color: rgba(255,255,255,.75);
-  text-decoration: none; border-radius: var(--r-sm);
+  font-size: 0.875rem; font-weight: 500; color: var(--ink-600);
+  text-decoration: none; border-radius: var(--r-pill);
   transition: color .15s, background .15s;
 }
-.nav-link:hover { color: var(--white); background: rgba(255,255,255,.07); }
+.nav-link:hover { color: var(--navy-900); background: var(--sand-100); }
 
 .header-actions { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
 
@@ -110,22 +118,22 @@ const navItems = lang === 'en'
   background: none; border: none; cursor: pointer;
   padding: var(--sp-2); margin-left: auto;
 }
-.burger span { display: block; width: 20px; height: 2px; background: var(--white); border-radius: 2px; transition: .2s; }
+.burger span { display: block; width: 22px; height: 2px; background: var(--navy-900); border-radius: 2px; transition: .2s; }
 
 /* Mobile menu */
 .mobile-menu {
-  background: rgba(8, 20, 38, 0.97);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(255,255,255,.08);
+  background: var(--ivory-50);
+  border-top: 1px solid var(--line-200);
   padding: var(--sp-6);
+  box-shadow: 0 8px 32px rgba(20,38,59,.10);
 }
 .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-1); }
 .mob-link {
-  display: block; padding: var(--sp-3) var(--sp-4); color: rgba(255,255,255,.8);
-  text-decoration: none; font-weight: 500; border-radius: var(--r-sm);
+  display: block; padding: var(--sp-3) var(--sp-4); color: var(--ink-600);
+  text-decoration: none; font-weight: 500; border-radius: var(--r-pill);
   transition: background .15s, color .15s;
 }
-.mob-link:hover { background: rgba(255,255,255,.07); color: var(--white); }
+.mob-link:hover { background: var(--sand-100); color: var(--navy-900); }
 
 @media (max-width: 1023px) {
   .main-nav { display: none; }
@@ -144,13 +152,14 @@ if (burger && menu) {
     menu.hidden = open;
   });
 }
-// Scroll: more opaque when scrolled
+// G1 glass: add .is-scrolled after 24px (IntersectionObserver on sentinel)
+const sentinel = document.createElement('div');
+sentinel.style.cssText = 'position:absolute;top:24px;left:0;width:1px;height:1px;pointer-events:none';
+document.body.prepend(sentinel);
 const header = document.getElementById('site-header');
-if (header) {
-  window.addEventListener('scroll', () => {
-    header.style.background = window.scrollY > 20
-      ? 'rgba(8, 20, 38, 0.95)'
-      : 'rgba(10, 26, 46, 0.72)';
-  }, { passive: true });
+if (header && sentinel) {
+  new IntersectionObserver(([e]) => {
+    header.classList.toggle('is-scrolled', !e.isIntersecting);
+  }).observe(sentinel);
 }
 </script>

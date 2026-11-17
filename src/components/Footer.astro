@@ -17,7 +17,8 @@ const year = new Date().getFullYear();
             <span class="footer-zadon">Zadon</span><span class="footer-embark">Embark</span>
           </span>
         </div>
-        <p class="footer-tagline">Your trusted partner for international work and study opportunities — transparent, verified, ethical.</p>
+        <p class="footer-division">A division of Zadon Technology</p>
+        <p class="footer-tagline">International work and study placement — transparent fees, honest guidance, no false promises.</p>
         {site.phone   && <a href={`tel:${site.phone}`}          class="footer-contact">{site.phone}</a>}
         {site.email.info && <a href={`mailto:${site.email.info}`}  class="footer-contact">{site.email.info}</a>}
         <div class="footer-socials">
@@ -37,7 +38,7 @@ const year = new Date().getFullYear();
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {year} {site.legalName || 'ZadonEmbark'}. All rights reserved.{site.address && ` ${site.address}`}</p>
+      <p>&copy; {year} {site.legalName || 'ZadonEmbark'} · A division of Zadon Technology. All rights reserved.{site.address && ` ${site.address}`}</p>
       <p class="footer-disclaimer">
         ZadonEmbark does not guarantee visa approvals or job placements. All fees are disclosed in writing before engagement.
       </p>
@@ -74,6 +75,7 @@ const year = new Date().getFullYear();
   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
 .footer-embark { color: rgba(255,255,255,.85); font-weight: 600; letter-spacing: -0.02em; }
+.footer-division { font-size: .8rem; font-weight: 600; color: var(--amber-500); letter-spacing: 0.03em; margin-bottom: var(--sp-2); }
 .footer-tagline { font-size: var(--fs-small); color: rgba(255,255,255,.45); line-height: 1.65; margin-bottom: var(--sp-4); max-width: 28ch; }
 .footer-contact { display: block; color: rgba(255,255,255,.55); text-decoration: none; font-size: .875rem; transition: color .15s; margin-top: 4px; }
 .footer-contact:hover { color: var(--amber-500); }
