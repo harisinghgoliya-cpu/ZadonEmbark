@@ -118,9 +118,12 @@ img, video { max-width: 100%; display: block; }
   background: rgba(233,180,90,.14);
 }
 
-/* Page heroes and main hero are now light — hide background glow elements */
-.page-hero .glow,
-.hero .hero-bg { display: none; }
+/* Chips on dark page-heroes */
+.page-hero .chip {
+  color: var(--gold-400);
+  border-color: rgba(233,180,90,.40);
+  background: rgba(233,180,90,.14);
+}
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }

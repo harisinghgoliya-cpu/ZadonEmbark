@@ -34,8 +34,8 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
           Work and study opportunities across Europe, the Gulf and beyond — fees in writing before you pay, honest advice always.
         </p>
         <div class="hero-actions">
-          <Button href="/study-abroad/" variant="primary" size="lg">Explore Study Abroad</Button>
-          <Button href="/work-abroad/" variant="secondary" size="lg">Find Work Abroad</Button>
+          <Button href="/study-abroad/" variant="cta" size="lg">Explore Study Abroad</Button>
+          <Button href="/work-abroad/" variant="ghost" size="lg">Find Work Abroad</Button>
         </div>
         <div class="hero-stats">
           <div class="stat">
@@ -75,7 +75,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
               <div><strong>For Employers</strong><p>International talent acquisition support</p></div>
             </li>
           </ul>
-          <Button href="/contact/" variant="primary" size="md" style="width:100%;margin-top:var(--sp-4)">
+          <Button href="/contact/" variant="cta" size="md" style="width:100%;margin-top:var(--sp-4)">
             Book Free Consultation
           </Button>
         </div>
@@ -84,11 +84,13 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
   </section>
 
   <!-- ░░ WHO WE HELP ░░ -->
-  <section class="section light-section">
-    <div class="container">
-      <div class="section-header">
-        <div class="chip chip--teal">Who We Serve</div>
-        <h2>One platform, every path abroad</h2>
+  <section class="section dark-section who-section">
+    <div class="glow-who glow-who-1"></div>
+    <div class="glow-who glow-who-2"></div>
+    <div class="container" style="position:relative">
+      <div class="section-header section-header--light">
+        <div class="chip">Who We Serve</div>
+        <h2>One platform, <span class="text-gradient">every path abroad</span></h2>
         <p class="section-sub">Whether you're a student, job seeker, employer or education partner — we have the right solution.</p>
       </div>
       <div class="cards-grid">
@@ -110,12 +112,12 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
   </section>
 
   <!-- ░░ HOW IT WORKS ░░ -->
-  <section class="section dark-section">
-    <div class="glow glow-teal" style="top:50%;left:-10%;"></div>
+  <section class="section dark-section how-section">
+    <div class="glow glow-teal" style="top:50%;left:-8%;transform:translateY(-50%);"></div>
     <div class="container" style="position:relative;">
       <div class="section-header section-header--light">
         <div class="chip">Simple Process</div>
-        <h2 style="color:var(--white)">From enquiry to departure — <span class="text-gradient">we handle it all</span></h2>
+        <h2>From enquiry to departure — <span class="text-gradient">we handle it all</span></h2>
       </div>
       <div class="process-steps">
         {[
@@ -132,17 +134,19 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
         ))}
       </div>
       <div style="text-align:center;margin-top:var(--sp-12)">
-        <Button href="/how-it-works/" variant="primary" size="lg">See Full Process</Button>
+        <Button href="/how-it-works/" variant="ghost" size="lg">See Full Process</Button>
       </div>
     </div>
   </section>
 
   <!-- ░░ DESTINATIONS ░░ -->
-  <section class="section light-section">
-    <div class="container">
-      <div class="section-header">
+  <section class="section dark-section dest-section">
+    <div class="glow-dest glow-dest-1"></div>
+    <div class="glow-dest glow-dest-2"></div>
+    <div class="container" style="position:relative">
+      <div class="section-header section-header--light">
         <div class="chip">Global Reach</div>
-        <h2>International opportunities across every continent</h2>
+        <h2>International opportunities across <span class="text-gradient">every continent</span></h2>
         <p class="section-sub">We place candidates and students in destinations across Europe, the Middle East, Asia-Pacific and the Americas.</p>
       </div>
       <div class="destinations-grid">
@@ -171,7 +175,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
     <div class="container" style="position:relative;">
       <div class="section-header section-header--light">
         <div class="chip">Our Commitment</div>
-        <h2 style="color:var(--white)">We operate with <span class="text-gradient">zero compromise</span></h2>
+        <h2>We operate with <span class="text-gradient">zero compromise</span></h2>
       </div>
       <div class="promise-grid">
         <div class="glass-card promise-card promise-card--never">
@@ -205,17 +209,18 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
   </section>
 
   <!-- ░░ CONTACT CTA ░░ -->
-  <section class="section cta-section">
-    <div class="container">
+  <section class="section dark-section cta-section">
+    <div class="glow glow-cta-amber"></div>
+    <div class="container" style="position:relative">
       <div class="cta-box glass-card">
         <div class="chip">Start Today</div>
         <h2>Ready to take the first step?</h2>
         <p>Book a free 30-minute consultation or drop us an enquiry. We'll get back to you within one working day.</p>
         <div class="cta-actions">
           {site.bookingsUrl && (
-            <Button href={site.bookingsUrl} variant="primary" size="lg">Book Free Consultation</Button>
+            <Button href={site.bookingsUrl} variant="cta" size="lg">Book Free Consultation</Button>
           )}
-          <Button href="/contact/" variant="secondary" size="lg">View All Contact Options</Button>
+          <Button href="/contact/" variant="ghost" size="lg">View All Contact Options</Button>
         </div>
         <div class="form-wrap">
           <ContactForm />
@@ -229,111 +234,121 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 <style>
 /* ── Layout helpers ── */
 .section { padding-block: var(--sp-32) var(--sp-24); }
-.light-section { background: var(--sand-100); }
 .dark-section { background: #060f1e; position: relative; overflow: hidden; }
 .section-header { text-align: center; max-width: 680px; margin: 0 auto var(--sp-16); }
 .section-header--light h2 { color: var(--white); }
-.section-sub { color: var(--slate-500); font-size: 1.0625rem; margin-top: var(--sp-4); line-height: 1.65; }
+.section-sub { color: rgba(255,255,255,.60); font-size: 1.0625rem; margin-top: var(--sp-4); line-height: 1.65; }
 
 /* ── Hero ── */
-.hero { background: var(--white); padding-block: var(--sp-32) var(--sp-24); position: relative; overflow: hidden; border-bottom: 1px solid var(--line-200); }
-.hero-bg { display: none; }
-
-/* Vivid glows — MUST be colorful so blur has something to show */
+.hero {
+  background: linear-gradient(135deg, #060D16 0%, #0F1A2E 55%, #060D16 100%);
+  padding-block: var(--sp-32) var(--sp-24);
+  position: relative; overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
 .glow { position: absolute; border-radius: 50%; pointer-events: none; }
-.glow-1 { width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(242,169,59,.55) 0%, rgba(242,120,30,.2) 50%, transparent 75%); filter: blur(60px); top: -180px; left: 50%; transform: translateX(-30%); }
-.glow-2 { width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(18,122,110,.5) 0%, transparent 70%); filter: blur(70px); bottom: -100px; right: -100px; }
-.glow-3 { width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(99,102,241,.45) 0%, transparent 70%); filter: blur(60px); top: 20%; left: -80px; }
-.glow-4 { width: 300px; height: 300px; background: radial-gradient(ellipse, rgba(236,72,153,.35) 0%, transparent 70%); filter: blur(50px); top: 60%; left: 40%; }
-
-/* Subtle mesh grid overlay */
+.glow-1 { width: 700px; height: 500px; background: radial-gradient(ellipse, rgba(233,180,90,.55) 0%, rgba(233,120,30,.2) 50%, transparent 75%); filter: blur(70px); top: -200px; right: -50px; }
+.glow-2 { width: 550px; height: 550px; background: radial-gradient(ellipse, rgba(13,148,136,.45) 0%, transparent 70%); filter: blur(80px); bottom: -120px; left: -60px; }
+.glow-3 { width: 420px; height: 420px; background: radial-gradient(ellipse, rgba(99,102,241,.40) 0%, transparent 70%); filter: blur(70px); top: 25%; left: 20%; }
+.glow-4 { width: 320px; height: 320px; background: radial-gradient(ellipse, rgba(236,72,153,.28) 0%, transparent 70%); filter: blur(60px); top: 55%; left: 48%; }
 .mesh-grid {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
   background-size: 60px 60px;
 }
-
-.glow-teal { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(18,122,110,.45) 0%, transparent 70%); filter: blur(70px); position: absolute; border-radius: 50%; pointer-events: none; }
-.glow-amber-soft { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(242,169,59,.4) 0%, transparent 70%); filter: blur(70px); position: absolute; border-radius: 50%; pointer-events: none; }
+.glow-teal { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(13,148,136,.38) 0%, transparent 70%); filter: blur(80px); position: absolute; border-radius: 50%; pointer-events: none; }
+.glow-amber-soft { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(233,180,90,.30) 0%, transparent 70%); filter: blur(80px); position: absolute; border-radius: 50%; pointer-events: none; }
 
 .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; position: relative; }
 .hero-content { display: flex; flex-direction: column; gap: var(--sp-6); }
-.hero-title { font-size: var(--fs-display); font-weight: 800; color: var(--navy-900); line-height: 1.1; letter-spacing: -0.03em; }
-.hero-sub { color: var(--slate-500); font-size: 1.125rem; max-width: 50ch; line-height: 1.65; }
+.hero-title { font-size: var(--fs-display); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.03em; }
+.hero-sub { color: rgba(255,255,255,.65); font-size: 1.125rem; max-width: 50ch; line-height: 1.65; }
 .hero-actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
-.hero-stats { display: flex; align-items: center; gap: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--line-200); }
+.hero-stats { display: flex; align-items: center; gap: var(--sp-6); padding-top: var(--sp-5); border-top: 1px solid rgba(255,255,255,.12); }
 .stat { display: flex; flex-direction: column; gap: 2px; }
-.stat-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--navy-900); letter-spacing: -0.03em; }
-.stat-label { font-size: var(--fs-xs); color: var(--slate-500); font-weight: 500; }
-.stat-divider { width: 1px; height: 32px; background: var(--line-200); }
+.stat-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
+.stat-label { font-size: var(--fs-xs); color: rgba(255,255,255,.50); font-weight: 500; }
+.stat-divider { width: 1px; height: 32px; background: rgba(255,255,255,.15); }
 
-/* Hero floating card */
+/* Hero glass card */
 .hero-card-wrap { display: flex; align-items: center; justify-content: center; }
 .hero-card {
-  background: var(--white);
-  border: 1px solid var(--line-200);
-  box-shadow: 0 8px 40px rgba(20,38,59,.10);
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.18);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  box-shadow: 0 24px 80px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.25);
   border-radius: var(--r-xl);
   padding: var(--sp-6);
   width: 100%;
 }
 .opp-list { list-style: none; display: flex; flex-direction: column; gap: var(--sp-4); }
 .opp-item { display: flex; align-items: flex-start; gap: var(--sp-4); }
-.opp-icon { flex-shrink: 0; margin-top: 2px; color: var(--navy-900); }
-.opp-item strong { font-family: var(--font-head); font-size: .9375rem; font-weight: 600; color: var(--navy-900); display: block; }
-.opp-item p { font-size: var(--fs-small); color: var(--slate-500); margin-top: 2px; }
+.opp-icon { flex-shrink: 0; margin-top: 2px; color: var(--gold-400); }
+.opp-item strong { font-family: var(--font-head); font-size: .9375rem; font-weight: 600; color: var(--white); display: block; }
+.opp-item p { font-size: var(--fs-small); color: rgba(255,255,255,.55); margin-top: 2px; }
 
 /* ── Audience cards ── */
+.who-section { }
+.glow-who { position: absolute; border-radius: 50%; pointer-events: none; }
+.glow-who-1 { width: 600px; height: 600px; background: radial-gradient(ellipse, rgba(13,148,136,.22) 0%, transparent 70%); filter: blur(100px); top: -120px; left: -80px; }
+.glow-who-2 { width: 550px; height: 550px; background: radial-gradient(ellipse, rgba(233,180,90,.18) 0%, transparent 70%); filter: blur(100px); bottom: -80px; right: -80px; }
 .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
 .audience-card {
   display: flex; flex-direction: column; gap: var(--sp-3);
   padding: var(--sp-8); border-radius: var(--r-lg);
-  border: 1px solid var(--sky-100);
-  background: var(--white); text-decoration: none; color: inherit;
-  box-shadow: 0 2px 12px rgba(0,0,0,.05);
-  transition: all .25s ease;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 4px 32px rgba(0,0,0,.20);
+  text-decoration: none; color: inherit;
+  transition: all .28s ease;
   position: relative; overflow: hidden;
 }
 .audience-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  opacity: 0; transition: opacity .25s;
+  opacity: 1;
 }
-.audience-card--amber::before { background: var(--grad-amber); }
-.audience-card--teal::before  { background: var(--grad-teal); }
-.audience-card--blue::before  { background: var(--grad-blue); }
-.audience-card--purple::before { background: linear-gradient(135deg,#7c3aed,#a855f7); }
-.audience-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,.10); }
-.audience-card:hover::before { opacity: 1; }
-.audience-icon { line-height: 0; color: var(--navy-900); }
-.audience-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--ink-900); }
-.audience-card p { font-size: .9rem; color: var(--slate-500); line-height: 1.6; flex: 1; }
-.card-cta { font-size: .875rem; font-weight: 600; color: var(--teal-600); margin-top: var(--sp-2); }
+.audience-card--amber::before { background: linear-gradient(90deg, #E9B45A, #F97316); }
+.audience-card--teal::before  { background: linear-gradient(90deg, #0D9488, #22D3EE); }
+.audience-card--blue::before  { background: linear-gradient(90deg, #2563EB, #818CF8); }
+.audience-card--purple::before { background: linear-gradient(90deg, #7C3AED, #A855F7); }
+.audience-card:hover { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); transform: translateY(-6px); box-shadow: 0 20px 56px rgba(0,0,0,.35); }
+.audience-icon { line-height: 0; color: var(--gold-400); }
+.audience-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--white); }
+.audience-card p { font-size: .9rem; color: rgba(255,255,255,.60); line-height: 1.6; flex: 1; }
+.card-cta { font-size: .875rem; font-weight: 600; color: var(--gold-400); margin-top: var(--sp-2); }
 
 /* ── Process ── */
+.how-section { }
 .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
 .process-card { padding: var(--sp-8); display: flex; flex-direction: column; gap: var(--sp-4); }
 .process-num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 800; line-height: 1; background: var(--grad-amber); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
 /* ── Destinations ── */
+.dest-section { }
+.glow-dest { position: absolute; border-radius: 50%; pointer-events: none; }
+.glow-dest-1 { width: 700px; height: 400px; background: radial-gradient(ellipse, rgba(99,102,241,.26) 0%, transparent 70%); filter: blur(90px); top: 0; right: -120px; }
+.glow-dest-2 { width: 500px; height: 400px; background: radial-gradient(ellipse, rgba(13,148,136,.20) 0%, transparent 70%); filter: blur(90px); bottom: 0; left: -80px; }
 .destinations-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }
 .dest-card {
   padding: var(--sp-8); border-radius: var(--r-lg);
-  border: 1px solid var(--sky-100); background: var(--white);
-  box-shadow: 0 2px 12px rgba(0,0,0,.04);
-  transition: all .25s;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: 0 4px 32px rgba(0,0,0,.20);
+  transition: all .28s;
 }
-.dest-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.09); }
-.dest-icon { margin-bottom: var(--sp-4); color: var(--navy-700); }
-.dest-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--sp-3); }
-.dest-card p { font-size: .9rem; color: var(--slate-500); line-height: 1.65; margin-bottom: var(--sp-4); }
+.dest-card:hover { background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.22); transform: translateY(-4px); box-shadow: 0 20px 56px rgba(0,0,0,.35); }
+.dest-icon { margin-bottom: var(--sp-4); color: var(--gold-400); }
+.dest-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--sp-3); color: var(--white); }
+.dest-card p { font-size: .9rem; color: rgba(255,255,255,.60); line-height: 1.65; margin-bottom: var(--sp-4); }
 .dest-tags { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
-.dest-tag {
-  font-size: 0.72rem; font-weight: 600; padding: 2px 8px;
-  background: var(--sky-50); border: 1px solid var(--sky-100);
-  border-radius: var(--r-full); color: var(--navy-700);
-}
+.dest-tag { font-size: 0.72rem; font-weight: 600; padding: 2px 8px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.18); border-radius: var(--r-full); color: rgba(255,255,255,.75); }
 
 /* ── Promise ── */
 .promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-8); max-width: 900px; margin: 0 auto; }
@@ -347,13 +362,9 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 .promise-card--always .promise-list li::before { content: '→'; position: absolute; left: 0; color: #34d399; font-weight: 700; }
 
 /* ── CTA section ── */
-.cta-section { background: var(--sand-100); }
-.cta-box {
-  background: var(--grad-bg) !important;
-  border: 1px solid rgba(255,255,255,.1) !important;
-  padding: var(--sp-16);
-  text-align: center; max-width: 760px; margin: 0 auto;
-}
+.cta-section { }
+.glow-cta-amber { width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(233,180,90,.20) 0%, transparent 70%); filter: blur(90px); position: absolute; border-radius: 50%; pointer-events: none; top: 0; left: 5%; }
+.cta-box { padding: var(--sp-16); text-align: center; max-width: 760px; margin: 0 auto; }
 .cta-box h2 { color: var(--white); margin-bottom: var(--sp-4); }
 .cta-box p { color: rgba(255,255,255,.65); font-size: 1.0625rem; margin-bottom: var(--sp-8); }
 .cta-actions { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; margin-bottom: var(--sp-10); }

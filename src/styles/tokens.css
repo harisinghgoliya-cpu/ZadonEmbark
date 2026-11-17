@@ -80,11 +80,11 @@
   --shadow-float: 0 24px 60px rgba(20,38,59,.14);
   --shadow-amber: 0 0 32px rgba(233,180,90,.30);
 
-  /* ── Glass (restrained — 6 specific uses only) ── */
+  /* ── Glass ── */
   --glass-light-bg:     rgba(255,255,255,0.72);
   --glass-light-border: rgba(255,255,255,0.55);
-  --glass-dark-bg:      rgba(20,38,59,0.55);
-  --glass-dark-border:  rgba(255,255,255,0.14);
+  --glass-dark-bg:      rgba(255,255,255,0.08);   /* true frosted white on dark bg */
+  --glass-dark-border:  rgba(255,255,255,0.18);
   --glass-highlight:    inset 0 1px 0 rgba(255,255,255,0.35);
 
   /* Legacy vars kept so old pages don't break while being migrated */
