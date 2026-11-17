@@ -13,9 +13,9 @@
 
 :root {
   /* ── Ground & surfaces ── */
-  --ivory-50:  #F7F5F0;   /* page background */
-  --sand-100:  #EDE8DD;   /* alternate section band */
-  --line-200:  #E4DFD4;   /* hairlines, card borders */
+  --ivory-50:  #FFFFFF;   /* page background */
+  --sand-100:  #F4F4F4;   /* alternate section band */
+  --line-200:  #E5E7EB;   /* hairlines, card borders */
   --white:     #FFFFFF;   /* cards */
 
   /* ── Brand ── */
@@ -39,10 +39,10 @@
   --amber-300: #E7C9A6;
   --amber-500: #E9B45A;   /* alias for components that reference --amber-500 */
 
-  /* ── Sky (kept for form borders) ── */
-  --sky-50:    #f0f6fd;
-  --sky-100:   #dceaf8;
-  --sky-200:   #c3daf2;
+  /* ── Sky (neutral, kept for form/card borders) ── */
+  --sky-50:    #F7F7F7;
+  --sky-100:   #E8E8E8;
+  --sky-200:   #D1D5DB;
 
   /* ── Typography ── */
   --font-display: 'Fraunces', Georgia, serif;
@@ -92,6 +92,9 @@
   --navy-800: #0f2340;
   --grad-amber: linear-gradient(135deg, #E9B45A 0%, #f5cc85 100%);
   --grad-text:  linear-gradient(135deg, #E9B45A 0%, #f5cc85 50%, #E9B45A 100%);
+  --grad-bg:   linear-gradient(135deg, #14263B 0%, #0F1E30 100%);
+  --grad-teal: linear-gradient(135deg, #127A6E 0%, #0d6b60 100%);
+  --grad-blue: linear-gradient(135deg, #2563EB 0%, #1d4ed8 100%);
   --blur:    blur(16px);
   --blur-lg: blur(28px);
 
