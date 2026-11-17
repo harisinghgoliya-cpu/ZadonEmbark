@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
 import ContactForm from '../../components/ContactForm.astro';
+import Icon from '../../components/Icon.astro';
 ---
 <BaseLayout title="Work Abroad" description="Find verified international employment — skilled work visas, genuine employers, transparent process.">
   <section class="page-hero">
@@ -20,7 +21,7 @@ import ContactForm from '../../components/ContactForm.astro';
   <section class="section light-section">
     <div class="container">
       <div class="callout-warning">
-        <span class="warn-icon">⚠️</span>
+        <Icon name="alert-triangle" size={24} class="warn-icon" />
         <div>
           <strong>Fraud Warning:</strong> No legitimate employer or agency guarantees a job or charges you to "process" a work visa before you sign a contract. If someone is asking for large upfront payments — verify with us first.
         </div>
@@ -37,15 +38,15 @@ import ContactForm from '../../components/ContactForm.astro';
       </div>
       <div class="sectors-grid">
         {[
-          { icon:'🏥', title:'Healthcare', desc:'Healthcare support roles including care workers and medical technicians for hospitals and care homes, subject to destination requirements.' },
-          { icon:'🔧', title:'Engineering & Technical', desc:'Mechanical, electrical, civil and industrial engineers for manufacturing and infrastructure projects.' },
-          { icon:'💻', title:'Information Technology', desc:'Software developers, data analysts, network engineers and IT support professionals.' },
-          { icon:'🏗️', title:'Construction', desc:'Project managers, skilled tradespeople and site supervisors for construction and infrastructure projects.' },
-          { icon:'🍽️', title:'Hospitality', desc:'Hotel staff, chefs and service professionals for the tourism and hospitality industry.' },
-          { icon:'🌾', title:'Agriculture & Food', desc:'Roles in farming, food processing and agricultural supply chain, subject to seasonal demand and employer requirements.' },
+          { icon:'activity', title:'Healthcare', desc:'Healthcare support roles including care workers and medical technicians for hospitals and care homes, subject to destination requirements.' },
+          { icon:'wrench', title:'Engineering & Technical', desc:'Mechanical, electrical, civil and industrial engineers for manufacturing and infrastructure projects.' },
+          { icon:'monitor', title:'Information Technology', desc:'Software developers, data analysts, network engineers and IT support professionals.' },
+          { icon:'hard-hat', title:'Construction', desc:'Project managers, skilled tradespeople and site supervisors for construction and infrastructure projects.' },
+          { icon:'utensils', title:'Hospitality', desc:'Hotel staff, chefs and service professionals for the tourism and hospitality industry.' },
+          { icon:'leaf', title:'Agriculture & Food', desc:'Roles in farming, food processing and agricultural supply chain, subject to seasonal demand and employer requirements.' },
         ].map(s => (
           <div class="sector-card">
-            <span class="sector-icon">{s.icon}</span>
+            <Icon name={s.icon} size={32} class="sector-icon" />
             <h3>{s.title}</h3>
             <p>{s.desc}</p>
           </div>
@@ -81,7 +82,7 @@ import ContactForm from '../../components/ContactForm.astro';
 .page-hero p { color:var(--slate-500);font-size:1.125rem;margin-bottom:var(--sp-8); }
 .hero-btns { display:flex;gap:var(--sp-4);justify-content:center;flex-wrap:wrap; }
 .callout-warning { background:#fff7ed;border:1px solid #fed7aa;border-radius:var(--r-lg);padding:var(--sp-5) var(--sp-6);display:flex;gap:var(--sp-4);align-items:flex-start;color:#92400e;font-size:.9375rem;line-height:1.6; }
-.warn-icon { font-size:1.5rem;flex-shrink:0; }
+.warn-icon { flex-shrink:0; }
 .section { padding-block:var(--sp-24); }
 .light-section { background:var(--sand-100); }
 .dark-section { background:#060f1e;position:relative;overflow:hidden; }
@@ -90,7 +91,7 @@ import ContactForm from '../../components/ContactForm.astro';
 .sectors-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
 .sector-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
 .sector-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
-.sector-icon { font-size:2rem;display:block;margin-bottom:var(--sp-4); }
+.sector-icon { display:block;margin-bottom:var(--sp-4);color:var(--teal-600); }
 .sector-card h3 { font-size:1.0625rem;margin-bottom:var(--sp-2); }
 .sector-card p { font-size:.9rem;color:var(--slate-500);line-height:1.65; }
 .form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:flex-start; }

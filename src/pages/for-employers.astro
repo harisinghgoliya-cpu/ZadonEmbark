@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="For Employers" description="Source pre-screened, work-permit-ready professionals for your business internationally — fast, compliant and reliable.">
   <section class="page-hero">
@@ -19,15 +20,15 @@ import ContactForm from '../components/ContactForm.astro';
       </div>
       <div class="features-grid">
         {[
-          {icon:'🔍',title:'Candidate Sourcing',desc:'We source candidates based on your job description and minimum requirements, then share profiles for your team to evaluate.'},
-          {icon:'📄',title:'Documentation Support',desc:'We assist candidates with document preparation, translation and attestation. Work permit applications are filed by the candidate or their licensed representative.'},
-          {icon:'🤝',title:'Employer Coordination',desc:'We act as the point of contact between you and the candidate throughout the process, reducing back-and-forth and missed steps.'},
-          {icon:'⚖️',title:'Licensed Partners',desc:'Where destination-country regulations require a licensed recruiter, we work with appropriately registered partners to ensure compliance.'},
-          {icon:'🌐',title:'Multiple Sectors',desc:'Healthcare, IT, construction, hospitality, engineering and manufacturing — across multiple countries.'},
-          {icon:'📞',title:'Post-Arrival Follow-up',desc:'We check in with both you and the placed candidate in the first weeks to surface any issues early.'},
+          {icon:'search',title:'Candidate Sourcing',desc:'We source candidates based on your job description and minimum requirements, then share profiles for your team to evaluate.'},
+          {icon:'file-text',title:'Documentation Support',desc:'We assist candidates with document preparation, translation and attestation. Work permit applications are filed by the candidate or their licensed representative.'},
+          {icon:'users',title:'Employer Coordination',desc:'We act as the point of contact between you and the candidate throughout the process, reducing back-and-forth and missed steps.'},
+          {icon:'scale',title:'Licensed Partners',desc:'Where destination-country regulations require a licensed recruiter, we work with appropriately registered partners to ensure compliance.'},
+          {icon:'globe',title:'Multiple Sectors',desc:'Healthcare, IT, construction, hospitality, engineering and manufacturing — across multiple countries.'},
+          {icon:'phone',title:'Post-Arrival Follow-up',desc:'We check in with both you and the placed candidate in the first weeks to surface any issues early.'},
         ].map(f=>(
           <div class="feature-card">
-            <div class="feature-icon">{f.icon}</div>
+            <div class="feature-icon"><Icon name={f.icon} size={32} /></div>
             <h3>{f.title}</h3>
             <p>{f.desc}</p>
           </div>
@@ -62,7 +63,7 @@ import ContactForm from '../components/ContactForm.astro';
 .features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
 .feature-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
 .feature-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
-.feature-icon { font-size:2rem;margin-bottom:var(--sp-4); }
+.feature-icon { margin-bottom:var(--sp-4);color:var(--teal-600); }
 .feature-card h3 { font-size:1rem;margin-bottom:var(--sp-2); }
 .feature-card p { font-size:.9rem;color:var(--slate-500);line-height:1.65; }
 .form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }

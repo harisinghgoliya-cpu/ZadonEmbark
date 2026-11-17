@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="Fraud Awareness" description="Protect yourself from fraudulent overseas job and study placement agents. Learn the red flags and how to verify any agent.">
   <section class="page-hero">
@@ -20,17 +21,17 @@ import ContactForm from '../components/ContactForm.astro';
       </div>
       <div class="flags-grid">
         {[
-          { icon:'💰', flag:'Large upfront cash demand', detail:'A legitimate agent collects fees only after providing a written agreement. Any demand for a large cash deposit before you have seen any paperwork is a serious red flag.' },
-          { icon:'🎯', flag:'Guaranteed visa or job', detail:'No one can guarantee a visa approval or a job offer. These decisions are made by governments and employers. Any agent who "guarantees" this is lying.' },
-          { icon:'⏰', flag:'Urgency and pressure tactics', detail:'"This offer closes tonight." "Only 2 spots left." Legitimate consultants do not use pressure tactics. Take your time and do your research.' },
-          { icon:'📄', flag:'No written agreement', detail:'Every service, fee and timeline should be in writing before you pay anything. If an agent refuses to put things in writing, do not proceed.' },
-          { icon:'🏢', flag:'No verifiable office or registration', detail:'Check whether the agent has a physical office, a verifiable phone number and registration with the relevant state authority.' },
-          { icon:'💳', flag:'Requests payment to a personal account', detail:'Payments should go to a registered company account. Payments to personal bank accounts or via UPI to an individual are a warning sign.' },
-          { icon:'📧', flag:'Unofficial communication channels', detail:'Legitimate agencies communicate via official email and phone. If you are only contacted via WhatsApp from a personal number, be cautious.' },
-          { icon:'🌐', flag:'Implausible offers', detail:'Offers that seem too good — very high salaries, immediate visa approvals for difficult countries, guaranteed admission to top universities — are often false.' },
+          { icon:'dollar-sign', flag:'Large upfront cash demand', detail:'A legitimate agent collects fees only after providing a written agreement. Any demand for a large cash deposit before you have seen any paperwork is a serious red flag.' },
+          { icon:'target', flag:'Guaranteed visa or job', detail:'No one can guarantee a visa approval or a job offer. These decisions are made by governments and employers. Any agent who "guarantees" this is lying.' },
+          { icon:'clock', flag:'Urgency and pressure tactics', detail:'"This offer closes tonight." "Only 2 spots left." Legitimate consultants do not use pressure tactics. Take your time and do your research.' },
+          { icon:'file-text', flag:'No written agreement', detail:'Every service, fee and timeline should be in writing before you pay anything. If an agent refuses to put things in writing, do not proceed.' },
+          { icon:'building-2', flag:'No verifiable office or registration', detail:'Check whether the agent has a physical office, a verifiable phone number and registration with the relevant state authority.' },
+          { icon:'credit-card', flag:'Requests payment to a personal account', detail:'Payments should go to a registered company account. Payments to personal bank accounts or via UPI to an individual are a warning sign.' },
+          { icon:'mail', flag:'Unofficial communication channels', detail:'Legitimate agencies communicate via official email and phone. If you are only contacted via WhatsApp from a personal number, be cautious.' },
+          { icon:'globe', flag:'Implausible offers', detail:'Offers that seem too good — very high salaries, immediate visa approvals for difficult countries, guaranteed admission to top universities — are often false.' },
         ].map(f => (
           <div class="flag-card">
-            <div class="flag-icon">{f.icon}</div>
+            <div class="flag-icon"><Icon name={f.icon} size={22} /></div>
             <h3>{f.flag}</h3>
             <p>{f.detail}</p>
           </div>
@@ -69,7 +70,7 @@ import ContactForm from '../components/ContactForm.astro';
   <section class="section light-section">
     <div class="container">
       <div class="report-box">
-        <div class="report-icon">🚨</div>
+        <Icon name="alert-triangle" size={40} class="report-icon" />
         <div>
           <h2>Think you have been scammed?</h2>
           <p>Report it immediately. The sooner you act, the better your chances of recovering money or preventing others from being targeted.</p>
@@ -114,7 +115,7 @@ import ContactForm from '../components/ContactForm.astro';
 .section-header { text-align:center; max-width:640px; margin:0 auto var(--sp-12); }
 .flags-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-5); }
 .flag-card { padding:var(--sp-6); background:var(--white); border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius:var(--r-lg); box-shadow:0 2px 8px rgba(220,38,38,.06); }
-.flag-icon { font-size:1.5rem; margin-bottom:var(--sp-3); }
+.flag-icon { margin-bottom:var(--sp-3); color:#991b1b; }
 .flag-card h3 { font-size:1rem; margin-bottom:var(--sp-2); color:#991b1b; }
 .flag-card p { font-size:.9rem; color:var(--slate-500); line-height:1.7; }
 .steps-section { max-width:800px; margin:0 auto; }
@@ -126,7 +127,7 @@ import ContactForm from '../components/ContactForm.astro';
 .step-card h3 { margin-bottom:var(--sp-2); font-size:1rem; }
 .step-card p { font-size:.9rem; line-height:1.7; }
 .report-box { display:flex; gap:var(--sp-6); align-items:flex-start; background:var(--white); border:1px solid #fecaca; border-left:4px solid #dc2626; border-radius:var(--r-xl); padding:var(--sp-10); max-width:760px; margin:0 auto; }
-.report-icon { font-size:2.5rem; flex-shrink:0; }
+.report-icon { flex-shrink:0; color:#dc2626; }
 .report-box h2 { margin-bottom:var(--sp-3); font-size:var(--fs-h3); }
 .report-box p { color:var(--slate-500); line-height:1.7; margin-bottom:var(--sp-5); }
 .report-links { display:flex; flex-direction:column; gap:var(--sp-3); }

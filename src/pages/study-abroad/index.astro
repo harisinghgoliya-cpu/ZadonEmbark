@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Button from '../../components/Button.astro';
 import ContactForm from '../../components/ContactForm.astro';
+import Icon from '../../components/Icon.astro';
 ---
 <BaseLayout title="Study Abroad" description="Find the right university, course and country for your international education journey — with full visa and admission support.">
   <section class="page-hero">
@@ -25,15 +26,15 @@ import ContactForm from '../../components/ContactForm.astro';
       </div>
       <div class="features-grid">
         {[
-          { icon: '🎓', title: 'University Admissions', desc: 'Shortlisting the right institution based on your profile, goals and budget — from established universities to specialised colleges.' },
-          { icon: '📋', title: 'Application Support', desc: 'SOP writing guidance, document preparation, application submission and follow-up with admissions offices.' },
-          { icon: '💰', title: 'Scholarship Guidance', desc: 'Identifying merit-based, government and institutional scholarships you may be eligible to apply for.' },
-          { icon: '🛂', title: 'Visa Guidance', desc: 'Student visa documentation guidance, financial proof support and application tracking.' },
-          { icon: '🏠', title: 'Pre-Departure Briefing', desc: 'Accommodation options, forex guidance, what to carry, and what to expect when you arrive.' },
-          { icon: '📞', title: 'Post-Departure Support', desc: 'We are available to assist after you depart if issues arise with your arrival, enrolment or accommodation.' },
+          { icon: 'graduation-cap', title: 'University Admissions', desc: 'Shortlisting the right institution based on your profile, goals and budget — from established universities to specialised colleges.' },
+          { icon: 'clipboard-list', title: 'Application Support', desc: 'SOP writing guidance, document preparation, application submission and follow-up with admissions offices.' },
+          { icon: 'dollar-sign', title: 'Scholarship Guidance', desc: 'Identifying merit-based, government and institutional scholarships you may be eligible to apply for.' },
+          { icon: 'file-check', title: 'Visa Guidance', desc: 'Student visa documentation guidance, financial proof support and application tracking.' },
+          { icon: 'home', title: 'Pre-Departure Briefing', desc: 'Accommodation options, forex guidance, what to carry, and what to expect when you arrive.' },
+          { icon: 'phone', title: 'Post-Departure Support', desc: 'We are available to assist after you depart if issues arise with your arrival, enrolment or accommodation.' },
         ].map(f => (
           <div class="feature-card">
-            <div class="feature-icon">{f.icon}</div>
+            <div class="feature-icon"><Icon name={f.icon} size={32} /></div>
             <h3>{f.title}</h3>
             <p>{f.desc}</p>
           </div>
@@ -72,7 +73,7 @@ import ContactForm from '../../components/ContactForm.astro';
 .features-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
 .feature-card { padding:var(--sp-8);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s; }
 .feature-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
-.feature-icon { font-size:2rem;margin-bottom:var(--sp-4); }
+.feature-icon { margin-bottom:var(--sp-4);color:var(--teal-600); }
 .feature-card h3 { font-size:1.0625rem;margin-bottom:var(--sp-2); }
 .feature-card p { font-size:.9rem;color:var(--slate-500);line-height:1.65; }
 .form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }

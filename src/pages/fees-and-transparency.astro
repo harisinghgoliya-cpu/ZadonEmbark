@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="Fees & Transparency" description="ZadonEmbark's clear, honest breakdown of how our fees work and what you get.">
   <section class="page-hero">
@@ -17,13 +18,13 @@ import ContactForm from '../components/ContactForm.astro';
     <div class="container">
       <div class="principles">
         {[
-          { icon:'📋', title:'Written Agreement First', desc:'We will not ask for any payment until we have provided you with a written service agreement that lists every cost and every deliverable.' },
-          { icon:'🚫', title:'No Upfront Cash Demands', desc:'We never ask for large cash deposits before giving you a job or admission letter. Any agent that does this is a red flag.' },
-          { icon:'🔢', title:'Itemised Fees', desc:'Every service we charge for is listed separately — there are no bundled fees that obscure what you are actually paying for.' },
-          { icon:'📞', title:'Refund Policy in Writing', desc:'Your agreement will specify exactly what happens to your payment if a visa is refused or a placement does not go ahead.' },
+          { icon:'file-text', title:'Written Agreement First', desc:'We will not ask for any payment until we have provided you with a written service agreement that lists every cost and every deliverable.' },
+          { icon:'ban', title:'No Upfront Cash Demands', desc:'We never ask for large cash deposits before giving you a job or admission letter. Any agent that does this is a red flag.' },
+          { icon:'list', title:'Itemised Fees', desc:'Every service we charge for is listed separately — there are no bundled fees that obscure what you are actually paying for.' },
+          { icon:'phone', title:'Refund Policy in Writing', desc:'Your agreement will specify exactly what happens to your payment if a visa is refused or a placement does not go ahead.' },
         ].map(p => (
           <div class="principle-card">
-            <div class="principle-icon">{p.icon}</div>
+            <div class="principle-icon"><Icon name={p.icon} size={32} /></div>
             <h3>{p.title}</h3>
             <p>{p.desc}</p>
           </div>
@@ -59,7 +60,7 @@ import ContactForm from '../components/ContactForm.astro';
     <div class="glow g3"></div>
     <div class="container">
       <div class="warn-box glass-card">
-        <div class="warn-icon">⚠️</div>
+        <Icon name="alert-triangle" size={40} class="warn-icon" style="color:var(--gold-400)" />
         <div>
           <h3>Warning signs of a fraudulent agent</h3>
           <ul>
@@ -109,14 +110,14 @@ import ContactForm from '../components/ContactForm.astro';
 .principles { display:grid; grid-template-columns:repeat(2,1fr); gap:var(--sp-6); }
 .principle-card { padding:var(--sp-8); background:var(--white); border:1px solid var(--sky-100); border-radius:var(--r-xl); box-shadow:0 2px 12px rgba(0,0,0,.04); transition:all .25s; }
 .principle-card:hover { transform:translateY(-3px); box-shadow:0 10px 32px rgba(0,0,0,.08); }
-.principle-icon { font-size:2rem; margin-bottom:var(--sp-4); }
+.principle-icon { margin-bottom:var(--sp-4); color:var(--teal-600); }
 .principle-card h3 { font-size:1.0625rem; margin-bottom:var(--sp-3); color:var(--navy-900); }
 .principle-card p { font-size:.9375rem; color:var(--slate-500); line-height:1.7; }
 .free-list { display:flex; flex-direction:column; gap:var(--sp-3); max-width:640px; margin:0 auto; }
 .free-item { display:flex; gap:var(--sp-4); align-items:flex-start; padding:var(--sp-5) var(--sp-6); background:var(--white); border:1px solid var(--sky-100); border-radius:var(--r-lg); font-size:1rem; color:var(--ink-800); }
 .check { color:#16a34a; font-weight:700; font-size:1.125rem; flex-shrink:0; margin-top:1px; }
 .warn-box { padding:var(--sp-10); display:flex; gap:var(--sp-6); align-items:flex-start; max-width:720px; margin:0 auto; }
-.warn-icon { font-size:2.5rem; flex-shrink:0; }
+.warn-icon { flex-shrink:0; }
 .warn-box h3 { color:var(--white); font-size:1.125rem; margin-bottom:var(--sp-4); }
 .warn-box ul { color:rgba(255,255,255,.65); padding-left:var(--sp-5); line-height:1.75; }
 .warn-box li { margin-bottom:var(--sp-1); font-size:.9375rem; }

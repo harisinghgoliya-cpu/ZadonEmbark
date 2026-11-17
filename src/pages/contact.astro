@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 import { site } from '../config/site';
 ---
 <BaseLayout title="Contact Us" description="Get in touch with ZadonEmbark. Send an enquiry about work or study abroad — we respond within 1 working day.">
@@ -23,7 +24,7 @@ import { site } from '../config/site';
 
         {site.email.info && (
           <div class="contact-card">
-            <div class="contact-card-icon">✉️</div>
+            <Icon name="mail" size={24} class="contact-card-icon" />
             <div>
               <h3>Email</h3>
               <a href={`mailto:${site.email.info}`}>{site.email.info}</a>
@@ -34,7 +35,7 @@ import { site } from '../config/site';
 
         {site.phone && (
           <div class="contact-card">
-            <div class="contact-card-icon">📞</div>
+            <Icon name="phone" size={24} class="contact-card-icon" />
             <div>
               <h3>Phone</h3>
               <a href={`tel:${site.phone}`}>{site.phone}</a>
@@ -45,7 +46,7 @@ import { site } from '../config/site';
 
         {site.bookingsUrl && (
           <div class="contact-card">
-            <div class="contact-card-icon">📅</div>
+            <Icon name="calendar" size={24} class="contact-card-icon" />
             <div>
               <h3>Book a Free Consultation</h3>
               <a href={site.bookingsUrl} target="_blank" rel="noopener">Schedule a 30-min call →</a>
@@ -56,7 +57,7 @@ import { site } from '../config/site';
 
         {site.address && (
           <div class="contact-card">
-            <div class="contact-card-icon">📍</div>
+            <Icon name="map-pin" size={24} class="contact-card-icon" />
             <div>
               <h3>Office</h3>
               <p>{site.address}</p>
@@ -98,7 +99,7 @@ import { site } from '../config/site';
 .contact-info h2 { margin-bottom:var(--sp-8); }
 .contact-card { display:flex;gap:var(--sp-4);padding:var(--sp-5);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);margin-bottom:var(--sp-4);box-shadow:0 2px 8px rgba(0,0,0,.04);transition:box-shadow .2s; }
 .contact-card:hover { box-shadow:0 4px 20px rgba(0,0,0,.08); }
-.contact-card-icon { font-size:1.5rem;flex-shrink:0;margin-top:2px; }
+.contact-card-icon { flex-shrink:0;margin-top:2px;color:var(--teal-600); }
 .contact-card h3 { font-size:.875rem;font-weight:600;color:var(--slate-500);text-transform:uppercase;letter-spacing:.04em;margin-bottom:var(--sp-1); }
 .contact-card a { color:var(--teal-600);text-decoration:none;font-weight:600;font-size:1rem;display:block; }
 .contact-card a:hover { color:var(--navy-900); }

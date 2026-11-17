@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 import { site } from '../config/site';
 
 const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad with ZadonEmbark.');
@@ -27,7 +28,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
         <div class="chip">International Placement Consultancy</div>
         <h1 class="hero-title">
           Your journey abroad,<br/>
-          <span class="text-gradient">handled honestly.</span>
+          <span class="text-gradient" style="font-style:italic">handled honestly.</span>
         </h1>
         <p class="hero-sub">
           Work and study opportunities across Europe, the Gulf and beyond — fees in writing before you pay, honest advice always.
@@ -58,19 +59,19 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
         <div class="hero-card">
           <ul class="opp-list">
             <li class="opp-item">
-              <span class="opp-icon">🎓</span>
+              <Icon name="graduation-cap" size={24} class="opp-icon" />
               <div><strong>Study Abroad</strong><p>University admissions, scholarships & visa guidance</p></div>
             </li>
             <li class="opp-item">
-              <span class="opp-icon">💼</span>
+              <Icon name="briefcase" size={24} class="opp-icon" />
               <div><strong>Skilled Work</strong><p>International work opportunities with verified employers</p></div>
             </li>
             <li class="opp-item">
-              <span class="opp-icon">🔧</span>
+              <Icon name="wrench" size={24} class="opp-icon" />
               <div><strong>Trade & Technical</strong><p>Engineering, IT, construction, manufacturing roles</p></div>
             </li>
             <li class="opp-item">
-              <span class="opp-icon">🏢</span>
+              <Icon name="building-2" size={24} class="opp-icon" />
               <div><strong>For Employers</strong><p>International talent acquisition support</p></div>
             </li>
           </ul>
@@ -92,13 +93,13 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
       </div>
       <div class="cards-grid">
         {[
-          { icon: '🎓', title: 'Students', desc: 'Undergraduate, postgraduate & vocational admissions at universities and colleges abroad. Scholarship guidance, language prep and visa support.', href: '/study-abroad/', color: 'amber' },
-          { icon: '💼', title: 'Job Seekers', desc: 'Skilled and semi-skilled work opportunities with international employers. Clear documentation support, no illegal shortcuts.', href: '/work-abroad/', color: 'teal' },
-          { icon: '🏢', title: 'Employers', desc: 'International talent acquisition support. We assist with candidate sourcing, documentation and onboarding coordination.', href: '/for-employers/', color: 'blue' },
-          { icon: '🤝', title: 'Partners', desc: 'Universities, colleges and licensed agencies looking to collaborate. Referral arrangements available for accredited education institutions.', href: '/partners/', color: 'purple' },
+          { icon: 'graduation-cap', title: 'Students', desc: 'Undergraduate, postgraduate & vocational admissions at universities and colleges abroad. Scholarship guidance, language prep and visa support.', href: '/study-abroad/', color: 'amber' },
+          { icon: 'briefcase', title: 'Job Seekers', desc: 'Skilled and semi-skilled work opportunities with international employers. Clear documentation support, no illegal shortcuts.', href: '/work-abroad/', color: 'teal' },
+          { icon: 'building-2', title: 'Employers', desc: 'International talent acquisition support. We assist with candidate sourcing, documentation and onboarding coordination.', href: '/for-employers/', color: 'blue' },
+          { icon: 'users', title: 'Partners', desc: 'Universities, colleges and licensed agencies looking to collaborate. Referral arrangements available for accredited education institutions.', href: '/partners/', color: 'purple' },
         ].map(card => (
           <a href={card.href} class={`audience-card audience-card--${card.color}`}>
-            <div class="audience-icon">{card.icon}</div>
+            <div class="audience-icon"><Icon name={card.icon} size={32} /></div>
             <h3>{card.title}</h3>
             <p>{card.desc}</p>
             <span class="card-cta">Learn more →</span>
@@ -146,13 +147,13 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
       </div>
       <div class="destinations-grid">
         {[
-          { region: 'Europe', icon: '🇪🇺', desc: 'Strong demand for skilled workers and an established higher education system. We work with licensed partners on work and study placements.', tags: ['Skilled Work', 'Study'] },
-          { region: 'Middle East', icon: '🌙', desc: 'Active demand across construction, healthcare, hospitality and technology sectors. We assist with documentation and employer coordination.', tags: ['Work Visas', 'Multiple Sectors'] },
-          { region: 'Asia-Pacific', icon: '🌏', desc: 'Growing economies with strong international study options and post-study work pathways, subject to individual country rules.', tags: ['Study', 'Post-Study Work'] },
-          { region: 'Americas', icon: '🌎', desc: 'Home to many internationally recognised universities. We provide guidance on study applications and country-specific requirements.', tags: ['Study', 'Skilled Work'] },
+          { region: 'Europe', icon: 'globe', desc: 'Strong demand for skilled workers and an established higher education system. We work with licensed partners on work and study placements.', tags: ['Skilled Work', 'Study'] },
+          { region: 'Middle East', icon: 'map-pin', desc: 'Active demand across construction, healthcare, hospitality and technology sectors. We assist with documentation and employer coordination.', tags: ['Work Visas', 'Multiple Sectors'] },
+          { region: 'Asia-Pacific', icon: 'globe', desc: 'Growing economies with strong international study options and post-study work pathways, subject to individual country rules.', tags: ['Study', 'Post-Study Work'] },
+          { region: 'Americas', icon: 'globe', desc: 'Home to many internationally recognised universities. We provide guidance on study applications and country-specific requirements.', tags: ['Study', 'Skilled Work'] },
         ].map(d => (
           <div class="dest-card">
-            <div class="dest-icon">{d.icon}</div>
+            <div class="dest-icon"><Icon name={d.icon} size={40} /></div>
             <h3>{d.region}</h3>
             <p>{d.desc}</p>
             <div class="dest-tags">
@@ -280,7 +281,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 }
 .opp-list { list-style: none; display: flex; flex-direction: column; gap: var(--sp-4); }
 .opp-item { display: flex; align-items: flex-start; gap: var(--sp-4); }
-.opp-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+.opp-icon { flex-shrink: 0; margin-top: 2px; color: var(--navy-900); }
 .opp-item strong { font-family: var(--font-head); font-size: .9375rem; font-weight: 600; color: var(--navy-900); display: block; }
 .opp-item p { font-size: var(--fs-small); color: var(--slate-500); margin-top: 2px; }
 
@@ -305,7 +306,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 .audience-card--purple::before { background: linear-gradient(135deg,#7c3aed,#a855f7); }
 .audience-card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,.10); }
 .audience-card:hover::before { opacity: 1; }
-.audience-icon { font-size: 2rem; }
+.audience-icon { line-height: 0; color: var(--navy-900); }
 .audience-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--ink-900); }
 .audience-card p { font-size: .9rem; color: var(--slate-500); line-height: 1.6; flex: 1; }
 .card-cta { font-size: .875rem; font-weight: 600; color: var(--teal-600); margin-top: var(--sp-2); }
@@ -324,7 +325,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
   transition: all .25s;
 }
 .dest-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.09); }
-.dest-icon { font-size: 2.5rem; margin-bottom: var(--sp-4); }
+.dest-icon { margin-bottom: var(--sp-4); color: var(--navy-700); }
 .dest-card h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: var(--sp-3); }
 .dest-card p { font-size: .9rem; color: var(--slate-500); line-height: 1.65; margin-bottom: var(--sp-4); }
 .dest-tags { display: flex; gap: var(--sp-2); flex-wrap: wrap; }

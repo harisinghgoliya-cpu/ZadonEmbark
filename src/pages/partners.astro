@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="Partner With Us" description="Join ZadonEmbark's partner network — referral agents, training institutes and local agencies welcome.">
   <section class="page-hero">
@@ -18,12 +19,12 @@ import ContactForm from '../components/ContactForm.astro';
       </div>
       <div class="partner-types">
         {[
-          {icon:'🏫',title:'Universities & Colleges',desc:'Partner with us to support your students in accessing international study or career opportunities. We provide guidance, documentation support and visa assistance.'},
-          {icon:'🏢',title:'Schools & Training Institutes',desc:'We run free international career awareness sessions for students. Connect us with your institution and we will coordinate directly with your team.'},
-          {icon:'🌐',title:'Licensed Education Agencies',desc:'If you are a licensed education or placement agency, we welcome collaboration on specific cases where our respective strengths complement each other.'},
+          {icon:'book-open',title:'Universities & Colleges',desc:'Partner with us to support your students in accessing international study or career opportunities. We provide guidance, documentation support and visa assistance.'},
+          {icon:'building-2',title:'Schools & Training Institutes',desc:'We run free international career awareness sessions for students. Connect us with your institution and we will coordinate directly with your team.'},
+          {icon:'globe',title:'Licensed Education Agencies',desc:'If you are a licensed education or placement agency, we welcome collaboration on specific cases where our respective strengths complement each other.'},
         ].map(p=>(
           <div class="partner-card">
-            <span class="partner-icon">{p.icon}</span>
+            <Icon name={p.icon} size={48} class="partner-icon" />
             <h3>{p.title}</h3>
             <p>{p.desc}</p>
           </div>
@@ -58,7 +59,7 @@ import ContactForm from '../components/ContactForm.astro';
 .partner-types { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-6); }
 .partner-card { padding:var(--sp-10);border:1px solid var(--sky-100);border-radius:var(--r-xl);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04);transition:all .25s;text-align:center; }
 .partner-card:hover { transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,0,0,.08); }
-.partner-icon { font-size:3rem;display:block;margin-bottom:var(--sp-5); }
+.partner-icon { display:block;margin:0 auto var(--sp-5);color:var(--teal-600); }
 .partner-card h3 { font-size:1.125rem;margin-bottom:var(--sp-3); }
 .partner-card p { font-size:.9375rem;color:var(--slate-500);line-height:1.7; }
 .form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }

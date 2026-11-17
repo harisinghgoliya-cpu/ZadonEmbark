@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+---
+<BaseLayout title="Request Received | ZadonEmbark" description="Thank you for your hiring enquiry." noindex={true}>
+  <section class="thankyou">
+    <div class="container">
+      <Icon name="check-circle" size={64} class="checkmark" />
+      <h1>Request Received</h1>
+      <p>Thank you for getting in touch about international hiring. Our employer relations team will review your requirements and respond within 1 working day.</p>
+      <div class="actions">
+        <Button href="/for-employers/" variant="primary" size="lg">Back to Employer Services</Button>
+        <Button href="/contact/" variant="secondary" size="lg">Other Contact Options</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.thankyou { padding: var(--sp-32) 0 var(--sp-24); text-align: center; }
+.checkmark { color: var(--teal-600); display: block; margin: 0 auto var(--sp-6); }
+h1 { margin-bottom: var(--sp-4); }
+p { color: var(--slate-500); font-size: 1.0625rem; margin-bottom: var(--sp-10); max-width: 50ch; margin-inline: auto; line-height: 1.65; }
+.actions { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; }
+</style>

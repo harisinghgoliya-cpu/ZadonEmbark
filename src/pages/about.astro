@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import ContactForm from '../components/ContactForm.astro';
+import Icon from '../components/Icon.astro';
 ---
 <BaseLayout title="About Us" description="ZadonEmbark is a trusted international placement consultancy helping Indian students and professionals build their futures abroad.">
   <section class="page-hero">
@@ -24,13 +25,13 @@ import ContactForm from '../components/ContactForm.astro';
         </div>
         <div class="values-list">
           {[
-            { icon:'🔍', title:'Transparency', desc:'Every cost, every step, every timeline — in writing before you pay.' },
-            { icon:'✅', title:'Verification', desc:'We only place people with employers and institutions we have personally vetted.' },
-            { icon:'🤝', title:'Honesty', desc:'We tell you if an opportunity is not right for you, even if it means losing business.' },
-            { icon:'📞', title:'Continuity', desc:'Our support doesn\'t end at departure. We check in after you arrive.' },
+            { icon:'search', title:'Transparency', desc:'Every cost, every step, every timeline — in writing before you pay.' },
+            { icon:'check-circle', title:'Verification', desc:'We only place people with employers and institutions we have personally vetted.' },
+            { icon:'users', title:'Honesty', desc:'We tell you if an opportunity is not right for you, even if it means losing business.' },
+            { icon:'phone', title:'Continuity', desc:'Our support doesn\'t end at departure. We check in after you arrive.' },
           ].map(v=>(
             <div class="value-card">
-              <span class="value-icon">{v.icon}</span>
+              <Icon name={v.icon} size={28} class="value-icon" />
               <div><h3>{v.title}</h3><p>{v.desc}</p></div>
             </div>
           ))}
@@ -79,7 +80,7 @@ import ContactForm from '../components/ContactForm.astro';
 .about-text p { color:var(--slate-500);line-height:1.75;margin-bottom:var(--sp-5);font-size:1.0625rem; }
 .values-list { display:flex;flex-direction:column;gap:var(--sp-5); }
 .value-card { display:flex;gap:var(--sp-5);padding:var(--sp-6);border:1px solid var(--sky-100);border-radius:var(--r-lg);background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.04); }
-.value-icon { font-size:1.75rem;flex-shrink:0;margin-top:2px; }
+.value-icon { flex-shrink:0;margin-top:2px;color:var(--teal-600); }
 .value-card h3 { font-size:1rem;margin-bottom:var(--sp-1); }
 .value-card p { font-size:.9rem;color:var(--slate-500); }
 .form-section { display:grid;grid-template-columns:1fr 1.4fr;gap:var(--sp-12);align-items:center; }

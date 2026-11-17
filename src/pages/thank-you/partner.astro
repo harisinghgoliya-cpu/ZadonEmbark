@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Button from '../../components/Button.astro';
+import Icon from '../../components/Icon.astro';
+---
+<BaseLayout title="Enquiry Received | ZadonEmbark" description="Thank you for your partnership enquiry." noindex={true}>
+  <section class="thankyou">
+    <div class="container">
+      <Icon name="check-circle" size={64} class="checkmark" />
+      <h1>Enquiry Received</h1>
+      <p>Thank you for your interest in partnering with ZadonEmbark. We will review your details and reach out within 2 working days to explore how we can collaborate.</p>
+      <div class="actions">
+        <Button href="/partners/" variant="primary" size="lg">Back to Partners</Button>
+        <Button href="/about/" variant="secondary" size="lg">About ZadonEmbark</Button>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+.thankyou { padding: var(--sp-32) 0 var(--sp-24); text-align: center; }
+.checkmark { color: var(--teal-600); display: block; margin: 0 auto var(--sp-6); }
+h1 { margin-bottom: var(--sp-4); }
+p { color: var(--slate-500); font-size: 1.0625rem; margin-bottom: var(--sp-10); max-width: 50ch; margin-inline: auto; line-height: 1.65; }
+.actions { display: flex; gap: var(--sp-4); justify-content: center; flex-wrap: wrap; }
+</style>
