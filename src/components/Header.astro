@@ -40,7 +40,7 @@ const navItems = lang === 'en'
     </nav>
 
     <div class="header-actions">
-      <Button href="/contact/" variant="primary" size="sm">
+      <Button href="/contact/" variant="cta" size="sm">
         {lang === 'hi' ? 'पूछताछ करें' : 'Get Started'}
       </Button>
     </div>
@@ -56,28 +56,26 @@ const navItems = lang === 'en'
         <li><a href={i.href} class="mob-link">{i.label}</a></li>
       ))}
     </ul>
-    <Button href="/contact/" variant="primary" size="md" style="width:100%;margin-top:var(--sp-4)">
+    <Button href="/contact/" variant="cta" size="md" style="width:100%;margin-top:var(--sp-4)">
       {lang === 'hi' ? 'पूछताछ करें' : 'Get Started'}
     </Button>
   </div>
 </header>
 
 <style>
-/* G1 — sticky header glass: solid ivory at top, glass after 24px scroll (toggled by JS) */
 .site-header {
   position: sticky; top: 0; z-index: 200;
-  background: var(--ivory-50);
-  border-bottom: 1px solid var(--line-200);
-  transition: background 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+  background: var(--navy-900);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  transition: background 200ms ease, box-shadow 200ms ease;
 }
 .site-header.is-scrolled {
-  background: rgba(255,255,255,0.88);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border-bottom-color: var(--line-200);
-  box-shadow: 0 1px 20px rgba(20,38,59,.06);
+  background: rgba(20,38,59,.96);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow: 0 2px 24px rgba(0,0,0,.18);
 }
-.header-inner { display: flex; align-items: center; gap: var(--sp-6); height: 72px; }
+.header-inner { display: flex; align-items: center; gap: var(--sp-6); height: 68px; }
 
 .logo { text-decoration: none; flex-shrink: 0; }
 .logo-wordmark {
@@ -97,7 +95,7 @@ const navItems = lang === 'en'
   background-clip: text;
 }
 .logo-embark {
-  color: var(--navy-900);
+  color: var(--white);
   font-weight: 500;
 }
 
@@ -105,11 +103,11 @@ const navItems = lang === 'en'
 .nav-list { display: flex; list-style: none; gap: var(--sp-1); }
 .nav-link {
   display: block; padding: var(--sp-2) var(--sp-3);
-  font-size: 0.875rem; font-weight: 500; color: var(--ink-600);
+  font-size: 0.875rem; font-weight: 500; color: rgba(255,255,255,.75);
   text-decoration: none; border-radius: var(--r-pill);
   transition: color .15s, background .15s;
 }
-.nav-link:hover { color: var(--navy-900); background: var(--sand-100); }
+.nav-link:hover { color: var(--white); background: rgba(255,255,255,.10); }
 
 .header-actions { display: flex; align-items: center; gap: var(--sp-3); flex-shrink: 0; }
 
@@ -118,22 +116,22 @@ const navItems = lang === 'en'
   background: none; border: none; cursor: pointer;
   padding: var(--sp-2); margin-left: auto;
 }
-.burger span { display: block; width: 22px; height: 2px; background: var(--navy-900); border-radius: 2px; transition: .2s; }
+.burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: .2s; }
 
 /* Mobile menu */
 .mobile-menu {
-  background: var(--ivory-50);
-  border-top: 1px solid var(--line-200);
+  background: var(--navy-950);
+  border-top: 1px solid rgba(255,255,255,.08);
   padding: var(--sp-6);
-  box-shadow: 0 8px 32px rgba(20,38,59,.10);
+  box-shadow: 0 8px 32px rgba(0,0,0,.20);
 }
 .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: var(--sp-1); }
 .mob-link {
-  display: block; padding: var(--sp-3) var(--sp-4); color: var(--ink-600);
+  display: block; padding: var(--sp-3) var(--sp-4); color: rgba(255,255,255,.75);
   text-decoration: none; font-weight: 500; border-radius: var(--r-pill);
   transition: background .15s, color .15s;
 }
-.mob-link:hover { background: var(--sand-100); color: var(--navy-900); }
+.mob-link:hover { background: rgba(255,255,255,.10); color: var(--white); }
 
 @media (max-width: 1023px) {
   .main-nav { display: none; }

@@ -55,7 +55,7 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
       </div>
 
       <div class="hero-card-wrap">
-        <div class="glass-card hero-card">
+        <div class="hero-card">
           <ul class="opp-list">
             <li class="opp-item">
               <span class="opp-icon">🎓</span>
@@ -235,8 +235,8 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 .section-sub { color: var(--slate-500); font-size: 1.0625rem; margin-top: var(--sp-4); line-height: 1.65; }
 
 /* ── Hero ── */
-.hero { background: #060f1e; padding-block: var(--sp-32) var(--sp-24); position: relative; overflow: hidden; }
-.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.hero { background: var(--white); padding-block: var(--sp-32) var(--sp-24); position: relative; overflow: hidden; border-bottom: 1px solid var(--line-200); }
+.hero-bg { display: none; }
 
 /* Vivid glows — MUST be colorful so blur has something to show */
 .glow { position: absolute; border-radius: 50%; pointer-events: none; }
@@ -259,29 +259,30 @@ const waMsg = encodeURIComponent('Hi, I want to know about work/study abroad wit
 
 .hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-16); align-items: center; position: relative; }
 .hero-content { display: flex; flex-direction: column; gap: var(--sp-6); }
-.hero-title { font-size: var(--fs-display); font-weight: 800; color: var(--white); line-height: 1.1; letter-spacing: -0.03em; }
-.hero-sub { color: rgba(255,255,255,.65); font-size: 1.125rem; max-width: 50ch; line-height: 1.65; }
+.hero-title { font-size: var(--fs-display); font-weight: 800; color: var(--navy-900); line-height: 1.1; letter-spacing: -0.03em; }
+.hero-sub { color: var(--slate-500); font-size: 1.125rem; max-width: 50ch; line-height: 1.65; }
 .hero-actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; }
-.hero-stats { display: flex; align-items: center; gap: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid rgba(255,255,255,.1); }
+.hero-stats { display: flex; align-items: center; gap: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--line-200); }
 .stat { display: flex; flex-direction: column; gap: 2px; }
-.stat-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--white); letter-spacing: -0.03em; }
-.stat-label { font-size: var(--fs-xs); color: rgba(255,255,255,.5); font-weight: 500; }
-.stat-divider { width: 1px; height: 32px; background: rgba(255,255,255,.12); }
+.stat-num { font-family: var(--font-head); font-size: 1.5rem; font-weight: 800; color: var(--navy-900); letter-spacing: -0.03em; }
+.stat-label { font-size: var(--fs-xs); color: var(--slate-500); font-weight: 500; }
+.stat-divider { width: 1px; height: 32px; background: var(--line-200); }
 
 /* Hero floating card */
 .hero-card-wrap { display: flex; align-items: center; justify-content: center; }
-.hero-card { padding: var(--sp-6); width: 100%; }
-.hero-card-header { display: flex; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-6); }
-.dot { width: 10px; height: 10px; border-radius: 50%; }
-.dot-green  { background: #34d399; }
-.dot-amber  { background: var(--amber-500); }
-.dot-red    { background: #f87171; }
-.hero-card-title { flex: 1; text-align: center; color: rgba(255,255,255,.5); font-size: var(--fs-xs); font-weight: 500; letter-spacing: 0.04em; }
+.hero-card {
+  background: var(--white);
+  border: 1px solid var(--line-200);
+  box-shadow: 0 8px 40px rgba(20,38,59,.10);
+  border-radius: var(--r-xl);
+  padding: var(--sp-6);
+  width: 100%;
+}
 .opp-list { list-style: none; display: flex; flex-direction: column; gap: var(--sp-4); }
 .opp-item { display: flex; align-items: flex-start; gap: var(--sp-4); }
 .opp-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
-.opp-item strong { font-family: var(--font-head); font-size: .9375rem; font-weight: 600; color: var(--white); display: block; }
-.opp-item p { font-size: var(--fs-small); color: rgba(255,255,255,.55); margin-top: 2px; }
+.opp-item strong { font-family: var(--font-head); font-size: .9375rem; font-weight: 600; color: var(--navy-900); display: block; }
+.opp-item p { font-size: var(--fs-small); color: var(--slate-500); margin-top: 2px; }
 
 /* ── Audience cards ── */
 .cards-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-6); }

@@ -112,13 +112,15 @@ img, video { max-width: 100%; display: block; }
 }
 
 /* Chips on dark/navy backgrounds — keep visible */
-.dark-section .chip,
-.hero .chip,
-.page-hero .chip {
+.dark-section .chip {
   color: var(--gold-400);
   border-color: rgba(233,180,90,.40);
   background: rgba(233,180,90,.14);
 }
+
+/* Page heroes and main hero are now light — hide background glow elements */
+.page-hero .glow,
+.hero .hero-bg { display: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
