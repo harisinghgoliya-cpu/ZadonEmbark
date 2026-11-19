@@ -1,11 +1,6 @@
 {
   "routes": [
     {
-      "route": "/www/*",
-      "redirect": "https://zadonembark.com/{*}",
-      "statusCode": 301
-    },
-    {
       "route": "/thank-you/*",
       "headers": {
         "X-Robots-Tag": "noindex, nofollow"
