@@ -3,8 +3,8 @@
 // Setup: sign up at formspree.io → New Form → copy the ID into site.ts as formspreeId
 import { site } from '../config/site';
 import Button from './Button.astro';
-export interface Props { compact?: boolean; }
-const { compact = false } = Astro.props;
+export interface Props { compact?: boolean; dark?: boolean; }
+const { compact = false, dark = false } = Astro.props;
 const formspreeId = (site as any).formspreeId ?? '';
 const action = formspreeId
   ? `https://formspree.io/f/${formspreeId}`
@@ -12,7 +12,7 @@ const action = formspreeId
 ---
 
 <form
-  class:list={['contact-form', compact && 'contact-form--compact']}
+  class:list={['contact-form', compact && 'contact-form--compact', dark && 'contact-form--dark']}
   action={action}
   method="POST"
   id="contact-form"
